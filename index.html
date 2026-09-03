@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Yash Dhumane — DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
+<title>Yash Dhumane — Void Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────── */
+:root{
+  --void:#050A12;--deep:#0B1320;--panel:#0E1A2E;
+  --border:#1C2D44;--border-lit:#2A4A6B;
+  --cyan:#00D4FF;--cyan-dim:rgba(0,212,255,.16);--cyan-glow:rgba(0,212,255,.32);
+  --amber:#FFB547;--green:#00FF88;--red:#FF4560;
+  --text:#E8F4FF;--text2:#7A9BB5;--text3:#3A5A78;
+  --d:'Space Grotesk',system-ui,sans-serif;
+  --m:'JetBrains Mono','Fira Code',monospace;
+  --nav:56px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--void);scroll-behavior:smooth;}
+body{background:var(--void);color:var(--text);font-family:var(--d);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+@media(hover:none){body{cursor:auto;}.cdot,.cring{display:none!important;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}body{cursor:auto;}.cdot,.cring{display:none!important;}}
+a{color:inherit;text-decoration:none;}
+::selection{background:rgba(0,212,255,.25);color:#fff;}
+:focus-visible{outline:1px solid var(--cyan);outline-offset:3px;}
+
+/* ── CURSOR ─────────────────────────────────────────────────────────── */
+.cdot{position:fixed;top:0;left:0;z-index:9999;width:8px;height:8px;border-radius:50%;
+  background:var(--cyan);pointer-events:none;mix-blend-mode:screen;transform:translate(-50%,-50%);}
+.cring{position:fixed;top:0;left:0;z-index:9998;width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(0,212,255,.4);pointer-events:none;transform:translate(-50%,-50%);
+  transition:width .18s,height .18s,border-color .18s;}
+.cring.big{width:48px;height:48px;border-color:var(--cyan);background:rgba(0,212,255,.04);}
+
+/* ── NAV ─────────────────────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:500;
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px;
+  border-bottom:1px solid rgba(28,45,68,.55);
+  background:rgba(5,10,18,.72);backdrop-filter:blur(16px);}
+.nav-logo{font-family:var(--m);font-size:13px;font-weight:600;color:var(--cyan);
+  letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+.nav-logo-dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 8px var(--green);animation:pdot 2.4s ease-in-out infinite;}
+@keyframes pdot{0%,100%{opacity:.7;transform:scale(1);}50%{opacity:1;transform:scale(1.35);}}
+.nav-links{display:flex;gap:28px;font-family:var(--m);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;}
+.nav-links a{color:var(--text2);transition:color .15s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
+  background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-resume{font-family:var(--m);font-size:11px;font-weight:600;padding:7px 16px;
+  border:1px solid var(--cyan);border-radius:2px;color:var(--cyan);letter-spacing:.08em;
+  transition:background .15s,box-shadow .15s;}
+.nav-resume:hover{background:rgba(0,212,255,.08);box-shadow:0 0 16px rgba(0,212,255,.2);}
+@media(max-width:760px){.nav-links{display:none;}}
+
+/* ── LAYOUT ──────────────────────────────────────────────────────────── */
+.container{max-width:1080px;margin:0 auto;padding:0 32px;}
+.container-sm{max-width:780px;margin:0 auto;padding:0 32px;}
+section{padding:100px 0;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+
+/* ── SECTION CHROME ──────────────────────────────────────────────────── */
+.eyebrow{font-family:var(--m);font-size:11px;font-weight:500;color:var(--cyan);
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--cyan);
+  box-shadow:0 0 6px var(--cyan);}
+.sec-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.02em;
+  line-height:1.1;margin-bottom:14px;}
+.sec-sub{font-size:15px;color:var(--text2);max-width:54ch;margin-bottom:44px;line-height:1.7;}
+
+/* ── BUTTONS ─────────────────────────────────────────────────────────── */
+.btn{font-family:var(--m);font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;padding:12px 24px;border:1px solid var(--border-lit);
+  border-radius:2px;color:var(--text);background:transparent;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:border-color .15s,color .15s,box-shadow .15s;cursor:none;}
+.btn:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 20px rgba(0,212,255,.15);}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),#0099DD);
+  border-color:transparent;color:var(--void);font-weight:700;}
+.btn-primary:hover{box-shadow:0 0 28px rgba(0,212,255,.4);color:var(--void);}
+
+/* ── HERO ────────────────────────────────────────────────────────────── */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav);border-bottom:none;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.hero-badge{font-family:var(--m);font-size:11px;color:var(--cyan);letter-spacing:.16em;
+  text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 8px var(--green);}
+.hero-name{font-size:clamp(38px,6.5vw,68px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.0;margin-bottom:12px;}
+.hero-name span{color:var(--cyan);}
+.hero-title{font-family:var(--m);font-size:13px;color:var(--text2);
+  margin-bottom:22px;letter-spacing:.06em;}
+.hero-bio{font-size:15px;color:var(--text2);max-width:48ch;line-height:1.8;margin-bottom:34px;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.hero-stats{display:flex;gap:32px;font-family:var(--m);font-size:11px;color:var(--text3);}
+.stat-val{font-size:24px;font-weight:700;color:var(--text);font-family:var(--d);
+  display:block;letter-spacing:-.02em;}
+.canvas-wrap{width:100%;aspect-ratio:1/1;max-width:460px;border-radius:10px;overflow:hidden;
+  border:1px solid var(--border);background:rgba(5,8,16,.6);}
+#ring-canvas{width:100%;height:100%;display:block;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px;}.canvas-wrap{max-width:100%;aspect-ratio:16/9;}}
+
+/* ── ABOUT ───────────────────────────────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:start;}
+.about-bio p{color:var(--text2);margin-bottom:16px;line-height:1.8;font-size:15px;}
+.about-bio p strong{color:var(--text);font-weight:600;}
+.facts{border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.fact{display:flex;justify-content:space-between;padding:12px 16px;
+  border-bottom:1px solid var(--border);font-size:13px;gap:12px;}
+.fact:last-child{border-bottom:none;}
+.fact-k{color:var(--text3);font-family:var(--m);font-size:11px;text-transform:uppercase;
+  letter-spacing:.08em;padding-top:1px;}
+.fact-v{color:var(--text);font-weight:500;text-align:right;}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
+
+/* ── EXPERIENCE ──────────────────────────────────────────────────────── */
+.job{border-left:1px solid var(--border);padding-left:28px;margin-bottom:36px;
+  position:relative;transition:border-color .2s;}
+.job:last-child{margin-bottom:0;}
+.job:hover{border-color:var(--cyan-glow);}
+.job-dot{position:absolute;left:-5px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--void);border:1px solid var(--border-lit);
+  transition:background .2s,box-shadow .2s;}
+.job:hover .job-dot,.job.current .job-dot{background:var(--cyan);
+  box-shadow:0 0 10px var(--cyan);border-color:var(--cyan);}
+.job-period{font-family:var(--m);font-size:11px;color:var(--text3);margin-bottom:6px;}
+.job-period.now{color:var(--green);}
+.job-title{font-size:18px;font-weight:600;margin-bottom:2px;}
+.job-org{font-family:var(--m);font-size:12px;color:var(--cyan);display:block;margin-bottom:14px;}
+.job-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:20px 22px;transform-style:preserve-3d;transition:border-color .2s,box-shadow .2s;
+  will-change:transform;}
+.job-card:hover{border-color:rgba(0,212,255,.28);
+  box-shadow:0 8px 28px rgba(0,0,0,.35);}
+ul.bullets{list-style:none;color:var(--text2);font-size:14px;}
+ul.bullets li{margin-bottom:6px;padding-left:14px;position:relative;}
+ul.bullets li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
+
+/* ── SKILLS ──────────────────────────────────────────────────────────── */
+.skill-group{margin-bottom:28px;}
+.skill-cat{font-family:var(--m);font-size:11px;color:var(--text2);
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;}
+.skill-bar{display:inline-block;width:16px;height:2px;border-radius:1px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-family:var(--m);font-size:12px;padding:5px 12px;
+  border:1px solid var(--border);border-radius:2px;color:var(--text2);
+  transition:border-color .15s,color .15s,background .15s;cursor:default;}
+.chip:hover{border-color:rgba(0,212,255,.5);color:var(--cyan);background:rgba(0,212,255,.05);}
+
+/* ── PROJECTS ────────────────────────────────────────────────────────── */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
+.proj-card{padding:22px 24px;border-radius:8px;background:var(--panel);
+  border:1px solid var(--border);position:relative;overflow:hidden;
+  transform-style:preserve-3d;transition:border-color .2s,box-shadow .2s;
+  will-change:transform;cursor:default;}
+.proj-card::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  opacity:0;transition:opacity .2s;}
+.proj-card:hover{border-color:rgba(0,212,255,.35);
+  box-shadow:0 8px 32px rgba(0,0,0,.4),0 0 0 1px rgba(0,212,255,.06);}
+.proj-card:hover::after{opacity:.6;}
+.proj-sheen{position:absolute;inset:0;border-radius:8px;pointer-events:none;
+  background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(0,212,255,.07) 0%,transparent 60%);
+  opacity:0;transition:opacity .2s;}
+.proj-card:hover .proj-sheen{opacity:1;}
+.tag{font-family:var(--m);font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;padding:2px 8px;border-radius:2px;}
+.tag-prod{background:rgba(255,181,71,.14);color:var(--amber);border:1px solid rgba(255,181,71,.3);}
+.tag-staging{background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.25);}
+.tag-personal{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.25);}
+.proj-card h3{font-size:16px;font-weight:600;margin:10px 0 8px;}
+.proj-card p{color:var(--text2);font-size:13.5px;line-height:1.65;margin-bottom:12px;}
+.proj-stack{font-family:var(--m);font-size:11px;color:var(--text3);}
+
+/* ── HOMELAB ─────────────────────────────────────────────────────────── */
+.terminal{font-family:var(--m);font-size:13px;background:#03070F;
+  border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.term-bar{background:#070E1A;border-bottom:1px solid var(--border);
+  padding:10px 14px;display:flex;align-items:center;gap:7px;}
+.tdot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+.term-title{font-size:11px;color:var(--text3);margin-left:8px;letter-spacing:.05em;}
+.log-line{display:grid;grid-template-columns:110px 1fr;gap:16px;
+  padding:9px 16px;border-top:1px solid rgba(28,45,68,.45);}
+.log-line:first-child{border-top:none;}
+.log-ts{color:var(--text3);font-size:11px;padding-top:1px;}
+.log-entry{color:var(--text);font-size:12.5px;line-height:1.5;}
+.log-prompt{color:var(--cyan);margin-right:5px;}
+
+/* ── CONTACT ─────────────────────────────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin-bottom:28px;}
+.contact-link{display:flex;align-items:center;gap:12px;padding:15px 18px;
+  border:1px solid var(--border);border-radius:6px;font-family:var(--m);font-size:12px;
+  color:var(--text2);background:var(--panel);
+  transition:border-color .15s,color .15s,background .15s,box-shadow .15s;}
+.contact-link:hover{border-color:rgba(0,212,255,.4);color:var(--cyan);
+  background:rgba(0,212,255,.04);box-shadow:0 4px 16px rgba(0,0,0,.3);}
+.c-icon{font-size:16px;}
+.c-label{font-size:10px;color:var(--text3);display:block;
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px;}
+.c-val{font-size:12px;color:inherit;}
+@media(max-width:600px){.contact-grid{grid-template-columns:1fr;}}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────── */
+footer{padding:24px 0;border-top:1px solid var(--border);
+  font-family:var(--m);font-size:11px;color:var(--text3);}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+/* ── SCROLLBAR ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--void);}
+::-webkit-scrollbar-thumb{background:var(--border-lit);border-radius:2px;}
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;animation:fadeUp .65s ease forwards;}
+.delay-1{animation-delay:.1s;}.delay-2{animation-delay:.2s;}
+.delay-3{animation-delay:.3s;}.delay-4{animation-delay:.4s;}.delay-5{animation-delay:.5s;}
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+[data-reveal].in{opacity:1;transform:translateY(0);}
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/yashdhumane-portfolio/assets/index-bk4DaYQ-.js"></script>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cdot" id="cdot"></div>
+<div class="cring" id="cring"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-dot"></span>YD.sys
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#homelab">Homelab</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="resume.pdf" download class="nav-resume">Resume ↓</a>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge fade-up delay-1">
+          <span class="hero-badge-dot"></span>Available for opportunities
+        </div>
+        <h1 class="hero-name fade-up delay-2">Yash <span>Dhumane</span></h1>
+        <p class="hero-title fade-up delay-3">DevOps Engineer · Pune, India</p>
+        <p class="hero-bio fade-up delay-3">
+          I run infrastructure the way most teams don't have to anymore — on bare metal.
+          Proxmox, a hand-built kubeadm cluster, self-hosted GitLab CE and Jenkins,
+          no managed control plane to fall back on.
+        </p>
+        <div class="hero-cta fade-up delay-4">
+          <a href="mailto:yashdhumane391@gmail.com" class="btn btn-primary">Get in touch</a>
+          <a href="#projects" class="btn">View work ↓</a>
+        </div>
+        <div class="hero-stats fade-up delay-5">
+          <div><span class="stat-val">3</span>Production products</div>
+          <div><span class="stat-val">9</span>K8s worker nodes</div>
+          <div><span class="stat-val">1</span>Bare-metal cluster</div>
+        </div>
+      </div>
+      <!-- 3D Canvas -->
+      <div class="canvas-wrap fade-up delay-4">
+        <canvas id="ring-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ══════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="eyebrow" data-reveal>About</div>
+    <h2 class="sec-title" data-reveal>Who's behind the terminal</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p data-reveal>I'm a <strong>DevOps Engineer at Honcho Minds</strong>, working across production and staging environments for several products at once — an AI-powered ITSM platform, a legal-AI product, and a source-code protection service among them.</p>
+        <p data-reveal>My infrastructure is entirely <strong>self-hosted</strong>: a Proxmox hypervisor running a kubeadm-built Kubernetes cluster, self-hosted GitLab CE and Jenkins for CI/CD, and Nginx/HAProxy handling routing and TLS by hand. No managed Kubernetes, no managed CI — when something breaks, there's no support ticket to file, only logs to read.</p>
+        <p data-reveal>That constraint has made debugging the core of the job: tracing WebSocket 403s to token-validation order, chasing down nginx DNS caching, rebuilding a Jenkins pipeline around Nuitka-compiled source protection.</p>
+      </div>
+      <div data-reveal>
+        <div class="facts">
+          <div class="fact"><span class="fact-k">Location</span><span class="fact-v">Pune, India</span></div>
+          <div class="fact"><span class="fact-k">Currently</span><span class="fact-v">Honcho Minds</span></div>
+          <div class="fact"><span class="fact-k">Status</span><span class="fact-v" style="color:var(--green)">Available</span></div>
+          <div class="fact"><span class="fact-k">Focus</span><span class="fact-v">CI/CD · K8s · Infra</span></div>
+          <div class="fact"><span class="fact-k">Cluster</span><span class="fact-v">1 CP · 9 workers</span></div>
+          <div class="fact"><span class="fact-k">Education</span><span class="fact-v">B.E. Information Technology</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EXPERIENCE ═════════════════════════════════ -->
+<section id="experience">
+  <div class="container-sm">
+    <div class="eyebrow" data-reveal>Experience</div>
+    <h2 class="sec-title" data-reveal>Mission log</h2>
+    <p class="sec-sub" data-reveal>Where I've deployed, debugged, and shipped.</p>
+
+    <div class="job current" data-reveal>
+      <span class="job-dot"></span>
+      <div class="job-period now">Apr 2026 → present</div>
+      <div class="job-title">DevOps Engineer</div>
+      <span class="job-org">Honcho Minds</span>
+      <div class="job-card">
+        <ul class="bullets">
+          <li>Manage and maintain Jenkins CI/CD pipelines for automated deployments across multiple products.</li>
+          <li>Migrated a production CI/CD pipeline from Jenkins to self-hosted GitLab CI, resolving cascading issues around git-clean file wipes, Docker socket permissions, and environment file handling.</li>
+          <li>Run a self-built kubeadm Kubernetes cluster (1 control plane, 9 worker nodes) on Proxmox, plus self-hosted GitLab CE and Jenkins.</li>
+          <li>Debugged recurring WebSocket 403 errors across staging environments, tracing the root cause to token validation happening before ws.accept().</li>
+          <li>Built a Jenkins pipeline for a source-code protection service using Nuitka compilation, Cython, and a GitLab Container Registry push workflow.</li>
+          <li>Led a security remediation effort moving plaintext secrets out of Kubernetes ConfigMaps into proper Secrets.</li>
+          <li>Configured Nginx and IIS for hosting and reverse proxy, and handled Linux server administration, troubleshooting, and log monitoring.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job" data-reveal>
+      <span class="job-dot"></span>
+      <div class="job-period">Aug 2025 → Apr 2026</div>
+      <div class="job-title">Web Content Executive</div>
+      <span class="job-org">Future Market Insights, Pune</span>
+      <div class="job-card">
+        <ul class="bullets">
+          <li>Managed and updated website content across multiple platforms, deploying to production after validation and QA checks.</li>
+          <li>Monitored website performance and availability post-deployment, working with IIS and Nginx.</li>
+          <li>Applied SEO techniques to improve visibility and structured content delivery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job" data-reveal>
+      <span class="job-dot"></span>
+      <div class="job-period">Jul 2024 → Oct 2024</div>
+      <div class="job-title">Data Science Intern</div>
+      <span class="job-org">AI Variant</span>
+      <div class="job-card">
+        <ul class="bullets">
+          <li>Built a resume classification system in Python using NLP, with preprocessing, feature engineering, and model tuning.</li>
+          <li>Automated the candidate screening pipeline, reducing manual review effort.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SKILLS ═════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow" data-reveal>Skills</div>
+    <h2 class="sec-title" data-reveal>Systems online</h2>
+    <p class="sec-sub" data-reveal>Tools and technologies I operate across the stack.</p>
+    <div class="skill-group" data-reveal>
+      <div class="skill-cat"><span class="skill-bar" style="background:#00D4FF;box-shadow:0 0 6px #00D4FF88;"></span>CI/CD &amp; Version Control</div>
+      <div class="chips">
+        <span class="chip">Jenkins</span><span class="chip">GitLab CE</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">SonarQube</span>
+      </div>
+    </div>
+    <div class="skill-group" data-reveal>
+      <div class="skill-cat"><span class="skill-bar" style="background:#FFB547;box-shadow:0 0 6px #FFB54788;"></span>Containers &amp; Orchestration</div>
+      <div class="chips">
+        <span class="chip">Docker</span><span class="chip">Kubernetes (kubeadm)</span><span class="chip">Harbor</span>
+      </div>
+    </div>
+    <div class="skill-group" data-reveal>
+      <div class="skill-cat"><span class="skill-bar" style="background:#00FF88;box-shadow:0 0 6px #00FF8888;"></span>Infrastructure &amp; Networking</div>
+      <div class="chips">
+        <span class="chip">Proxmox</span><span class="chip">Nginx</span><span class="chip">HAProxy</span><span class="chip">pfSense</span><span class="chip">IIS</span>
+      </div>
+    </div>
+    <div class="skill-group" data-reveal>
+      <div class="skill-cat"><span class="skill-bar" style="background:#B47FFF;box-shadow:0 0 6px #B47FFF88;"></span>Cloud &amp; OS</div>
+      <div class="chips">
+        <span class="chip">AWS</span><span class="chip">Linux</span><span class="chip">Windows Server</span>
+      </div>
+    </div>
+    <div class="skill-group" data-reveal>
+      <div class="skill-cat"><span class="skill-bar" style="background:#FF6B6B;box-shadow:0 0 6px #FF6B6B88;"></span>Languages &amp; Data</div>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">MySQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROJECTS ═══════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow" data-reveal>Projects</div>
+    <h2 class="sec-title" data-reveal>Transmissions</h2>
+    <p class="sec-sub" data-reveal>Production systems, staging experiments, and side missions.</p>
+    <div class="proj-grid">
+
+      <div class="proj-card" data-reveal>
+        <div class="proj-sheen"></div>
+        <span class="tag tag-prod">production</span>
+        <h3>Agentis — AI ITSM Platform</h3>
+        <p>React + Django/FastAPI service desk platform. Migrated its CI/CD from Jenkins to GitLab CI, deployed SSO end-to-end (SSL, migrations, HAProxy), and wrote the pipeline docs the team now works from.</p>
+        <div class="proj-stack">GitLab CI · Docker · HAProxy · WebSockets</div>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="proj-sheen"></div>
+        <span class="tag tag-prod">production</span>
+        <h3>bharatnyay.ai</h3>
+        <p>Django + React legal-AI product deployed on Kubernetes with MetalLB and ingress-nginx, backed by external Postgres, Redis, and Qdrant. Led the effort to move secrets out of ConfigMaps into proper Kubernetes Secrets.</p>
+        <div class="proj-stack">Kubernetes · MetalLB · Qdrant · Redis</div>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="proj-sheen"></div>
+        <span class="tag tag-prod">production</span>
+        <h3>ConfgNow / ConfgSecurity</h3>
+        <p>Source-code protection service for client deployments. Built the Jenkins pipeline around Nuitka compilation, Cython-based protection, and license gating, and presented the security architecture internally.</p>
+        <div class="proj-stack">Nuitka · Cython · Jenkins · Docker</div>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="proj-sheen"></div>
+        <span class="tag tag-staging">staging</span>
+        <h3>ME-AgentX</h3>
+        <p>Debugged staging environment end-to-end — a persistent WebSocket 403 traced to connection close before accept in the ASGI handler, and Jenkins workspace cleanup failures from Docker bind-mount ownership mismatches.</p>
+        <div class="proj-stack">Jenkins · Docker · ASGI</div>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="proj-sheen"></div>
+        <span class="tag tag-personal">personal</span>
+        <h3>Resume Classification System</h3>
+        <p>ML model in Python/Scikit-learn for automated resume screening, with preprocessing and feature selection. Containerized with Docker and deployed on AWS.</p>
+        <div class="proj-stack">Python · Scikit-learn · Docker · AWS</div>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="proj-sheen"></div>
+        <span class="tag tag-personal">personal</span>
+        <h3>Driver Safety App</h3>
+        <p>Mobile app built with Flutter and Dart, integrating GPS tracking with a real-time alert system for driver safety.</p>
+        <div class="proj-stack">Flutter · Dart · GPS</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOMELAB ════════════════════════════════════ -->
+<section id="homelab">
+  <div class="container-sm">
+    <div class="eyebrow" data-reveal>Homelab</div>
+    <h2 class="sec-title" data-reveal>Incident reports</h2>
+    <p class="sec-sub" data-reveal>Recurring failures traced and fixed on the self-hosted stack — kept as a running log rather than buried in tickets.</p>
+    <div class="terminal" data-reveal>
+      <div class="term-bar">
+        <span class="tdot" style="background:#FF5F57"></span>
+        <span class="tdot" style="background:#FEBC2E"></span>
+        <span class="tdot" style="background:#28C840"></span>
+        <span class="term-title">yash@homelab — postmortems</span>
+      </div>
+      <div class="log-line"><span class="log-ts">2026-08-14</span><span class="log-entry"><span class="log-prompt">$</span>nginx startup race condition — fixed with lazy DNS resolution instead of resolving upstreams at boot.</span></div>
+      <div class="log-line"><span class="log-ts">2026-07-22</span><span class="log-entry"><span class="log-prompt">$</span>Jenkins GPG key rotation breaking package installs — pinned to the current signing key.</span></div>
+      <div class="log-line"><span class="log-ts">2026-06-09</span><span class="log-entry"><span class="log-prompt">$</span>Proxmox network bridge migration from vmbr0 → vmbr1 after a physical NIC failure, with zero downtime for running VMs.</span></div>
+      <div class="log-line"><span class="log-ts">2026-05-30</span><span class="log-entry"><span class="log-prompt">$</span>Alembic migration revision mismatches traced back to git clean silently removing uncommitted migration files.</span></div>
+      <div class="log-line"><span class="log-ts">2026-04-17</span><span class="log-entry"><span class="log-prompt">$</span>nginx stale DNS caching on container restarts — resolved via Docker embedded DNS resolver and variable-based proxy_pass.</span></div>
+      <div class="log-line"><span class="log-ts">2026-03-05</span><span class="log-entry"><span class="log-prompt">$</span>pfSense + HAProxy subdomain routing set up for clean per-service TLS termination.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CONTACT ════════════════════════════════════ -->
+<section id="contact">
+  <div class="container-sm">
+    <div class="eyebrow" data-reveal>Contact</div>
+    <h2 class="sec-title" data-reveal>Open comms</h2>
+    <p class="sec-sub" data-reveal>Open to DevOps and infrastructure roles. Reach out directly.</p>
+    <div class="contact-grid" data-reveal>
+      <a href="mailto:yashdhumane391@gmail.com" class="contact-link">
+        <span class="c-icon">✉</span>
+        <span><span class="c-label">Email</span><span class="c-val">yashdhumane391@gmail.com</span></span>
+      </a>
+      <a href="tel:+917219522590" class="contact-link">
+        <span class="c-icon">☎</span>
+        <span><span class="c-label">Phone</span><span class="c-val">+91-7219522590</span></span>
+      </a>
+      <a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" class="contact-link">
+        <span class="c-icon">↗</span>
+        <span><span class="c-label">LinkedIn</span><span class="c-val">linkedin.com/in/yash-dhumane</span></span>
+      </a>
+      <a href="https://github.com/yashdhumane12" target="_blank" rel="noopener" class="contact-link">
+        <span class="c-icon">◈</span>
+        <span><span class="c-label">GitHub</span><span class="c-val">github.com/yashdhumane12</span></span>
+      </a>
+    </div>
+    <a href="resume.pdf" download class="btn btn-primary" data-reveal>Download Résumé ↓</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>Yash Dhumane · Void Architect</span>
+    <span>© 2026 · self-hosted, of course</span>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ THREE.JS CDN ═══════════════════════════════ -->
+
+
+</body>
+</html>
