@@ -1,36 +1,9 @@
-name: Deploy to GitHub Pages
-
+﻿# Deployment handled by direct push to gh-pages. This workflow is disabled.
+name: Deploy (disabled)
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
-
-permissions:
-  contents: write
-
 jobs:
-  build-and-deploy:
+  noop:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          force_orphan: true
+      - run: echo "Direct push to gh-pages is used instead"
