@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Yash Dhumane — DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
-<title>Yash Dhumane — Void Architect</title>
+<meta name="description" content="Yash Dhumane ΓÇö DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
+<title>Yash Dhumane ΓÇö Void Architect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ── TOKENS ─────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ TOKENS ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 :root{
   --void:#050A12;--deep:#0B1320;--panel:#0E1A2E;
   --border:#1C2D44;--border-lit:#2A4A6B;
@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none;}
 ::selection{background:rgba(0,212,255,.25);color:#fff;}
 :focus-visible{outline:1px solid var(--cyan);outline-offset:3px;}
 
-/* ── CURSOR ─────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ CURSOR ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .cdot{position:fixed;top:0;left:0;z-index:9999;width:8px;height:8px;border-radius:50%;
   background:var(--cyan);pointer-events:none;mix-blend-mode:screen;transform:translate(-50%,-50%);}
 .cring{position:fixed;top:0;left:0;z-index:9998;width:32px;height:32px;border-radius:50%;
@@ -38,7 +38,7 @@ a{color:inherit;text-decoration:none;}
   transition:width .18s,height .18s,border-color .18s;}
 .cring.big{width:48px;height:48px;border-color:var(--cyan);background:rgba(0,212,255,.04);}
 
-/* ── NAV ─────────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ NAV ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:500;
   display:flex;align-items:center;justify-content:space-between;padding:0 40px;
   border-bottom:1px solid rgba(28,45,68,.55);
@@ -61,13 +61,13 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:500;
 .nav-resume:hover{background:rgba(0,212,255,.08);box-shadow:0 0 16px rgba(0,212,255,.2);}
 @media(max-width:760px){.nav-links{display:none;}}
 
-/* ── LAYOUT ──────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ LAYOUT ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .container{max-width:1080px;margin:0 auto;padding:0 32px;}
 .container-sm{max-width:780px;margin:0 auto;padding:0 32px;}
 section{padding:100px 0;border-bottom:1px solid var(--border);}
 section:last-of-type{border-bottom:none;}
 
-/* ── SECTION CHROME ──────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ SECTION CHROME ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .eyebrow{font-family:var(--m);font-size:11px;font-weight:500;color:var(--cyan);
   letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;
   display:flex;align-items:center;gap:10px;}
@@ -77,7 +77,7 @@ section:last-of-type{border-bottom:none;}
   line-height:1.1;margin-bottom:14px;}
 .sec-sub{font-size:15px;color:var(--text2);max-width:54ch;margin-bottom:44px;line-height:1.7;}
 
-/* ── BUTTONS ─────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ BUTTONS ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .btn{font-family:var(--m);font-size:12px;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;padding:12px 24px;border:1px solid var(--border-lit);
   border-radius:2px;color:var(--text);background:transparent;
@@ -88,7 +88,7 @@ section:last-of-type{border-bottom:none;}
   border-color:transparent;color:var(--void);font-weight:700;}
 .btn-primary:hover{box-shadow:0 0 28px rgba(0,212,255,.4);color:var(--void);}
 
-/* ── HERO ────────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ HERO ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 #hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav);border-bottom:none;}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
 .hero-badge{font-family:var(--m);font-size:11px;color:var(--cyan);letter-spacing:.16em;
@@ -110,7 +110,7 @@ section:last-of-type{border-bottom:none;}
 #ring-canvas{width:100%;height:100%;display:block;}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px;}.canvas-wrap{max-width:100%;aspect-ratio:16/9;}}
 
-/* ── ABOUT ───────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ ABOUT ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:start;}
 .about-bio p{color:var(--text2);margin-bottom:16px;line-height:1.8;font-size:15px;}
 .about-bio p strong{color:var(--text);font-weight:600;}
@@ -123,7 +123,7 @@ section:last-of-type{border-bottom:none;}
 .fact-v{color:var(--text);font-weight:500;text-align:right;}
 @media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
 
-/* ── EXPERIENCE ──────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ EXPERIENCE ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .job{border-left:1px solid var(--border);padding-left:28px;margin-bottom:36px;
   position:relative;transition:border-color .2s;}
 .job:last-child{margin-bottom:0;}
@@ -144,9 +144,9 @@ section:last-of-type{border-bottom:none;}
   box-shadow:0 8px 28px rgba(0,0,0,.35);}
 ul.bullets{list-style:none;color:var(--text2);font-size:14px;}
 ul.bullets li{margin-bottom:6px;padding-left:14px;position:relative;}
-ul.bullets li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
+ul.bullets li::before{content:'ΓÇ║';position:absolute;left:0;color:var(--cyan);}
 
-/* ── SKILLS ──────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ SKILLS ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .skill-group{margin-bottom:28px;}
 .skill-cat{font-family:var(--m);font-size:11px;color:var(--text2);
   text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;
@@ -158,7 +158,7 @@ ul.bullets li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
   transition:border-color .15s,color .15s,background .15s;cursor:default;}
 .chip:hover{border-color:rgba(0,212,255,.5);color:var(--cyan);background:rgba(0,212,255,.05);}
 
-/* ── PROJECTS ────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ PROJECTS ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
 .proj-card{padding:22px 24px;border-radius:8px;background:var(--panel);
   border:1px solid var(--border);position:relative;overflow:hidden;
@@ -183,7 +183,7 @@ ul.bullets li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
 .proj-card p{color:var(--text2);font-size:13.5px;line-height:1.65;margin-bottom:12px;}
 .proj-stack{font-family:var(--m);font-size:11px;color:var(--text3);}
 
-/* ── HOMELAB ─────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ HOMELAB ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .terminal{font-family:var(--m);font-size:13px;background:#03070F;
   border:1px solid var(--border);border-radius:6px;overflow:hidden;}
 .term-bar{background:#070E1A;border-bottom:1px solid var(--border);
@@ -197,7 +197,7 @@ ul.bullets li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
 .log-entry{color:var(--text);font-size:12.5px;line-height:1.5;}
 .log-prompt{color:var(--cyan);margin-right:5px;}
 
-/* ── CONTACT ─────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ CONTACT ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin-bottom:28px;}
 .contact-link{display:flex;align-items:center;gap:12px;padding:15px 18px;
   border:1px solid var(--border);border-radius:6px;font-family:var(--m);font-size:12px;
@@ -211,17 +211,17 @@ ul.bullets li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
 .c-val{font-size:12px;color:inherit;}
 @media(max-width:600px){.contact-grid{grid-template-columns:1fr;}}
 
-/* ── FOOTER ──────────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ FOOTER ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 footer{padding:24px 0;border-top:1px solid var(--border);
   font-family:var(--m);font-size:11px;color:var(--text3);}
 footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
-/* ── SCROLLBAR ───────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ SCROLLBAR ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--void);}
 ::-webkit-scrollbar-thumb{background:var(--border-lit);border-radius:2px;}
 
-/* ── ANIMATIONS ──────────────────────────────────────────────────────── */
+/* ΓöÇΓöÇ ANIMATIONS ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{opacity:0;animation:fadeUp .65s ease forwards;}
 .delay-1{animation-delay:.1s;}.delay-2{animation-delay:.2s;}
@@ -229,14 +229,6 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
 [data-reveal].in{opacity:1;transform:translateY(0);}
 </style>
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js"
-  }
-}
-</script>
-  <script type="module" crossorigin src="/yashdhumane-portfolio/assets/index-bk4DaYQ-.js"></script>
 </head>
 <body>
 
@@ -257,10 +249,10 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     <a href="#homelab">Homelab</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="resume.pdf" download class="nav-resume">Resume ↓</a>
+  <a href="resume.pdf" download class="nav-resume">Resume Γåô</a>
 </nav>
 
-<!-- ═══════════════════════ HERO ═══════════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ HERO ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="hero">
   <div class="container">
     <div class="hero-grid">
@@ -269,15 +261,15 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
           <span class="hero-badge-dot"></span>Available for opportunities
         </div>
         <h1 class="hero-name fade-up delay-2">Yash <span>Dhumane</span></h1>
-        <p class="hero-title fade-up delay-3">DevOps Engineer · Pune, India</p>
+        <p class="hero-title fade-up delay-3">DevOps Engineer ┬╖ Pune, India</p>
         <p class="hero-bio fade-up delay-3">
-          I run infrastructure the way most teams don't have to anymore — on bare metal.
+          I run infrastructure the way most teams don't have to anymore ΓÇö on bare metal.
           Proxmox, a hand-built kubeadm cluster, self-hosted GitLab CE and Jenkins,
           no managed control plane to fall back on.
         </p>
         <div class="hero-cta fade-up delay-4">
           <a href="mailto:yashdhumane391@gmail.com" class="btn btn-primary">Get in touch</a>
-          <a href="#projects" class="btn">View work ↓</a>
+          <a href="#projects" class="btn">View work Γåô</a>
         </div>
         <div class="hero-stats fade-up delay-5">
           <div><span class="stat-val">3</span>Production products</div>
@@ -293,15 +285,15 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   </div>
 </section>
 
-<!-- ═══════════════════════ ABOUT ══════════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ ABOUT ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="about">
   <div class="container">
     <div class="eyebrow" data-reveal>About</div>
     <h2 class="sec-title" data-reveal>Who's behind the terminal</h2>
     <div class="about-grid">
       <div class="about-bio">
-        <p data-reveal>I'm a <strong>DevOps Engineer at Honcho Minds</strong>, working across production and staging environments for several products at once — an AI-powered ITSM platform, a legal-AI product, and a source-code protection service among them.</p>
-        <p data-reveal>My infrastructure is entirely <strong>self-hosted</strong>: a Proxmox hypervisor running a kubeadm-built Kubernetes cluster, self-hosted GitLab CE and Jenkins for CI/CD, and Nginx/HAProxy handling routing and TLS by hand. No managed Kubernetes, no managed CI — when something breaks, there's no support ticket to file, only logs to read.</p>
+        <p data-reveal>I'm a <strong>DevOps Engineer at Honcho Minds</strong>, working across production and staging environments for several products at once ΓÇö an AI-powered ITSM platform, a legal-AI product, and a source-code protection service among them.</p>
+        <p data-reveal>My infrastructure is entirely <strong>self-hosted</strong>: a Proxmox hypervisor running a kubeadm-built Kubernetes cluster, self-hosted GitLab CE and Jenkins for CI/CD, and Nginx/HAProxy handling routing and TLS by hand. No managed Kubernetes, no managed CI ΓÇö when something breaks, there's no support ticket to file, only logs to read.</p>
         <p data-reveal>That constraint has made debugging the core of the job: tracing WebSocket 403s to token-validation order, chasing down nginx DNS caching, rebuilding a Jenkins pipeline around Nuitka-compiled source protection.</p>
       </div>
       <div data-reveal>
@@ -309,8 +301,8 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
           <div class="fact"><span class="fact-k">Location</span><span class="fact-v">Pune, India</span></div>
           <div class="fact"><span class="fact-k">Currently</span><span class="fact-v">Honcho Minds</span></div>
           <div class="fact"><span class="fact-k">Status</span><span class="fact-v" style="color:var(--green)">Available</span></div>
-          <div class="fact"><span class="fact-k">Focus</span><span class="fact-v">CI/CD · K8s · Infra</span></div>
-          <div class="fact"><span class="fact-k">Cluster</span><span class="fact-v">1 CP · 9 workers</span></div>
+          <div class="fact"><span class="fact-k">Focus</span><span class="fact-v">CI/CD ┬╖ K8s ┬╖ Infra</span></div>
+          <div class="fact"><span class="fact-k">Cluster</span><span class="fact-v">1 CP ┬╖ 9 workers</span></div>
           <div class="fact"><span class="fact-k">Education</span><span class="fact-v">B.E. Information Technology</span></div>
         </div>
       </div>
@@ -318,7 +310,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   </div>
 </section>
 
-<!-- ═══════════════════════ EXPERIENCE ═════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ EXPERIENCE ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="experience">
   <div class="container-sm">
     <div class="eyebrow" data-reveal>Experience</div>
@@ -327,7 +319,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 
     <div class="job current" data-reveal>
       <span class="job-dot"></span>
-      <div class="job-period now">Apr 2026 → present</div>
+      <div class="job-period now">Apr 2026 ΓåÆ present</div>
       <div class="job-title">DevOps Engineer</div>
       <span class="job-org">Honcho Minds</span>
       <div class="job-card">
@@ -345,7 +337,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 
     <div class="job" data-reveal>
       <span class="job-dot"></span>
-      <div class="job-period">Aug 2025 → Apr 2026</div>
+      <div class="job-period">Aug 2025 ΓåÆ Apr 2026</div>
       <div class="job-title">Web Content Executive</div>
       <span class="job-org">Future Market Insights, Pune</span>
       <div class="job-card">
@@ -359,7 +351,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 
     <div class="job" data-reveal>
       <span class="job-dot"></span>
-      <div class="job-period">Jul 2024 → Oct 2024</div>
+      <div class="job-period">Jul 2024 ΓåÆ Oct 2024</div>
       <div class="job-title">Data Science Intern</div>
       <span class="job-org">AI Variant</span>
       <div class="job-card">
@@ -372,7 +364,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   </div>
 </section>
 
-<!-- ═══════════════════════ SKILLS ═════════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ SKILLS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="skills">
   <div class="container">
     <div class="eyebrow" data-reveal>Skills</div>
@@ -411,7 +403,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   </div>
 </section>
 
-<!-- ═══════════════════════ PROJECTS ═══════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ PROJECTS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="projects">
   <div class="container">
     <div class="eyebrow" data-reveal>Projects</div>
@@ -422,9 +414,9 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
       <div class="proj-card" data-reveal>
         <div class="proj-sheen"></div>
         <span class="tag tag-prod">production</span>
-        <h3>Agentis — AI ITSM Platform</h3>
+        <h3>Agentis ΓÇö AI ITSM Platform</h3>
         <p>React + Django/FastAPI service desk platform. Migrated its CI/CD from Jenkins to GitLab CI, deployed SSO end-to-end (SSL, migrations, HAProxy), and wrote the pipeline docs the team now works from.</p>
-        <div class="proj-stack">GitLab CI · Docker · HAProxy · WebSockets</div>
+        <div class="proj-stack">GitLab CI ┬╖ Docker ┬╖ HAProxy ┬╖ WebSockets</div>
       </div>
 
       <div class="proj-card" data-reveal>
@@ -432,7 +424,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <span class="tag tag-prod">production</span>
         <h3>bharatnyay.ai</h3>
         <p>Django + React legal-AI product deployed on Kubernetes with MetalLB and ingress-nginx, backed by external Postgres, Redis, and Qdrant. Led the effort to move secrets out of ConfigMaps into proper Kubernetes Secrets.</p>
-        <div class="proj-stack">Kubernetes · MetalLB · Qdrant · Redis</div>
+        <div class="proj-stack">Kubernetes ┬╖ MetalLB ┬╖ Qdrant ┬╖ Redis</div>
       </div>
 
       <div class="proj-card" data-reveal>
@@ -440,15 +432,15 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <span class="tag tag-prod">production</span>
         <h3>ConfgNow / ConfgSecurity</h3>
         <p>Source-code protection service for client deployments. Built the Jenkins pipeline around Nuitka compilation, Cython-based protection, and license gating, and presented the security architecture internally.</p>
-        <div class="proj-stack">Nuitka · Cython · Jenkins · Docker</div>
+        <div class="proj-stack">Nuitka ┬╖ Cython ┬╖ Jenkins ┬╖ Docker</div>
       </div>
 
       <div class="proj-card" data-reveal>
         <div class="proj-sheen"></div>
         <span class="tag tag-staging">staging</span>
         <h3>ME-AgentX</h3>
-        <p>Debugged staging environment end-to-end — a persistent WebSocket 403 traced to connection close before accept in the ASGI handler, and Jenkins workspace cleanup failures from Docker bind-mount ownership mismatches.</p>
-        <div class="proj-stack">Jenkins · Docker · ASGI</div>
+        <p>Debugged staging environment end-to-end ΓÇö a persistent WebSocket 403 traced to connection close before accept in the ASGI handler, and Jenkins workspace cleanup failures from Docker bind-mount ownership mismatches.</p>
+        <div class="proj-stack">Jenkins ┬╖ Docker ┬╖ ASGI</div>
       </div>
 
       <div class="proj-card" data-reveal>
@@ -456,7 +448,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <span class="tag tag-personal">personal</span>
         <h3>Resume Classification System</h3>
         <p>ML model in Python/Scikit-learn for automated resume screening, with preprocessing and feature selection. Containerized with Docker and deployed on AWS.</p>
-        <div class="proj-stack">Python · Scikit-learn · Docker · AWS</div>
+        <div class="proj-stack">Python ┬╖ Scikit-learn ┬╖ Docker ┬╖ AWS</div>
       </div>
 
       <div class="proj-card" data-reveal>
@@ -464,37 +456,37 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <span class="tag tag-personal">personal</span>
         <h3>Driver Safety App</h3>
         <p>Mobile app built with Flutter and Dart, integrating GPS tracking with a real-time alert system for driver safety.</p>
-        <div class="proj-stack">Flutter · Dart · GPS</div>
+        <div class="proj-stack">Flutter ┬╖ Dart ┬╖ GPS</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ HOMELAB ════════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ HOMELAB ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="homelab">
   <div class="container-sm">
     <div class="eyebrow" data-reveal>Homelab</div>
     <h2 class="sec-title" data-reveal>Incident reports</h2>
-    <p class="sec-sub" data-reveal>Recurring failures traced and fixed on the self-hosted stack — kept as a running log rather than buried in tickets.</p>
+    <p class="sec-sub" data-reveal>Recurring failures traced and fixed on the self-hosted stack ΓÇö kept as a running log rather than buried in tickets.</p>
     <div class="terminal" data-reveal>
       <div class="term-bar">
         <span class="tdot" style="background:#FF5F57"></span>
         <span class="tdot" style="background:#FEBC2E"></span>
         <span class="tdot" style="background:#28C840"></span>
-        <span class="term-title">yash@homelab — postmortems</span>
+        <span class="term-title">yash@homelab ΓÇö postmortems</span>
       </div>
-      <div class="log-line"><span class="log-ts">2026-08-14</span><span class="log-entry"><span class="log-prompt">$</span>nginx startup race condition — fixed with lazy DNS resolution instead of resolving upstreams at boot.</span></div>
-      <div class="log-line"><span class="log-ts">2026-07-22</span><span class="log-entry"><span class="log-prompt">$</span>Jenkins GPG key rotation breaking package installs — pinned to the current signing key.</span></div>
-      <div class="log-line"><span class="log-ts">2026-06-09</span><span class="log-entry"><span class="log-prompt">$</span>Proxmox network bridge migration from vmbr0 → vmbr1 after a physical NIC failure, with zero downtime for running VMs.</span></div>
+      <div class="log-line"><span class="log-ts">2026-08-14</span><span class="log-entry"><span class="log-prompt">$</span>nginx startup race condition ΓÇö fixed with lazy DNS resolution instead of resolving upstreams at boot.</span></div>
+      <div class="log-line"><span class="log-ts">2026-07-22</span><span class="log-entry"><span class="log-prompt">$</span>Jenkins GPG key rotation breaking package installs ΓÇö pinned to the current signing key.</span></div>
+      <div class="log-line"><span class="log-ts">2026-06-09</span><span class="log-entry"><span class="log-prompt">$</span>Proxmox network bridge migration from vmbr0 ΓåÆ vmbr1 after a physical NIC failure, with zero downtime for running VMs.</span></div>
       <div class="log-line"><span class="log-ts">2026-05-30</span><span class="log-entry"><span class="log-prompt">$</span>Alembic migration revision mismatches traced back to git clean silently removing uncommitted migration files.</span></div>
-      <div class="log-line"><span class="log-ts">2026-04-17</span><span class="log-entry"><span class="log-prompt">$</span>nginx stale DNS caching on container restarts — resolved via Docker embedded DNS resolver and variable-based proxy_pass.</span></div>
+      <div class="log-line"><span class="log-ts">2026-04-17</span><span class="log-entry"><span class="log-prompt">$</span>nginx stale DNS caching on container restarts ΓÇö resolved via Docker embedded DNS resolver and variable-based proxy_pass.</span></div>
       <div class="log-line"><span class="log-ts">2026-03-05</span><span class="log-entry"><span class="log-prompt">$</span>pfSense + HAProxy subdomain routing set up for clean per-service TLS termination.</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ CONTACT ════════════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ CONTACT ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
 <section id="contact">
   <div class="container-sm">
     <div class="eyebrow" data-reveal>Contact</div>
@@ -502,35 +494,287 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     <p class="sec-sub" data-reveal>Open to DevOps and infrastructure roles. Reach out directly.</p>
     <div class="contact-grid" data-reveal>
       <a href="mailto:yashdhumane391@gmail.com" class="contact-link">
-        <span class="c-icon">✉</span>
+        <span class="c-icon">Γ£ë</span>
         <span><span class="c-label">Email</span><span class="c-val">yashdhumane391@gmail.com</span></span>
       </a>
       <a href="tel:+917219522590" class="contact-link">
-        <span class="c-icon">☎</span>
+        <span class="c-icon">ΓÿÄ</span>
         <span><span class="c-label">Phone</span><span class="c-val">+91-7219522590</span></span>
       </a>
       <a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" class="contact-link">
-        <span class="c-icon">↗</span>
+        <span class="c-icon">Γåù</span>
         <span><span class="c-label">LinkedIn</span><span class="c-val">linkedin.com/in/yash-dhumane</span></span>
       </a>
       <a href="https://github.com/yashdhumane12" target="_blank" rel="noopener" class="contact-link">
-        <span class="c-icon">◈</span>
+        <span class="c-icon">Γùê</span>
         <span><span class="c-label">GitHub</span><span class="c-val">github.com/yashdhumane12</span></span>
       </a>
     </div>
-    <a href="resume.pdf" download class="btn btn-primary" data-reveal>Download Résumé ↓</a>
+    <a href="resume.pdf" download class="btn btn-primary" data-reveal>Download R├⌐sum├⌐ Γåô</a>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <span>Yash Dhumane · Void Architect</span>
-    <span>© 2026 · self-hosted, of course</span>
+    <span>Yash Dhumane ┬╖ Void Architect</span>
+    <span>┬⌐ 2026 ┬╖ self-hosted, of course</span>
   </div>
 </footer>
 
-<!-- ═══════════════════════ THREE.JS CDN ═══════════════════════════════ -->
+<!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ THREE.JS CDN ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js"
+  }
+}
+</script>
 
+<script type="module">
+import * as THREE from 'three';
 
+/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+   CURSOR
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
+const dot  = document.getElementById('cdot');
+const ring = document.getElementById('cring');
+let mx = -100, my = -100, rx = -100, ry = -100;
+
+window.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx + 'px';
+  dot.style.top  = my + 'px';
+});
+
+// ring follows with lag
+(function animRing(){
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+// expand ring on hover
+document.querySelectorAll('a,button,.btn,.chip,.proj-card,.job-card,.contact-link').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('big'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+});
+
+/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+   SCROLL REVEAL
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
+const revEls = document.querySelectorAll('[data-reveal]');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }});
+}, { threshold: 0.12 });
+revEls.forEach(el => revObs.observe(el));
+
+/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+   CARD TILT (job + project cards)
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
+function addTilt(selector, strength = 12) {
+  document.querySelectorAll(selector).forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      el.style.transform = `perspective(700px) rotateY(${x*strength}deg) rotateX(${-y*strength*.65}deg) translateY(-4px)`;
+      // sheen
+      const px = ((e.clientX - r.left)/r.width*100).toFixed(1);
+      const py = ((e.clientY - r.top)/r.height*100).toFixed(1);
+      el.style.setProperty('--px', px+'%');
+      el.style.setProperty('--py', py+'%');
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
+}
+addTilt('.job-card', 10);
+addTilt('.proj-card', 12);
+
+/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+   THREE.JS ΓÇö ORBITAL STATION RING
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
+const canvas = document.getElementById('ring-canvas');
+const wrap   = canvas.parentElement;
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+
+const scene  = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+camera.position.set(0, 1.5, 9);
+
+// ΓöÇΓöÇ lights ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+scene.add(new THREE.AmbientLight(0xffffff, 0.18));
+const cyanLight = new THREE.PointLight(0x00D4FF, 2.8, 22);
+cyanLight.position.set(0, 4, 0);
+scene.add(cyanLight);
+const amberLight = new THREE.PointLight(0xFFB547, 0.9, 14);
+amberLight.position.set(3, -2, 3);
+scene.add(amberLight);
+
+// ΓöÇΓöÇ colours ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const CYAN  = new THREE.Color(0x00D4FF);
+const AMBER = new THREE.Color(0xFFB547);
+const DIM   = new THREE.Color(0x1C2D44);
+
+// ΓöÇΓöÇ main torus ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const torusMat = new THREE.MeshStandardMaterial({
+  color: 0x0B1828, emissive: CYAN, emissiveIntensity: 0.28,
+  roughness: 0.3, metalness: 0.85,
+});
+const torus = new THREE.Mesh(new THREE.TorusGeometry(3.8, 0.14, 16, 80), torusMat);
+
+const glowMat = new THREE.MeshBasicMaterial({ color: CYAN, transparent: true, opacity: 0.16 });
+const glow = new THREE.Mesh(new THREE.TorusGeometry(3.8, 0.055, 8, 80), glowMat);
+
+// ΓöÇΓöÇ docking ports ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const portGeo = new THREE.BoxGeometry(0.12, 0.08, 0.22);
+const ports = [];
+for(let i=0;i<8;i++){
+  const a = (i/8)*Math.PI*2;
+  const mat = new THREE.MeshStandardMaterial({
+    color: 0x0B1320, emissive: i%2===0 ? CYAN : DIM,
+    emissiveIntensity: 0.35, roughness: 0.3, metalness: 0.9,
+  });
+  const mesh = new THREE.Mesh(portGeo, mat);
+  mesh.position.set(Math.cos(a)*3.8, 0, Math.sin(a)*3.8);
+  ports.push(mesh);
+}
+
+// ΓöÇΓöÇ control hub (wireframe icosahedron) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const hubWire = new THREE.Mesh(
+  new THREE.IcosahedronGeometry(0.52, 1),
+  new THREE.MeshStandardMaterial({
+    color: 0x0B1320, emissive: CYAN, emissiveIntensity: 0.45,
+    roughness: 0.2, metalness: 0.8, wireframe: true,
+  })
+);
+const hubSolid = new THREE.Mesh(
+  new THREE.IcosahedronGeometry(0.46, 1),
+  new THREE.MeshStandardMaterial({
+    color: 0x050A12, emissive: CYAN, emissiveIntensity: 0.15,
+    roughness: 0.1, metalness: 0.9,
+  })
+);
+const hub = new THREE.Group();
+hub.add(hubWire, hubSolid);
+
+// ΓöÇΓöÇ spokes ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const spokeMat = new THREE.LineBasicMaterial({ color: 0x1C2D44, transparent: true, opacity: 0.55 });
+const spokes = [];
+for(let i=0;i<6;i++){
+  const a = (i/6)*Math.PI*2;
+  const geo = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0,0,0),
+    new THREE.Vector3(Math.cos(a)*3.75, 0, Math.sin(a)*3.75),
+  ]);
+  spokes.push(new THREE.Line(geo, spokeMat));
+}
+
+// ΓöÇΓöÇ orbit particles ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const PART_COUNT = 60;
+const partData = Array.from({length: PART_COUNT}, (_, i) => ({
+  offset: (i / PART_COUNT) * Math.PI * 2 + Math.random() * 0.4,
+  radius: i < 45 ? 3.8 : 2.2,
+  speed:  i < 45 ? 0.14 : -0.22,
+  color:  i % 3 === 0 ? AMBER : CYAN,
+}));
+const partGeo = new THREE.SphereGeometry(0.032, 5, 5);
+const particles = partData.map(p => {
+  const mat = new THREE.MeshBasicMaterial({ color: p.color });
+  return new THREE.Mesh(partGeo, mat);
+});
+
+// ΓöÇΓöÇ assemble group ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const group = new THREE.Group();
+group.rotation.x = 0.3;
+group.add(torus, glow, hub, ...ports, ...spokes, ...particles);
+scene.add(group);
+
+// fog
+scene.fog = new THREE.Fog(0x050A12, 16, 38);
+
+// ΓöÇΓöÇ resize ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+function resize() {
+  const w = wrap.clientWidth;
+  const h = wrap.clientHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+resize();
+new ResizeObserver(resize).observe(wrap);
+
+// ΓöÇΓöÇ cursor tracking for parallax ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+let cx = 0, cy = 0;
+window.addEventListener('mousemove', e => {
+  cx = (e.clientX / window.innerWidth)  * 2 - 1;
+  cy = -(e.clientY / window.innerHeight) * 2 + 1;
+});
+
+// ΓöÇΓöÇ render loop ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+const clock = new THREE.Clock();
+(function animate(){
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // auto-rotate + cursor tilt
+  group.rotation.y += 0.004;
+  group.rotation.x += (cy * -0.15 - group.rotation.x + 0.3) * 0.03;
+  group.rotation.z += (cx *  0.06  - group.rotation.z) * 0.03;
+  group.position.y  = Math.sin(t * 0.4) * 0.08;
+
+  // hub spin
+  hub.rotation.y = t * 0.22;
+  hub.rotation.z = Math.sin(t * 0.3) * 0.04;
+
+  // orbit particles
+  partData.forEach((p, i) => {
+    const a = t * p.speed + p.offset;
+    particles[i].position.set(
+      Math.cos(a) * p.radius,
+      Math.sin(a * 1.3) * 0.35,
+      Math.sin(a) * p.radius,
+    );
+  });
+
+  renderer.render(scene, camera);
+})();
+
+/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+   MAGNETIC BUTTONS
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
+document.querySelectorAll('.btn, .nav-resume, .contact-link').forEach(el => {
+  let animId;
+  let ox = 0, oy = 0, tx = 0, ty = 0;
+
+  const lerp = (a, b, n) => a + (b - a) * n;
+
+  const onMove = e => {
+    const r  = el.getBoundingClientRect();
+    const dx = e.clientX - (r.left + r.width/2);
+    const dy = e.clientY - (r.top  + r.height/2);
+    if(Math.hypot(dx, dy) < r.width * 0.9) {
+      tx = dx * 0.32; ty = dy * 0.32;
+    }
+  };
+  const onLeave = () => { tx = 0; ty = 0; };
+
+  const tick = () => {
+    ox = lerp(ox, tx, 0.18);
+    oy = lerp(oy, ty, 0.18);
+    el.style.transform = `translate(${ox.toFixed(2)}px,${oy.toFixed(2)}px)`;
+    animId = requestAnimationFrame(tick);
+  };
+
+  el.addEventListener('mouseenter', () => { cancelAnimationFrame(animId); tick(); });
+  el.addEventListener('mousemove',  onMove);
+  el.addEventListener('mouseleave', () => { onLeave(); });
+});
+</script>
 </body>
 </html>
