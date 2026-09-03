@@ -4,4 +4,5 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/yashdhumane-portfolio/',   // ← must match your GitHub repo name exactly
 })
