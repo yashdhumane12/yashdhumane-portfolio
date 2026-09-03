@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta http-equiv="cache-control" content="no-cache"/><meta name="description" content="Yash Dhumane - DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
+<meta name="description" content="Yash Dhumane - DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
 <title>Yash Dhumane - Void Architect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --void:#050A12;--deep:#0B1320;
+  --void:#050A12;
   --border:#1C2D44;--border-lit:#2A4A6B;
   --cyan:#00D4FF;--amber:#FFB547;--green:#00FF88;
   --text:#E8F4FF;--text2:#7A9BB5;--text3:#3A5A78;
@@ -19,12 +19,18 @@
   --nav:56px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
+
+/* html holds the base bg colour — body MUST be transparent so canvas shows through */
+html{
+  scroll-behavior:smooth;
   background:var(--void);
+}
+body{
+  background:transparent;
   color:var(--text);
   font-family:var(--d);
-  font-size:16px;line-height:1.6;
+  font-size:16px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   cursor:none;
@@ -32,26 +38,28 @@ body{
 @media(hover:none){body{cursor:auto;}.cdot,.cring{display:none!important;}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}
-  body{cursor:auto;}
-  .cdot,.cring{display:none!important;}
-  #bg-canvas{display:none!important;}
+  body{cursor:auto;background:var(--void);}
+  .cdot,.cring,#bg-canvas{display:none!important;}
 }
 a{color:inherit;text-decoration:none;}
 ::selection{background:rgba(0,212,255,.28);color:#fff;}
 :focus-visible{outline:1px solid var(--cyan);outline-offset:3px;}
 
-/* BG CANVAS */
+/* ---- 3D BACKGROUND CANVAS ---- */
 #bg-canvas{
-  position:fixed;inset:0;z-index:0;
-  width:100%;height:100%;
+  position:fixed;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
   display:block;
   pointer-events:none;
 }
 
-/* PAGE LAYER */
+/* ---- PAGE LAYER sits above canvas ---- */
 #page{position:relative;z-index:1;}
 
-/* CURSOR */
+/* ---- CURSOR ---- */
 .cdot{
   position:fixed;top:0;left:0;z-index:9999;
   width:8px;height:8px;border-radius:50%;
@@ -67,12 +75,12 @@ a{color:inherit;text-decoration:none;}
 }
 .cring.big{width:48px;height:48px;border-color:var(--cyan);background:rgba(0,212,255,.04);}
 
-/* NAV */
+/* ---- NAV ---- */
 nav{
   position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:500;
   display:flex;align-items:center;justify-content:space-between;padding:0 40px;
   border-bottom:1px solid rgba(28,45,68,.5);
-  background:rgba(5,10,18,.72);backdrop-filter:blur(18px);
+  background:rgba(5,10,18,.8);backdrop-filter:blur(18px);
 }
 .nav-logo{
   font-family:var(--m);font-size:13px;font-weight:600;color:var(--cyan);
@@ -99,13 +107,20 @@ nav{
 .nav-resume:hover{background:rgba(0,212,255,.08);box-shadow:0 0 16px rgba(0,212,255,.2);}
 @media(max-width:760px){.nav-links{display:none;}}
 
-/* LAYOUT */
+/* ---- LAYOUT ---- */
 .container{max-width:1080px;margin:0 auto;padding:0 32px;}
 .container-sm{max-width:780px;margin:0 auto;padding:0 32px;}
-section{padding:100px 0;border-bottom:1px solid rgba(28,45,68,.5);}
+
+/* Sections get a semi-transparent dark wash so text reads over the 3D bg */
+section{
+  padding:100px 0;
+  border-bottom:1px solid rgba(28,45,68,.45);
+  background:rgba(5,10,18,.6);
+  backdrop-filter:blur(2px);
+}
 section:last-of-type{border-bottom:none;}
 
-/* SECTION CHROME */
+/* ---- SECTION CHROME ---- */
 .eyebrow{
   font-family:var(--m);font-size:11px;font-weight:500;color:var(--cyan);
   letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;
@@ -115,11 +130,11 @@ section:last-of-type{border-bottom:none;}
 .sec-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;}
 .sec-sub{font-size:15px;color:var(--text2);max-width:54ch;margin-bottom:44px;line-height:1.7;}
 
-/* BUTTONS */
+/* ---- BUTTONS ---- */
 .btn{
   font-family:var(--m);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   padding:12px 24px;border:1px solid var(--border-lit);border-radius:2px;
-  color:var(--text);background:rgba(10,18,30,.75);backdrop-filter:blur(8px);
+  color:var(--text);background:rgba(10,18,30,.8);backdrop-filter:blur(8px);
   display:inline-flex;align-items:center;gap:8px;
   transition:border-color .15s,color .15s,box-shadow .15s;cursor:none;
 }
@@ -130,8 +145,15 @@ section:last-of-type{border-bottom:none;}
 }
 .btn-primary:hover{box-shadow:0 0 28px rgba(0,212,255,.4);color:var(--void);}
 
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav);border-bottom:none;}
+/* ---- HERO ---- */
+#hero{
+  min-height:92vh;
+  display:flex;align-items:center;
+  padding-top:var(--nav);
+  border-bottom:none;
+  background:transparent; /* hero shows raw canvas bg */
+  position:relative;
+}
 .hero-inner{max-width:660px;}
 .hero-badge{
   font-family:var(--m);font-size:11px;color:var(--cyan);letter-spacing:.16em;
@@ -149,7 +171,17 @@ section:last-of-type{border-bottom:none;}
 .hero-stats{display:flex;gap:40px;font-family:var(--m);font-size:11px;color:var(--text3);}
 .stat-val{font-size:26px;font-weight:700;color:var(--text);font-family:var(--d);display:block;letter-spacing:-.02em;}
 
-/* ABOUT */
+/* Scroll hint */
+.scroll-hint{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  font-family:var(--m);font-size:9px;color:var(--text3);
+  letter-spacing:.14em;text-transform:uppercase;
+  animation:bounce 2s ease-in-out infinite;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+
+/* ---- ABOUT ---- */
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:start;}
 .about-bio p{color:var(--text2);margin-bottom:16px;line-height:1.8;font-size:15px;}
 .about-bio p strong{color:var(--text);font-weight:600;}
@@ -157,14 +189,14 @@ section:last-of-type{border-bottom:none;}
 .fact{
   display:flex;justify-content:space-between;padding:12px 16px;
   border-bottom:1px solid var(--border);font-size:13px;gap:12px;
-  background:rgba(10,18,30,.72);backdrop-filter:blur(10px);
+  background:rgba(10,18,30,.8);
 }
 .fact:last-child{border-bottom:none;}
 .fact-k{color:var(--text3);font-family:var(--m);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}
 .fact-v{color:var(--text);font-weight:500;text-align:right;}
 @media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
 
-/* EXPERIENCE */
+/* ---- EXPERIENCE ---- */
 .job{
   border-left:1px solid var(--border);padding-left:28px;margin-bottom:36px;
   position:relative;transition:border-color .2s;
@@ -183,24 +215,23 @@ section:last-of-type{border-bottom:none;}
 .job-title{font-size:18px;font-weight:600;margin-bottom:2px;}
 .job-org{font-family:var(--m);font-size:12px;color:var(--cyan);display:block;margin-bottom:14px;}
 .job-card{
-  background:rgba(10,18,30,.78);border:1px solid var(--border);border-radius:8px;
+  background:rgba(10,18,30,.85);border:1px solid var(--border);border-radius:8px;
   padding:20px 22px;backdrop-filter:blur(12px);
   transform-style:preserve-3d;transition:border-color .2s,box-shadow .2s;will-change:transform;
 }
 .job-card:hover{border-color:rgba(0,212,255,.28);box-shadow:0 8px 32px rgba(0,0,0,.4);}
 
-/* BULLET LIST - plain dash, no icon/glyph */
+/* Plain dash bullets — no icon glyphs */
 ul.bullets{list-style:none;color:var(--text2);font-size:14px;}
-ul.bullets li{margin-bottom:7px;padding-left:16px;position:relative;line-height:1.6;}
+ul.bullets li{margin-bottom:7px;padding-left:18px;position:relative;line-height:1.6;}
 ul.bullets li::before{
-  content:'--';
-  position:absolute;left:0;
+  content:'-';
+  position:absolute;left:0;top:0;
   color:var(--cyan);
-  font-family:var(--m);font-size:11px;
-  top:3px;letter-spacing:-.05em;
+  font-family:var(--m);
 }
 
-/* SKILLS */
+/* ---- SKILLS ---- */
 .skill-group{margin-bottom:28px;}
 .skill-cat{
   font-family:var(--m);font-size:11px;color:var(--text2);text-transform:uppercase;
@@ -211,16 +242,16 @@ ul.bullets li::before{
 .chip{
   font-family:var(--m);font-size:12px;padding:5px 12px;
   border:1px solid var(--border);border-radius:2px;color:var(--text2);
-  background:rgba(10,18,30,.65);backdrop-filter:blur(8px);
+  background:rgba(10,18,30,.75);backdrop-filter:blur(8px);
   transition:border-color .15s,color .15s,background .15s;cursor:default;
 }
 .chip:hover{border-color:rgba(0,212,255,.5);color:var(--cyan);background:rgba(0,212,255,.06);}
 
-/* PROJECTS */
+/* ---- PROJECTS ---- */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
 .proj-card{
   padding:22px 24px;border-radius:10px;
-  background:rgba(10,18,30,.8);border:1px solid var(--border);
+  background:rgba(10,18,30,.85);border:1px solid var(--border);
   backdrop-filter:blur(14px);position:relative;overflow:hidden;
   transform-style:preserve-3d;transition:border-color .2s,box-shadow .2s;
   will-change:transform;cursor:default;
@@ -246,9 +277,10 @@ ul.bullets li::before{
 .proj-card p{color:var(--text2);font-size:13.5px;line-height:1.65;margin-bottom:12px;}
 .proj-stack{font-family:var(--m);font-size:11px;color:var(--text3);}
 
-/* HOMELAB */
+/* ---- HOMELAB ---- */
 .terminal{
-  font-family:var(--m);font-size:13px;background:rgba(3,7,15,.9);
+  font-family:var(--m);font-size:13px;
+  background:rgba(3,7,15,.92);
   border:1px solid var(--border);border-radius:8px;overflow:hidden;backdrop-filter:blur(12px);
 }
 .term-bar{
@@ -263,30 +295,34 @@ ul.bullets li::before{
 .log-entry{color:var(--text);font-size:12.5px;line-height:1.5;}
 .log-prompt{color:var(--cyan);margin-right:5px;font-weight:600;}
 
-/* CONTACT */
+/* ---- CONTACT ---- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin-bottom:28px;}
 .contact-link{
   display:flex;align-items:center;gap:12px;padding:15px 18px;
   border:1px solid var(--border);border-radius:8px;font-family:var(--m);font-size:12px;
-  color:var(--text2);background:rgba(10,18,30,.75);backdrop-filter:blur(12px);
+  color:var(--text2);background:rgba(10,18,30,.8);backdrop-filter:blur(12px);
   transition:border-color .15s,color .15s,background .15s,box-shadow .15s;
 }
 .contact-link:hover{border-color:rgba(0,212,255,.4);color:var(--cyan);background:rgba(0,212,255,.05);box-shadow:0 4px 18px rgba(0,0,0,.3);}
-.c-icon{font-size:15px;}
+.c-icon{font-size:15px;font-family:var(--m);}
 .c-label{font-size:10px;color:var(--text3);display:block;text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px;}
 .c-val{font-size:12px;color:inherit;}
 @media(max-width:600px){.contact-grid{grid-template-columns:1fr;}}
 
-/* FOOTER */
-footer{padding:24px 0;border-top:1px solid rgba(28,45,68,.5);font-family:var(--m);font-size:11px;color:var(--text3);}
+/* ---- FOOTER ---- */
+footer{
+  padding:24px 0;border-top:1px solid rgba(28,45,68,.5);
+  font-family:var(--m);font-size:11px;color:var(--text3);
+  background:rgba(5,10,18,.8);
+}
 footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
-/* SCROLLBAR */
+/* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-track{background:var(--void);}
+::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border-lit);border-radius:2px;}
 
-/* REVEAL */
+/* ---- REVEAL ANIMATIONS ---- */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{opacity:0;animation:fadeUp .7s ease forwards;}
 .d1{animation-delay:.1s;}.d2{animation-delay:.22s;}.d3{animation-delay:.34s;}
@@ -297,7 +333,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 </head>
 <body>
 
-<!-- Full-page 3D background canvas -->
+<!-- Full-page 3D star field + node network background -->
 <canvas id="bg-canvas"></canvas>
 
 <!-- Custom cursor -->
@@ -326,11 +362,11 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     <div class="hero-inner">
       <div class="hero-badge fade-up d1"><span class="hero-badge-dot"></span>Available for opportunities</div>
       <h1 class="hero-name fade-up d2">Yash<br><span>Dhumane</span></h1>
-      <p class="hero-title fade-up d3">DevOps Engineer &nbsp;·&nbsp; Pune, India</p>
+      <p class="hero-title fade-up d3">DevOps Engineer &nbsp;&middot;&nbsp; Pune, India</p>
       <p class="hero-bio fade-up d3">I run infrastructure the way most teams don't have to anymore - on bare metal. Proxmox, a hand-built kubeadm cluster, self-hosted GitLab CE and Jenkins, no managed control plane to fall back on.</p>
       <div class="hero-cta fade-up d4">
         <a href="mailto:yashdhumane391@gmail.com" class="btn btn-primary">Get in touch</a>
-        <a href="#projects" class="btn">View work</a>
+        <a href="#about" class="btn">Explore</a>
       </div>
       <div class="hero-stats fade-up d5">
         <div><span class="stat-val">3</span>Production products</div>
@@ -338,6 +374,13 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <div><span class="stat-val">1</span>Bare-metal cluster</div>
       </div>
     </div>
+  </div>
+  <!-- Scroll hint arrow -->
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 2v10M3 9l4 4 4-4" stroke="#3A5A78" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
 </section>
 
@@ -507,7 +550,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   <div class="container-sm">
     <div class="eyebrow" data-reveal>Homelab</div>
     <h2 class="sec-title" data-reveal>Incident reports</h2>
-    <p class="sec-sub" data-reveal>Recurring failures traced and fixed on the self-hosted stack - kept as a running log rather than buried in tickets.</p>
+    <p class="sec-sub" data-reveal>Recurring failures traced and fixed on the self-hosted stack.</p>
     <div class="terminal" data-reveal>
       <div class="term-bar">
         <span class="tdot" style="background:#FF5F57"></span>
@@ -541,11 +584,11 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <span><span class="c-label">Phone</span><span class="c-val">+91-7219522590</span></span>
       </a>
       <a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" class="contact-link">
-        <span class="c-icon">in</span>
+        <span class="c-icon" style="font-size:11px;font-weight:700">in</span>
         <span><span class="c-label">LinkedIn</span><span class="c-val">linkedin.com/in/yash-dhumane</span></span>
       </a>
       <a href="https://github.com/yashdhumane12" target="_blank" rel="noopener" class="contact-link">
-        <span class="c-icon">gh</span>
+        <span class="c-icon" style="font-size:11px;font-weight:700">gh</span>
         <span><span class="c-label">GitHub</span><span class="c-val">github.com/yashdhumane12</span></span>
       </a>
     </div>
@@ -562,30 +605,30 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 
 </div><!-- #page -->
 
-<!-- THREE.JS CDN -->
+<!-- THREE.JS via importmap CDN — no build step -->
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js"}}</script>
 <script type="module">
 import * as THREE from 'three';
 
-/* ── RENDERER ── */
+/* ===== RENDERER — fills entire viewport ===== */
 const canvas   = document.getElementById('bg-canvas');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: false });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
-renderer.setClearColor(0x050A12, 1);
+renderer.setClearColor(0x050A12, 1); // opaque dark base so html bg doesn't matter
 
 const scene  = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(65, innerWidth / innerHeight, 0.1, 300);
 camera.position.set(0, 0, 22);
 
-function resize() {
+function onResize() {
   renderer.setSize(innerWidth, innerHeight);
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
 }
-resize();
-window.addEventListener('resize', resize);
+onResize();
+window.addEventListener('resize', onResize);
 
-/* ── STAR SPHERE (1400 pts, one draw call) ── */
+/* ===== STAR SPHERE (1400 pts) ===== */
 const N = 1400;
 const sPos = new Float32Array(N * 3);
 const sCol = new Float32Array(N * 3);
@@ -609,14 +652,13 @@ const stars = new THREE.Points(starGeo,
 );
 scene.add(stars);
 
-/* ── K8S NODE NETWORK ── */
-const CYAN_C  = new THREE.Color(0x00D4FF);
-const AMBER_C = new THREE.Color(0xFFB547);
-const DIM_C   = new THREE.Color(0x1C3050);
+/* ===== K8S NODE NETWORK ===== */
+const CYN = new THREE.Color(0x00D4FF);
+const AMB = new THREE.Color(0xFFB547);
+const DIM = new THREE.Color(0x1C3050);
 
-// Positions: index 0 = control-plane, 1-9 = workers
 const NP = [
-  new THREE.Vector3( 0.0,  0.0,  0.0),
+  new THREE.Vector3( 0.0,  0.0,  0.0),   // 0 = control-plane
   new THREE.Vector3(-5.5,  2.2, -1.5),
   new THREE.Vector3( 5.2,  1.8, -2.0),
   new THREE.Vector3(-3.8, -3.0,  1.8),
@@ -631,16 +673,15 @@ const NP = [
 const netGroup  = new THREE.Group();
 const edgeGroup = new THREE.Group();
 
-// Node meshes
+// Node spheres
 const nodeMeshes = NP.map((pos, i) => {
   const isCP = i === 0;
   const geo  = new THREE.IcosahedronGeometry(isCP ? 0.44 : 0.19, isCP ? 2 : 1);
   const mat  = new THREE.MeshStandardMaterial({
     color:             isCP ? 0x051822 : 0x0A1828,
-    emissive:          isCP ? CYAN_C : DIM_C,
+    emissive:          isCP ? CYN : DIM,
     emissiveIntensity: isCP ? 0.55 : 0.2,
-    roughness: 0.3,
-    metalness: 0.8,
+    roughness: 0.3, metalness: 0.8,
   });
   const m = new THREE.Mesh(geo, mat);
   m.position.copy(pos);
@@ -652,31 +693,29 @@ const nodeMeshes = NP.map((pos, i) => {
 const cpShell = new THREE.Mesh(
   new THREE.IcosahedronGeometry(0.56, 2),
   new THREE.MeshStandardMaterial({
-    color: 0x020A14, emissive: CYAN_C, emissiveIntensity: 0.25,
+    color: 0x020A14, emissive: CYN, emissiveIntensity: 0.25,
     wireframe: true, transparent: true, opacity: 0.5,
   })
 );
 cpShell.position.copy(NP[0]);
 netGroup.add(cpShell);
 
-// CP glow torus ring
+// CP glow torus
 const cpTorus = new THREE.Mesh(
   new THREE.TorusGeometry(0.75, 0.02, 8, 60),
-  new THREE.MeshBasicMaterial({ color: CYAN_C, transparent: true, opacity: 0.4 })
+  new THREE.MeshBasicMaterial({ color: CYN, transparent: true, opacity: 0.4 })
 );
 cpTorus.position.copy(NP[0]);
 netGroup.add(cpTorus);
 
 // Edges
 const edgeMat = new THREE.LineBasicMaterial({ color: 0x1a3050, transparent: true, opacity: 0.5 });
-// CP to all workers
 for (let i = 1; i < NP.length; i++) {
   edgeGroup.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints([NP[0].clone(), NP[i].clone()]),
     edgeMat
   ));
 }
-// Extra cross edges for mesh feel
 [[1,2],[3,4],[5,6],[7,8],[1,5],[2,6],[8,9]].forEach(([a,b]) => {
   edgeGroup.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints([NP[a].clone(), NP[b].clone()]),
@@ -684,13 +723,13 @@ for (let i = 1; i < NP.length; i++) {
   ));
 });
 
-// Data packet particles (travel along edges)
+// Packet particles
 const pkts = Array.from({ length: 20 }, (_, i) => ({
-  from:  i < 9 ? 0 : (1 + Math.floor(Math.random() * 8)),
-  to:    i < 9 ? i + 1 : (1 + Math.floor(Math.random() * 8)),
+  from:  i < 9 ? 0 : 1 + Math.floor(Math.random() * 8),
+  to:    i < 9 ? i + 1 : 1 + Math.floor(Math.random() * 8),
   t:     Math.random(),
   speed: 0.1 + Math.random() * 0.18,
-  color: i % 3 === 0 ? AMBER_C : CYAN_C,
+  color: i % 3 === 0 ? AMB : CYN,
 }));
 const pktGeo = new THREE.SphereGeometry(0.046, 5, 5);
 const pktMeshes = pkts.map(p => {
@@ -702,57 +741,50 @@ const pktMeshes = pkts.map(p => {
 scene.add(edgeGroup);
 scene.add(netGroup);
 
-// Nebula haze slabs (very faint, for depth)
+// Nebula haze
 [
-  { pos: [0, -8, -28],  col: 0x00D4FF, rx:  0.18 },
-  { pos: [22, 5, -36],  col: 0xFFB547, rx: -0.1  },
-  { pos: [-18, 3, -32], col: 0x0044AA, rx:  0.28  },
+  { pos:[0,-8,-28], col:0x00D4FF, rx:0.18 },
+  { pos:[22,5,-36], col:0xFFB547, rx:-0.1 },
+  { pos:[-18,3,-32],col:0x0044AA, rx:0.28 },
 ].forEach(h => {
   const m = new THREE.Mesh(
     new THREE.PlaneGeometry(90, 55),
-    new THREE.MeshBasicMaterial({ color: h.col, transparent: true, opacity: 0.018, side: THREE.DoubleSide, depthWrite: false })
+    new THREE.MeshBasicMaterial({ color:h.col, transparent:true, opacity:0.018, side:THREE.DoubleSide, depthWrite:false })
   );
-  m.position.set(h.pos[0], h.pos[1], h.pos[2]);
+  m.position.set(h.pos[0],h.pos[1],h.pos[2]);
   m.rotation.x = h.rx;
   scene.add(m);
 });
 
-/* ── LIGHTS ── */
+/* ===== LIGHTS ===== */
 scene.add(new THREE.AmbientLight(0xffffff, 0.2));
-const cL = new THREE.PointLight(0x00D4FF, 2.8, 28);
-cL.position.set(0, 3, 5);
-scene.add(cL);
-scene.add(Object.assign(new THREE.PointLight(0xFFB547, 0.8, 18), { position: new THREE.Vector3(6, -4, 4) }));
+const cL = new THREE.PointLight(0x00D4FF, 2.8, 28); cL.position.set(0,3,5); scene.add(cL);
+const aL = new THREE.PointLight(0xFFB547, 0.8, 18); aL.position.set(6,-4,4); scene.add(aL);
 
-/* ── CURSOR ── */
-let cxN = 0, cyN = 0;
+/* ===== INPUT ===== */
+let cxN = 0, cyN = 0, scrollY = 0;
 window.addEventListener('mousemove', e => {
-  cxN = (e.clientX / innerWidth)  * 2 - 1;
+  cxN = (e.clientX / innerWidth) * 2 - 1;
   cyN = -(e.clientY / innerHeight) * 2 + 1;
 });
+window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive:true });
 
-let scrollY = 0;
-window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
-
-/* ── RENDER LOOP ── */
+/* ===== RENDER LOOP ===== */
 const clock = new THREE.Clock();
-(function animate() {
-  requestAnimationFrame(animate);
+(function tick() {
+  requestAnimationFrame(tick);
   const t = clock.getElapsedTime();
 
-  // Stars drift
   stars.rotation.y = t * 0.006;
   stars.rotation.x = Math.sin(t * 0.003) * 0.04;
 
-  // Network slow rotation + cursor parallax + scroll
-  const targetRY = t * 0.03 + scrollY * 0.0004;
-  const targetRX = cxN * -0.08 + t * 0.012;
-  netGroup.rotation.y  += (targetRY - netGroup.rotation.y)  * 0.04;
-  netGroup.rotation.x  += (targetRX - netGroup.rotation.x)  * 0.04;
+  const tRY = t * 0.03 + scrollY * 0.0004;
+  const tRX = cxN * -0.08 + t * 0.012;
+  netGroup.rotation.y  += (tRY - netGroup.rotation.y)  * 0.04;
+  netGroup.rotation.x  += (tRX - netGroup.rotation.x)  * 0.04;
   netGroup.rotation.z  += (cyN * 0.05 - netGroup.rotation.z) * 0.04;
   edgeGroup.rotation.copy(netGroup.rotation);
 
-  // CP elements animate
   cpTorus.rotation.z = t * 0.5;
   cpTorus.rotation.x = Math.sin(t * 0.35) * 0.3;
   cpShell.rotation.y = -t * 0.2;
@@ -760,18 +792,15 @@ const clock = new THREE.Clock();
   nodeMeshes[0].material.emissiveIntensity = 0.45 + Math.sin(t * 1.4) * 0.2;
   cpShell.material.opacity = 0.35 + Math.sin(t * 1.1) * 0.18;
 
-  // Worker nodes float
   for (let i = 1; i < NP.length; i++) {
     nodeMeshes[i].position.y = NP[i].y + Math.sin(t * 0.5 + i * 0.72) * 0.13;
   }
 
-  // Packets travel
   pkts.forEach((p, i) => {
     p.t = (p.t + p.speed * 0.016) % 1;
     pktMeshes[i].position.lerpVectors(NP[p.from], NP[p.to], p.t);
   });
 
-  // Camera parallax from cursor
   camera.position.x += (cxN * 1.2 - camera.position.x) * 0.025;
   camera.position.y += (cyN * 0.7  - camera.position.y) * 0.025;
   camera.position.z  = 22 + scrollY * 0.005;
@@ -780,20 +809,17 @@ const clock = new THREE.Clock();
   renderer.render(scene, camera);
 })();
 
-/* ── DOM CURSOR ── */
+/* ===== CURSOR ===== */
 const dot  = document.getElementById('cdot');
 const ring = document.getElementById('cring');
 let mx = -200, my = -200, rx = -200, ry = -200;
 window.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
-  dot.style.left  = mx + 'px';
-  dot.style.top   = my + 'px';
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
 });
 (function lagRing() {
-  rx += (mx - rx) * 0.17;
-  ry += (my - ry) * 0.17;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
+  rx += (mx - rx) * 0.17; ry += (my - ry) * 0.17;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
   requestAnimationFrame(lagRing);
 })();
 document.querySelectorAll('a,button,.btn,.chip,.proj-card,.job-card,.contact-link').forEach(el => {
@@ -801,14 +827,14 @@ document.querySelectorAll('a,button,.btn,.chip,.proj-card,.job-card,.contact-lin
   el.addEventListener('mouseleave', () => ring.classList.remove('big'));
 });
 
-/* ── SCROLL REVEAL ── */
-const obs = new IntersectionObserver(
-  es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }),
+/* ===== SCROLL REVEAL ===== */
+const revObs = new IntersectionObserver(
+  es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } }),
   { threshold: 0.1 }
 );
-document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+document.querySelectorAll('[data-reveal]').forEach(el => revObs.observe(el));
 
-/* ── CARD TILT ── */
+/* ===== CARD TILT ===== */
 function addTilt(sel, s) {
   document.querySelectorAll(sel).forEach(el => {
     el.addEventListener('mousemove', e => {
@@ -825,12 +851,11 @@ function addTilt(sel, s) {
 addTilt('.job-card', 9);
 addTilt('.proj-card', 11);
 
-/* ── MAGNETIC BUTTONS ── */
+/* ===== MAGNETIC BUTTONS ===== */
 document.querySelectorAll('.btn,.nav-resume,.contact-link').forEach(el => {
   let ox = 0, oy = 0, tx = 0, ty = 0, id;
   const tick = () => {
-    ox += (tx - ox) * 0.16;
-    oy += (ty - oy) * 0.16;
+    ox += (tx - ox) * 0.16; oy += (ty - oy) * 0.16;
     el.style.transform = `translate(${ox.toFixed(2)}px,${oy.toFixed(2)}px)`;
     id = requestAnimationFrame(tick);
   };
