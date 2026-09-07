@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Yash Dhumane — DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
+<meta name="description" content="Yash Dhumane - DevOps Engineer in Pune. Self-hosted K8s on Proxmox, GitLab CI/CD, Jenkins. Available for DevOps and SRE roles."/>
 <meta property="og:title" content="Yash Dhumane — DevOps Engineer"/>
-<meta property="og:description" content="Self-hosted Kubernetes, CI/CD pipelines, bare-metal infrastructure. DevOps Engineer at Honcho Minds."/>
+<meta property="og:description" content="DevOps Engineer in Pune — self-hosted K8s on Proxmox, GitLab CI/CD, Jenkins pipelines. Available for DevOps and SRE roles."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yashdhumane12.github.io/yashdhumane-portfolio/"/>
 <meta name="twitter:card" content="summary"/>
@@ -311,10 +311,11 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
 }
 .nav-item a:hover{background:var(--c-nav-hover);color:var(--c-accent);transform:translate(4px);}
 .nav-item a.active{
-  background:var(--c-nav-active-bg);
-  border-color:rgba(91,141,239,.15);
-  box-shadow:inset 3px 0 0 var(--c-accent),0 0 20px var(--c-glow);
+  background:rgba(91,141,239,.18);
+  border-color:rgba(91,141,239,.35);
+  box-shadow:inset 3px 0 0 var(--c-accent),0 0 28px var(--c-glow),0 0 0 1px rgba(91,141,239,.1);
   color:var(--c-accent);cursor:default;transform:translate(0);
+  font-weight:700;
 }
 .nav-item a.active::after{
   content:'';position:absolute;top:0;left:3px;right:12px;height:1px;
@@ -333,7 +334,7 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
   box-shadow:0 0 8px var(--c-success);
   animation:ledPulse 2s ease-in-out infinite;
 }
-@keyframes ledPulse{0%,100%{box-shadow:0 0 4px var(--c-success);opacity:1;}50%{box-shadow:0 0 12px var(--c-success);opacity:.85;}}
+@keyframes ledPulse{0%,100%{box-shadow:0 0 5px var(--c-success),0 0 10px var(--c-success);opacity:1;}50%{box-shadow:0 0 14px var(--c-success),0 0 28px var(--c-success);opacity:.8;}}
 
 /* Perf plate dots */
 .perf-plate{display:flex;flex-direction:column;align-items:center;gap:3px;padding:.75rem 12px;margin-bottom:.75rem;}
@@ -713,6 +714,46 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
   .overhead,.exp-meta,.log-ts{color:#666 !important;}
   .exp-company,.log-prompt{color:#1a40d8 !important;}
 }
+/* ── MOBILE BOTTOM NAV ── */
+.mob-nav{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:600;
+  background:rgba(13,14,18,.95);
+  border-top:1px solid var(--c-border);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px));
+}
+.mob-nav-items{
+  display:flex;align-items:stretch;justify-content:space-around;
+  list-style:none;padding:0;margin:0;
+}
+.mob-nav-items a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;padding:6px 8px;min-width:44px;
+  color:var(--c-muted);text-decoration:none;
+  font-family:var(--font-mono);font-size:9px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  border-radius:8px;transition:color .15s,background .15s;
+  position:relative;
+}
+.mob-nav-items a:hover{color:var(--c-accent);}
+.mob-nav-items a.active{color:var(--c-accent);}
+.mob-nav-items a.active::before{
+  content:'';
+  position:absolute;top:0;left:20%;right:20%;
+  height:2px;background:var(--c-accent);
+  border-radius:0 0 3px 3px;
+  box-shadow:0 0 8px var(--c-accent);
+}
+.mob-nav-icon{font-size:16px;line-height:1;display:block;}
+.mob-nav-label{line-height:1;}
+@media(max-width:991px){
+  .mob-nav{display:block;}
+  .gutter-top{padding-bottom:calc(3rem + 64px);}
+  .scroll-top{bottom:80px;}
+}
+@media(min-width:992px){.mob-nav{display:none !important;}}
 </style>
 </head>
 <body class="bg-triangles">
@@ -1239,6 +1280,23 @@ navLinks.forEach(a => {
   });
 });
 
+/* ── MOBILE NAV: scroll spy + smooth scroll ── */
+const mobLinks = document.querySelectorAll('.mob-nav-items a[data-mob]');
+function updateMobNav() {
+  let current = 'about';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  mobLinks.forEach(a => a.classList.toggle('active', a.dataset.mob === current));
+}
+window.addEventListener('scroll', updateMobNav, {passive:true});
+updateMobNav();
+mobLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.getElementById(a.dataset.mob);
+    if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
 /* ── SCROLL REVEAL with IntersectionObserver ── */
 const revObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -1335,5 +1393,17 @@ document.querySelectorAll('.portfolio-card').forEach(card => {
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
+<!-- Mobile bottom nav -->
+<nav class="mob-nav" aria-label="Mobile navigation">
+  <ul class="mob-nav-items">
+    <li><a href="#about" data-mob="about"><span class="mob-nav-icon">&#8857;</span><span class="mob-nav-label">About</span></a></li>
+    <li><a href="#experience" data-mob="experience"><span class="mob-nav-icon">&#9672;</span><span class="mob-nav-label">Exp</span></a></li>
+    <li><a href="#skills" data-mob="skills"><span class="mob-nav-icon">&#9671;</span><span class="mob-nav-label">Skills</span></a></li>
+    <li><a href="#projects" data-mob="projects"><span class="mob-nav-icon">&#11041;</span><span class="mob-nav-label">Projects</span></a></li>
+    <li><a href="#homelab" data-mob="homelab"><span class="mob-nav-icon">&#8984;</span><span class="mob-nav-label">Homelab</span></a></li>
+    <li><a href="#education" data-mob="education"><span class="mob-nav-icon">&#127891;</span><span class="mob-nav-label">Edu</span></a></li>
+    <li><a href="#contact" data-mob="contact"><span class="mob-nav-icon">&#9678;</span><span class="mob-nav-label">Contact</span></a></li>
+  </ul>
+</nav>
 </body>
 </html>
