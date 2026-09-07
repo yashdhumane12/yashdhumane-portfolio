@@ -4,6 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="description" content="Yash Dhumane — DevOps Engineer. Self-hosted Kubernetes, CI/CD, bare-metal infrastructure."/>
+<meta property="og:title" content="Yash Dhumane — DevOps Engineer"/>
+<meta property="og:description" content="Self-hosted Kubernetes, CI/CD pipelines, bare-metal infrastructure. DevOps Engineer at Honcho Minds."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://yashdhumane12.github.io/yashdhumane-portfolio/"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Yash Dhumane — DevOps Engineer"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235b8def'/><text y='.9em' font-size='60' x='50%' text-anchor='middle' font-family='monospace' font-weight='bold' fill='white'>YD</text></svg>"/>
 <title>Yash Dhumane — DevOps Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -656,6 +663,41 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
   .gutter-top{padding-top:1rem;padding-bottom:calc(1rem + 60px);}
   .stats-grid{grid-template-columns:repeat(2,1fr);}
 }
+/* ── EDUCATION ── */
+.edu-list{display:flex;flex-direction:column;gap:1rem;}
+.edu-card{
+  display:flex;gap:1.25rem;align-items:flex-start;
+  padding:1.25rem;background:var(--c-surface);
+  border:1px solid var(--c-border);border-left:3px solid var(--c-accent);
+  border-radius:12px;transition:all .25s ease;
+}
+.edu-card:hover{transform:translateY(-3px);box-shadow:var(--elev-raised);border-color:var(--c-accent);}
+.edu-icon{
+  width:48px;height:48px;border-radius:10px;flex-shrink:0;
+  background:rgba(91,141,239,.12);
+  display:flex;align-items:center;justify-content:center;font-size:1.25rem;
+}
+.edu-degree{font-size:1rem;font-weight:600;color:var(--c-heading);margin-bottom:.25rem;}
+.edu-school{font-size:.875rem;color:var(--c-accent);font-weight:500;margin-bottom:.5rem;}
+.edu-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;font-family:var(--font-mono);font-size:.75rem;color:var(--c-muted);}
+.edu-badge{
+  padding:.2rem .625rem;border-radius:4px;font-size:.65rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.edu-badge--dist{background:rgba(52,211,153,.1);color:var(--c-success);border:1px solid rgba(52,211,153,.3);}
+/* scroll-to-top */
+.scroll-top{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--c-surface);border:1px solid var(--c-border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c-muted);cursor:pointer;
+  box-shadow:var(--elev-float);
+  opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s,background .2s,border-color .2s;
+}
+.scroll-top.visible{opacity:1;pointer-events:auto;}
+.scroll-top:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fff;transform:translateY(-2px);}
 </style>
 </head>
 <body class="bg-triangles">
@@ -675,7 +717,9 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
     <div class="header__body">
       <!-- Identity -->
       <div class="header-identity">
-        <div class="header-identity__photo" aria-label="Yash Dhumane">YD</div>
+        <div class="header-identity__photo" aria-label="Yash Dhumane">
+  <img src="profile.jpg" alt="Yash Dhumane" onerror="this.parentElement.innerHTML='YD'" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+</div>
         <div>
           <div class="header-identity__name">Yash <span>Dhumane</span></div>
           <div class="header-identity__role">DevOps Engineer</div>
@@ -740,6 +784,9 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
           <li class="nav-item"><a href="#homelab" data-section="homelab">
             <span class="nav-icon">⌘</span><span class="nav-label">Homelab</span><span class="nav-led"></span>
           </a></li>
+          <li class="nav-item"><a href="#education" data-section="education">
+            <span class="nav-icon">🎓</span><span class="nav-label">Education</span><span class="nav-led"></span>
+          </a></li>
           <li class="nav-item"><a href="#contact" data-section="contact">
             <span class="nav-icon">◎</span><span class="nav-label">Contact</span><span class="nav-led"></span>
           </a></li>
@@ -772,7 +819,7 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
             <p>I'm a <strong>DevOps Engineer at Honcho Minds</strong>, working across production and staging environments for several products at once — an AI-powered ITSM platform, a legal-AI product, and a source-code protection service among them.</p>
             <p>My infrastructure is entirely <strong>self-hosted</strong>: a Proxmox hypervisor running a kubeadm-built Kubernetes cluster, self-hosted GitLab CE and Jenkins for CI/CD, and Nginx/HAProxy handling routing and TLS by hand. No managed Kubernetes, no managed CI — when something breaks, there's no support ticket to file, only logs to read.</p>
             <p>That constraint has made debugging the core of the job: tracing WebSocket 403s to token-validation order, chasing down nginx DNS caching, rebuilding a Jenkins pipeline around Nuitka-compiled source protection. I like the kind of problem that only shows up once real traffic hits it.</p>
-            <p>Open to DevOps, SRE, and infrastructure roles where reliability, security, and automation are non-negotiable.</p>
+            <p>DevOps Engineer with hands-on experience in Docker, Jenkins, Linux server administration, AWS, and Nginx/IIS-based CI/CD pipeline management. Skilled in deployment automation, monitoring, and cross-team collaboration to improve deployment efficiency and infrastructure reliability. Open to DevOps, SRE, and Platform Engineering roles where reliability, security, and automation are non-negotiable.</p>
           </div>
 
           <div class="stats-grid reveal d1" style="margin-top:2rem;">
@@ -838,13 +885,14 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
                   <span>Pune, India</span>
                 </div>
                 <ul class="exp-bullets">
-                  <li class="exp-bullet">Manage and maintain Jenkins CI/CD pipelines for automated deployments across multiple products.</li>
-                  <li class="exp-bullet">Migrated a production CI/CD pipeline from Jenkins to self-hosted GitLab CI, resolving cascading issues around git-clean file wipes, Docker socket permissions, and environment file handling.</li>
-                  <li class="exp-bullet">Run a self-built kubeadm Kubernetes cluster (1 control plane, 9 worker nodes) on Proxmox, plus self-hosted GitLab CE and Jenkins.</li>
-                  <li class="exp-bullet">Debugged recurring WebSocket 403 errors across staging environments, tracing the root cause to token validation happening before ws.accept().</li>
-                  <li class="exp-bullet">Built a Jenkins pipeline for a source-code protection service using Nuitka compilation, Cython, and a GitLab Container Registry push workflow.</li>
-                  <li class="exp-bullet">Led a security remediation effort moving plaintext secrets out of Kubernetes ConfigMaps into proper Secrets.</li>
-                  <li class="exp-bullet">Configured Nginx and IIS for hosting and reverse proxy, and handled Linux server administration, troubleshooting, and log monitoring.</li>
+                  <li class="exp-bullet">Managed and maintained CI/CD pipelines using Jenkins to automate build and deployment workflows across multiple projects.</li>
+                  <li class="exp-bullet">Containerized applications using Docker to ensure consistent, repeatable deployment environments.</li>
+                  <li class="exp-bullet">Configured and administered Nginx and IIS servers for application hosting and reverse proxy setup.</li>
+                  <li class="exp-bullet">Monitored application uptime, server health, and deployment performance to maintain infrastructure reliability.</li>
+                  <li class="exp-bullet">Supported AWS cloud infrastructure management and deployment activities.</li>
+                  <li class="exp-bullet">Collaborated with development teams to streamline and standardize deployment workflows.</li>
+                  <li class="exp-bullet">Performed Linux server administration, troubleshooting, and log monitoring to resolve production issues.</li>
+                  <li class="exp-bullet">Implemented deployment validation and rollback procedures to reduce risk during production releases.</li>
                 </ul>
                 <div class="exp-tags">
                   <span class="exp-tag">Jenkins</span><span class="exp-tag">GitLab CI</span><span class="exp-tag">Kubernetes</span>
@@ -1044,6 +1092,40 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
           </div>
         </section>
 
+        <!-- ═══ EDUCATION ═══ -->
+        <section id="education" class="box box-content" style="scroll-margin-top:1rem;">
+          <span class="overhead">Academic Background</span>
+          <h2 class="title-sep">Education</h2>
+
+          <div class="edu-list reveal">
+
+            <div class="edu-card">
+              <div class="edu-icon">🎓</div>
+              <div class="edu-body">
+                <div class="edu-degree">Postgraduate Diploma in Management</div>
+                <div class="edu-school">Pune, India</div>
+                <div class="edu-meta">
+                  <span>2024 – 2026</span>
+                  <span class="edu-badge edu-badge--dist">First Class with Distinction</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-icon">💻</div>
+              <div class="edu-body">
+                <div class="edu-degree">B.E. in Information Technology</div>
+                <div class="edu-school">NBN Sinhgad College of Engineering, Pune</div>
+                <div class="edu-meta">
+                  <span>2019 – 2023</span>
+                  <span class="edu-badge edu-badge--dist">First Class with Distinction</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         <!-- ═══ CONTACT ═══ -->
         <section id="contact" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Get in touch</span>
@@ -1176,6 +1258,32 @@ themeBtn.addEventListener('click', () => {
   }
 });
 
+/* ── SCROLL TO TOP ── */
+const scrollTopBtn = document.getElementById('scroll-top');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, {passive:true});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ── TYPING / ROLE ROTATOR ── */
+const roles = ['DevOps Engineer', 'Site Reliability Engineer', 'Platform Engineer', 'K8s Cluster Admin'];
+const roleEl = document.querySelector('.header-identity__role');
+if (roleEl) {
+  let ri = 0, ci = 0, deleting = false;
+  function typeRole() {
+    const current = roles[ri];
+    if (!deleting) {
+      roleEl.textContent = current.slice(0, ++ci);
+      if (ci === current.length) { deleting = true; setTimeout(typeRole, 1800); return; }
+    } else {
+      roleEl.textContent = current.slice(0, --ci);
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+    }
+    setTimeout(typeRole, deleting ? 45 : 80);
+  }
+  setTimeout(typeRole, 1200);
+}
+
 /* ── PROJECT CARD HOVER TILT ── */
 document.querySelectorAll('.portfolio-card').forEach(card => {
   card.addEventListener('mousemove', e => {
@@ -1187,5 +1295,8 @@ document.querySelectorAll('.portfolio-card').forEach(card => {
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 </script>
+<button class="scroll-top" id="scroll-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 </body>
 </html>
