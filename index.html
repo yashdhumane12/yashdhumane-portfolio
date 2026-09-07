@@ -180,6 +180,7 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
   font-size:.85rem;font-weight:500;
   color:var(--c-text);margin-top:.2rem;line-height:1.3;
 }
+@keyframes blink-cursor{0%,100%{opacity:1;}50%{opacity:0;}}
 .header-identity__operator{
   font-family:var(--font-mono);font-size:.65rem;
   color:var(--c-muted);margin-top:.25rem;letter-spacing:.06em;
@@ -698,6 +699,20 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
 }
 .scroll-top.visible{opacity:1;pointer-events:auto;}
 .scroll-top:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fff;transform:translateY(-2px);}
+/* PRINT */
+@media print {
+  .sidebar,.scroll-top,.theme-btn,.rack-utils{display:none !important;}
+  .col-lg-2{display:none !important;}
+  .col-lg-10{flex:0 0 100%;max-width:100%;}
+  body{background:#fff !important;color:#111 !important;}
+  .bg-triangles{background-image:none !important;background:#fff !important;}
+  .box{box-shadow:none !important;border:1px solid #ddd !important;background:#fff !important;break-inside:avoid;}
+  .header{border-radius:4px !important;}
+  .title-sep,.exp-position,.card-title,.edu-degree{color:#000 !important;}
+  .about-bio p,.exp-bullet,.log-entry{color:#333 !important;}
+  .overhead,.exp-meta,.log-ts{color:#666 !important;}
+  .exp-company,.log-prompt{color:#1a40d8 !important;}
+}
 </style>
 </head>
 <body class="bg-triangles">
@@ -717,12 +732,12 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
     <div class="header__body">
       <!-- Identity -->
       <div class="header-identity">
-        <div class="header-identity__photo" aria-label="Yash Dhumane">
-  <img src="profile.jpg" alt="Yash Dhumane" onerror="this.parentElement.innerHTML='YD'" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-</div>
+        <div class="header-identity__photo" id="photo-wrap">
+          <img src="profile.jpg" alt="Yash Dhumane" id="profile-img" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="document.getElementById('photo-wrap').innerHTML='YD'"/>
+        </div>
         <div>
           <div class="header-identity__name">Yash <span>Dhumane</span></div>
-          <div class="header-identity__role">DevOps Engineer</div>
+          <div class="header-identity__role"><span class="type-text">DevOps Engineer</span><span class="type-cursor" style="display:inline-block;width:2px;height:.85em;background:var(--c-accent);margin-left:2px;vertical-align:text-bottom;animation:blink-cursor .8s step-end infinite;"></span></div>
           <div class="header-identity__operator">operator/01 &nbsp;·&nbsp; Pune, IN</div>
           <div class="avail-badge"><span class="avail-badge__dot"></span>Available</div>
         </div>
@@ -1070,7 +1085,20 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
         <section id="homelab" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Homelab / Postmortems</span>
           <h2 class="title-sep">Notes from bare metal</h2>
-          <p style="color:var(--c-muted);margin-bottom:1.5rem;font-size:.9375rem;">Recurring issues traced and fixed on the self-hosted stack — kept as a running log rather than buried in tickets.</p>
+          <p style="color:var(--c-muted);margin-bottom:1.5rem;font-size:.9375rem;">Self-hosted infrastructure running 24/7 - postmortems kept as a running log rather than buried in tickets.</p>
+
+          <!-- Infra stack overview -->
+          <div class="reveal" style="margin-bottom:1.5rem;background:var(--c-surface-alt);border:1px solid var(--c-border);border-left:3px solid var(--c-accent-2);border-radius:10px;padding:1.25rem 1.5rem;">
+            <div style="font-family:var(--font-mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);margin-bottom:.875rem;">Infrastructure Stack</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.875rem;">
+              <div><span style="font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent-2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.2rem;">Hypervisor</span><span style="font-size:.875rem;color:var(--c-heading);font-weight:600;display:block;">Proxmox VE</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);">Bare-metal host</span></div>
+              <div><span style="font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent-2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.2rem;">Orchestration</span><span style="font-size:.875rem;color:var(--c-heading);font-weight:600;display:block;">Kubernetes (kubeadm)</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);">1 CP + 9 workers</span></div>
+              <div><span style="font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent-2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.2rem;">CI/CD</span><span style="font-size:.875rem;color:var(--c-heading);font-weight:600;display:block;">GitLab CE + Jenkins</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);">Self-hosted, no SaaS</span></div>
+              <div><span style="font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent-2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.2rem;">Registry</span><span style="font-size:.875rem;color:var(--c-heading);font-weight:600;display:block;">Harbor</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);">Container image store</span></div>
+              <div><span style="font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent-2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.2rem;">Networking</span><span style="font-size:.875rem;color:var(--c-heading);font-weight:600;display:block;">pfSense + HAProxy</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);">TLS termination + routing</span></div>
+              <div><span style="font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent-2);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.2rem;">Reverse Proxy</span><span style="font-size:.875rem;color:var(--c-heading);font-weight:600;display:block;">Nginx + IIS</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);">App hosting + proxy</span></div>
+            </div>
+          </div>
 
           <div class="log-terminal reveal">
             <div class="log-chrome">
@@ -1155,6 +1183,15 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
             Download Resume
           </a>
+
+          <!-- GitHub Stats -->
+          <div class="reveal d2" style="margin-top:2rem;">
+            <div style="font-family:var(--font-mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);margin-bottom:1rem;">GitHub Activity</div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
+              <img src="https://github-readme-stats.vercel.app/api?username=yashdhumane12&show_icons=true&theme=github_dark&bg_color=16181f&border_color=2a2e3a&title_color=5b8def&text_color=c8cdd8&icon_color=5b8def&count_private=true" alt="Yash GitHub Stats" style="border-radius:8px;border:1px solid var(--c-border);max-width:100%;height:auto;" loading="lazy" onerror="this.style.display='none'"/>
+              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yashdhumane12&layout=compact&theme=github_dark&bg_color=16181f&border_color=2a2e3a&title_color=5b8def&text_color=c8cdd8" alt="Top Languages" style="border-radius:8px;border:1px solid var(--c-border);max-width:100%;height:auto;" loading="lazy" onerror="this.style.display='none'"/>
+            </div>
+          </div>
         </section>
 
         <!-- FOOTER -->
@@ -1267,21 +1304,21 @@ scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'sm
 
 /* ── TYPING / ROLE ROTATOR ── */
 const roles = ['DevOps Engineer', 'Site Reliability Engineer', 'Platform Engineer', 'K8s Cluster Admin'];
-const roleEl = document.querySelector('.header-identity__role');
-if (roleEl) {
+const typeText = document.querySelector('.type-text');
+if (typeText) {
   let ri = 0, ci = 0, deleting = false;
   function typeRole() {
     const current = roles[ri];
     if (!deleting) {
-      roleEl.textContent = current.slice(0, ++ci);
-      if (ci === current.length) { deleting = true; setTimeout(typeRole, 1800); return; }
+      typeText.textContent = current.slice(0, ++ci);
+      if (ci === current.length) { deleting = true; setTimeout(typeRole, 2000); return; }
     } else {
-      roleEl.textContent = current.slice(0, --ci);
+      typeText.textContent = current.slice(0, --ci);
       if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
     }
-    setTimeout(typeRole, deleting ? 45 : 80);
+    setTimeout(typeRole, deleting ? 40 : 75);
   }
-  setTimeout(typeRole, 1200);
+  setTimeout(typeRole, 1400);
 }
 
 /* ── PROJECT CARD HOVER TILT ── */
