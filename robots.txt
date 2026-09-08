@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://yashdhumane12.github.io/yashdhumane-portfolio/sitemap.xml
