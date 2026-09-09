@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/globals.css';
 
 import { useStore } from './store';
@@ -16,8 +14,6 @@ import Projects   from './components/sections/Projects';
 import Homelab    from './components/sections/Homelab';
 import Contact    from './components/sections/Contact';
 import Footer     from './components/sections/Footer';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const SECTIONS = ['hero','about','experience','skills','projects','homelab','contact'];
 
@@ -51,6 +47,23 @@ export default function App() {
     els.forEach(el => obs.observe(el));
     return () => obs.disconnect();
   }, [setSection]);
+
+  useEffect(() => {
+    const revealEls = Array.from(document.querySelectorAll('[data-reveal]')) as HTMLElement[];
+    if (!revealEls.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
