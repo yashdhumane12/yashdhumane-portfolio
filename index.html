@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
@@ -141,7 +141,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 
 /* ── REVEAL on scroll ── */
 .reveal{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease;}
-body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
+/* reveal: hidden state removed — sections visible by default, JS adds fade-in class */
 .reveal.revealed{opacity:1;transform:translateY(0);}
 .reveal.d1{transition-delay:.08s;}.reveal.d2{transition-delay:.16s;}
 .reveal.d3{transition-delay:.24s;}.reveal.d4{transition-delay:.32s;}
@@ -841,10 +841,7 @@ body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
   transition:opacity .6s ease-out,transform .6s ease-out;
   will-change:opacity,transform;
 }
-body.js-ready .section-fade:not(.is-visible){
-  opacity:0;
-  transform:translateY(20px);
-}
+
 .section-fade.is-visible{
   opacity:1;
   transform:translateY(0);
@@ -857,10 +854,7 @@ body.js-ready .section-fade:not(.is-visible){
   transition:opacity .35s ease-out,transform .35s ease-out;
   will-change:opacity,transform;
 }
-body.js-ready .log-row:not(.log-visible){
-  opacity:0;
-  transform:translateX(-12px);
-}
+
 .log-row.log-visible{
   opacity:1;
   transform:translateX(0);
@@ -892,9 +886,9 @@ body.js-ready .log-row:not(.log-visible){
 /* Reduced motion overrides */
 @media(prefers-reduced-motion:reduce){
   .chrome-cursor{display:none !important;}
-  .section-fade,body.js-ready .section-fade:not(.is-visible){opacity:1 !important;transform:none !important;transition:none !important;}
-  .log-row,body.js-ready .log-row:not(.log-visible){opacity:1 !important;transform:none !important;transition:none !important;}
-  .portfolio-card,body.js-ready .portfolio-card{transition:none !important;}
+  .section-fade,
+  .log-row,
+  .portfolio-card
   .portfolio-card:hover{transform:none !important;box-shadow:var(--elev-raised) !important;}
   .avail-badge__dot,.signal-dot{animation:none !important;box-shadow:0 0 4px var(--c-dot-green) !important;}
 }
@@ -1428,7 +1422,7 @@ body.js-ready .log-row:not(.log-visible){
 
 <script>
 /* ── BOOT: enable reveal animations ── */
-document.body.classList.add('js-ready');
+/* js-ready removed — reveal handled by IntersectionObserver directly */
 
 /* ── SCROLL SPY: update active nav link ── */
 const sections = document.querySelectorAll('section[id]');
