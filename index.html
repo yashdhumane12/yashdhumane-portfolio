@@ -644,7 +644,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .log-prompt{color:var(--c-success);margin-right:.5rem;font-weight:600;}
 
 /* ── CONTACT ── */
-.contact-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:1.5rem;}
+.contact-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:1.5rem;}
 /* Contact Form */
 .contact-form-wrap{margin-top:2rem;border-top:1px solid var(--c-border);padding-top:2rem;}
 .contact-form-title{font-size:1rem;font-weight:600;color:var(--c-heading);margin-bottom:.375rem;}
@@ -673,7 +673,26 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .form-status{display:none;padding:.875rem 1.125rem;border-radius:8px;font-size:.875rem;font-weight:500;align-items:center;gap:.625rem;}
 .form-status.success{display:flex;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--c-success);}
 .form-status.error{display:flex;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--c-error);}
-.contact-link{
+
+.contact-link .copy-badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:3;
+  margin-left:0;
+}
+.contact-link-inner{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:inherit;
+  flex:1;
+  min-width:0;
+  text-decoration:none;
+  padding-right:48px;
+}
+
+.contact-link{position:relative;
   display:flex;align-items:center;gap:14px;padding:1rem 1.25rem;
   background:var(--c-surface-alt);border:1px solid var(--c-border);border-radius:10px;
   color:var(--c-text);transition:border-color .15s,color .15s,background .15s,box-shadow .15s;
@@ -1941,19 +1960,25 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
           <p style="color:var(--c-muted);margin-bottom:1.5rem;font-size:.9375rem;">Open to DevOps and infrastructure roles. Reach out directly.</p>
 
           <div class="contact-links reveal">
-            <div class="contact-link" style="position:relative;cursor:default;">
-              <a href="mailto:yashdhumane391@gmail.com" style="display:flex;align-items:center;gap:12px;color:inherit;flex:1;">
+            <div class="contact-link">
+              <a href="mailto:yashdhumane391@gmail.com" class="contact-link-inner">
                 <div class="contact-icon">@</div>
-                <div><span class="contact-lbl">Email</span><span class="contact-val">yashdhumane391@gmail.com</span></div>
+                <div style="min-width:0;flex:1;">
+                  <span class="contact-lbl">Email</span>
+                  <span class="contact-val" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="yashdhumane391@gmail.com">yashdhumane391@gmail.com</span>
+                </div>
               </a>
-              <button type="button" class="copy-badge" data-copy="yashdhumane391@gmail.com" title="Copy Email address">copy</button>
+              <button type="button" class="copy-badge" data-copy="yashdhumane391@gmail.com" title="Copy Email address" aria-label="Copy Email address">copy</button>
             </div>
-            <div class="contact-link" style="position:relative;cursor:default;">
-              <a href="tel:+917219522590" style="display:flex;align-items:center;gap:12px;color:inherit;flex:1;">
+            <div class="contact-link">
+              <a href="tel:+917219522590" class="contact-link-inner">
                 <div class="contact-icon">#</div>
-                <div><span class="contact-lbl">Phone</span><span class="contact-val">+91-7219522590</span></div>
+                <div style="min-width:0;flex:1;">
+                  <span class="contact-lbl">Phone</span>
+                  <span class="contact-val" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">+91-7219522590</span>
+                </div>
               </a>
-              <button type="button" class="copy-badge" data-copy="+91-7219522590" title="Copy Phone number">copy</button>
+              <button type="button" class="copy-badge" data-copy="+91-7219522590" title="Copy Phone number" aria-label="Copy Phone number">copy</button>
             </div>
             <a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" class="contact-link">
               <div class="contact-icon" style="font-weight:700">in</div>
@@ -2032,6 +2057,91 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
     </div><!-- col-lg-10 -->
   </div><!-- row -->
 </div><!-- container -->
+
+<!-- Floating Interactive Terminal Button -->
+<button type="button" class="floating-term-btn" id="floating-term-btn" aria-label="Open Interactive Terminal (Ctrl + K)">
+  <span class="floating-term-icon">&gt;_</span>
+  <span>Console</span>
+  <kbd class="floating-term-kbd">Ctrl+K</kbd>
+</button>
+
+<!-- One-Click Copy Feedback Toast -->
+<div class="copy-toast" id="copy-toast" role="status" aria-live="polite">
+  <span class="copy-toast-dot"></span>
+  <span id="copy-toast-msg">Copied to clipboard!</span>
+</div>
+
+<!-- In-Browser Resume Preview Modal -->
+<div class="cv-overlay" id="cv-overlay" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+  <div class="cv-modal">
+    <div class="cv-modal-header">
+      <div class="cv-modal-title" id="cv-modal-title">
+        <span style="color:var(--c-accent);font-family:var(--font-mono);font-weight:700;margin-right:8px;">&gt;</span>
+        <span style="font-family:var(--font-mono);font-size:.82rem;font-weight:600;color:var(--c-heading);">resume.pdf — Yash Dhumane</span>
+      </div>
+      <div class="cv-modal-actions">
+        <a href="resume.pdf" target="_blank" rel="noopener" class="cv-btn-action" title="Open in new tab">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Open Tab
+        </a>
+        <a href="resume.pdf" download class="cv-btn-action" title="Download PDF">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download
+        </a>
+        <button type="button" class="cv-close-btn" id="cv-close-btn" aria-label="Close resume preview">&times;</button>
+      </div>
+    </div>
+    <div class="cv-modal-body">
+      <iframe src="resume.pdf" class="cv-iframe" id="cv-iframe" title="Resume PDF Preview"></iframe>
+      <div class="cv-fallback-msg">
+        Having trouble viewing the PDF preview? <a href="resume.pdf" target="_blank" rel="noopener">Click here to open directly</a> or <a href="resume.pdf" download>download it</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Interactive Command Palette Modal -->
+<div class="cmd-overlay" id="cmd-overlay" role="dialog" aria-modal="true" aria-label="Interactive Command Console">
+  <div class="cmd-modal">
+    <div class="cmd-header">
+      <div class="cmd-dots">
+        <span class="cmd-dot red" id="cmd-btn-close" title="Close Console (Esc)"></span>
+        <span class="cmd-dot amber"></span>
+        <span class="cmd-dot green"></span>
+      </div>
+      <span class="cmd-title">yash@homelab: ~ (interactive shell v2.4)</span>
+      <span class="cmd-esc-badge">ESC to close</span>
+    </div>
+    <div class="cmd-terminal-body" id="cmd-terminal-body">
+      <div class="cmd-welcome">
+        <pre class="cmd-ascii">
+ ██╗   ██╗ ██████╗ ██╗██████╗ 
+ ██║   ██║██╔═══██╗██║██╔══██╗
+ ██║   ██║██║   ██║██║██║  ██║
+ ╚██╗ ██╔╝██║   ██║██║██║  ██║
+  ╚████╔╝ ╚██████╔╝██║██████╔╝
+   ╚═══╝   ╚═════╝ ╚═╝╚═════╝ 
+        </pre>
+        <div class="cmd-subtext">Type <span class="cmd-kw">help</span> for available commands or click quick action chips below. Press <span class="cmd-kw">↑</span>/<span class="cmd-kw">↓</span> for command history.</div>
+      </div>
+      <div id="cmd-history"></div>
+      <div class="cmd-prompt-line">
+        <span class="cmd-prompt">yash@infra:~$</span>
+        <input type="text" class="cmd-input" id="cmd-input" autocomplete="off" spellcheck="false" placeholder="type a command..." aria-label="Command console input"/>
+      </div>
+    </div>
+    <div class="cmd-chips" id="cmd-chips">
+      <button type="button" class="cmd-chip" data-cmd="help">help</button>
+      <button type="button" class="cmd-chip" data-cmd="status">status</button>
+      <button type="button" class="cmd-chip" data-cmd="skills">skills</button>
+      <button type="button" class="cmd-chip" data-cmd="projects">projects</button>
+      <button type="button" class="cmd-chip" data-cmd="logs">logs</button>
+      <button type="button" class="cmd-chip" data-cmd="resume">resume</button>
+      <button type="button" class="cmd-chip" data-cmd="contact">contact</button>
+      <button type="button" class="cmd-chip" data-cmd="clear">clear</button>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ── BOOT: enable reveal animations ── */
@@ -2403,20 +2513,19 @@ if (contactForm) {
     const specsEl = document.getElementById('arch-node-specs');
     if (!flow || !titleEl || !descEl || !specsEl) return;
 
-    const nodes = flow.querySelectorAll('.arch-node');
-    nodes.forEach(node => {
-      node.addEventListener('click', () => {
-        const key = node.getAttribute('data-node');
-        const data = topoData[key];
-        if (!data) return;
+    flow.addEventListener('click', (e) => {
+      const node = e.target.closest('.arch-node');
+      if (!node) return;
+      const key = node.getAttribute('data-node');
+      const data = topoData[key];
+      if (!data) return;
 
-        nodes.forEach(n => n.classList.remove('active'));
-        node.classList.add('active');
+      flow.querySelectorAll('.arch-node').forEach(n => n.classList.remove('active'));
+      node.classList.add('active');
 
-        titleEl.textContent = data.title;
-        descEl.textContent = data.desc;
-        specsEl.innerHTML = data.specs.map(s => `<span class="spec-tag">${s}</span>`).join('');
-      });
+      titleEl.textContent = data.title;
+      descEl.textContent = data.desc;
+      specsEl.innerHTML = data.specs.map(s => `<span class="spec-tag">${s}</span>`).join('');
     });
   })();
 
@@ -2425,12 +2534,11 @@ if (contactForm) {
     const grepInput = document.getElementById('log-grep-input');
     const grepCount = document.getElementById('log-grep-count');
     const grepEmpty = document.getElementById('log-grep-empty');
-    const logRows = document.querySelectorAll('.log-terminal .log-row');
-    if (!grepInput || !logRows.length) return;
-
-    const total = logRows.length;
+    if (!grepInput) return;
 
     grepInput.addEventListener('input', () => {
+      const logRows = document.querySelectorAll('.log-terminal .log-row');
+      const total = logRows.length;
       const q = grepInput.value.trim().toLowerCase();
       let matchCount = 0;
 
@@ -2444,10 +2552,7 @@ if (contactForm) {
         }
       });
 
-      if (grepCount) {
-        grepCount.textContent = `${matchCount}/${total}`;
-      }
-
+      if (grepCount) grepCount.textContent = `${matchCount}/${total}`;
       if (grepEmpty) {
         if (matchCount === 0) {
           grepEmpty.style.display = 'block';
@@ -2460,151 +2565,92 @@ if (contactForm) {
     });
   })();
 
-  /* 7. One-Click Copy with Toast Notification */
-  (function initCopyButtons() {
-    const toast = document.getElementById('copy-toast');
-    const toastMsg = document.getElementById('copy-toast-msg');
-    let toastTimer = null;
-
-    function showToast(text) {
-      if (!toast) return;
-      if (toastMsg) toastMsg.textContent = `Copied to clipboard: ${text}`;
-      toast.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        toast.classList.remove('show');
-      }, 2200);
-    }
-
-    document.addEventListener('click', e => {
-      const btn = e.target.closest('.copy-badge, [data-copy]');
-      if (!btn) return;
-      const textToCopy = btn.getAttribute('data-copy') || btn.innerText;
-      if (!textToCopy) return;
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          btn.classList.add('copied');
-          const originalText = btn.textContent;
-          btn.textContent = 'COPIED';
-          showToast(textToCopy);
-          setTimeout(() => {
-            btn.classList.remove('copied');
-            btn.textContent = originalText;
-          }, 1800);
-        }).catch(() => {
-          fallbackCopy(textToCopy, btn);
-        });
-      } else {
-        fallbackCopy(textToCopy, btn);
-      }
-    });
-
-    function fallbackCopy(text, btn) {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showToast(text);
-        if (btn) {
-          btn.classList.add('copied');
-          setTimeout(() => btn.classList.remove('copied'), 1800);
-        }
-      } catch (err) {}
-      document.body.removeChild(ta);
-    }
-  })();
-
-  /* 8. In-Browser Resume Preview Modal */
-  (function initResumeModal() {
-    const cvOverlay = document.getElementById('cv-overlay');
-    const closeBtn = document.getElementById('cv-close-btn');
-    const previewBtns = document.querySelectorAll('#preview-cv-btn, #contact-preview-cv-btn');
-    if (!cvOverlay) return;
-
-    function openModal() {
-      cvOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      cvOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    previewBtns.forEach(btn => btn.addEventListener('click', openModal));
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-    cvOverlay.addEventListener('click', e => {
-      if (e.target === cvOverlay) closeModal();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && cvOverlay.classList.contains('active')) {
-        closeModal();
-      }
-    });
-  })();
-
-  /* 9. Interactive Command Palette Terminal (Ctrl + K / `) */
-  (function initCommandPalette() {
-    const overlay = document.getElementById('cmd-overlay');
-    const input = document.getElementById('cmd-input');
-    const historyContainer = document.getElementById('cmd-history');
-    const termBody = document.getElementById('cmd-terminal-body');
-    const closeBtn = document.getElementById('cmd-btn-close');
-    const chipsContainer = document.getElementById('cmd-chips');
-    const triggers = document.querySelectorAll('#chrome-term-btn, #sidebar-term-btn, #floating-term-btn');
-
-    if (!overlay || !input) return;
-
-    const commandHistory = [];
-    let historyIndex = -1;
-
-    function openPalette() {
+  /* 7. Modal & Terminal Manager with Global Delegation */
+  (function initModalsAndTerminal() {
+    // Helper modal toggles
+    function openTerminal() {
+      const overlay = document.getElementById('cmd-overlay');
+      const input = document.getElementById('cmd-input');
+      if (!overlay) return;
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-      setTimeout(() => input.focus(), 80);
+      if (input) setTimeout(() => input.focus(), 80);
     }
 
-    function closePalette() {
+    function closeTerminal() {
+      const overlay = document.getElementById('cmd-overlay');
+      if (!overlay) return;
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    triggers.forEach(t => t.addEventListener('click', openPalette));
-    if (closeBtn) closeBtn.addEventListener('click', closePalette);
+    function openResumeModal() {
+      const cvOverlay = document.getElementById('cv-overlay');
+      if (!cvOverlay) return;
+      cvOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) closePalette();
-    });
+    function closeResumeModal() {
+      const cvOverlay = document.getElementById('cv-overlay');
+      if (!cvOverlay) return;
+      cvOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
-    document.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (overlay.classList.contains('active')) {
-          closePalette();
-        } else {
-          openPalette();
+    // Toast and Copy Helper
+    let toastTimer = null;
+    function copyText(text, btn) {
+      const toast = document.getElementById('copy-toast');
+      const toastMsg = document.getElementById('copy-toast-msg');
+
+      function onSuccess() {
+        if (toast) {
+          if (toastMsg) toastMsg.textContent = `Copied to clipboard: ${text}`;
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+        if (btn) {
+          btn.classList.add('copied');
+          const orig = btn.textContent;
+          btn.textContent = 'COPIED';
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.textContent = orig;
+          }, 1800);
         }
       }
-      if (e.key === '`' && !overlay.classList.contains('active')) {
-        const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-        if (activeTag !== 'input' && activeTag !== 'textarea') {
-          e.preventDefault();
-          openPalette();
-        }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallback(text));
+      } else {
+        fallback(text);
       }
-      if (e.key === 'Escape' && overlay.classList.contains('active')) {
-        closePalette();
+
+      function fallback(val) {
+        const ta = document.createElement('textarea');
+        ta.value = val;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          onSuccess();
+        } catch (e) {}
+        document.body.removeChild(ta);
       }
-    });
+    }
+
+    // Terminal History & Execution Engine
+    const commandHistory = [];
+    let historyIndex = -1;
 
     function printOutput(cmd, outputHtml) {
+      const historyContainer = document.getElementById('cmd-history');
+      const termBody = document.getElementById('cmd-terminal-body');
+      if (!historyContainer) return;
       const item = document.createElement('div');
       item.className = 'cmd-history-item';
       item.innerHTML = `
@@ -2612,7 +2658,7 @@ if (contactForm) {
         <div class="cmd-hist-out">${outputHtml}</div>
       `;
       historyContainer.appendChild(item);
-      termBody.scrollTop = termBody.scrollHeight;
+      if (termBody) termBody.scrollTop = termBody.scrollHeight;
     }
 
     function escapeHtml(str) {
@@ -2710,12 +2756,8 @@ if (contactForm) {
         case 'cv':
           printOutput(cmd, 'Opening in-browser resume preview modal...');
           setTimeout(() => {
-            const cvOverlay = document.getElementById('cv-overlay');
-            if (cvOverlay) {
-              closePalette();
-              cvOverlay.classList.add('active');
-              document.body.style.overflow = 'hidden';
-            }
+            closeTerminal();
+            openResumeModal();
           }, 350);
           break;
 
@@ -2740,7 +2782,7 @@ if (contactForm) {
           const targetSection = document.getElementById(arg.replace('#', ''));
           if (targetSection) {
             printOutput(cmd, `Navigating to #${arg}...`);
-            closePalette();
+            closeTerminal();
             setTimeout(() => {
               targetSection.scrollIntoView({ behavior: 'smooth' });
             }, 200);
@@ -2763,13 +2805,14 @@ if (contactForm) {
 
         case 'clear':
         case 'cls':
-          historyContainer.innerHTML = '';
+          const historyContainer = document.getElementById('cmd-history');
+          if (historyContainer) historyContainer.innerHTML = '';
           break;
 
         case 'exit':
         case 'quit':
           printOutput(cmd, 'Exiting interactive terminal...');
-          setTimeout(closePalette, 300);
+          setTimeout(closeTerminal, 300);
           break;
 
         default:
@@ -2778,37 +2821,119 @@ if (contactForm) {
       }
     }
 
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        const val = input.value;
-        input.value = '';
-        executeCommand(val);
-      } else if (e.key === 'ArrowUp') {
+    // 1. GLOBAL CLICK EVENT DELEGATION (Never fails regardless of DOM timing)
+    document.addEventListener('click', (e) => {
+      // Open Terminal triggers
+      const termTrigger = e.target.closest('#chrome-term-btn, #sidebar-term-btn, #floating-term-btn, .chrome-term-pill, .terminal-trigger-btn, .floating-term-btn');
+      if (termTrigger) {
         e.preventDefault();
-        if (commandHistory.length > 0 && historyIndex > 0) {
-          historyIndex--;
-          input.value = commandHistory[historyIndex];
-        }
-      } else if (e.key === 'ArrowDown') {
+        openTerminal();
+        return;
+      }
+
+      // Open Resume Preview triggers
+      const resumeTrigger = e.target.closest('#preview-cv-btn, #contact-preview-cv-btn, .btn-preview-cv');
+      if (resumeTrigger) {
         e.preventDefault();
-        if (historyIndex < commandHistory.length - 1) {
-          historyIndex++;
-          input.value = commandHistory[historyIndex];
-        } else {
-          historyIndex = commandHistory.length;
-          input.value = '';
-        }
+        openResumeModal();
+        return;
+      }
+
+      // Close Terminal
+      if (e.target.closest('#cmd-btn-close') || e.target === document.getElementById('cmd-overlay')) {
+        e.preventDefault();
+        closeTerminal();
+        return;
+      }
+
+      // Close Resume Preview
+      if (e.target.closest('#cv-close-btn') || e.target === document.getElementById('cv-overlay')) {
+        e.preventDefault();
+        closeResumeModal();
+        return;
+      }
+
+      // Terminal Chips
+      const chip = e.target.closest('.cmd-chip');
+      if (chip) {
+        const cmd = chip.getAttribute('data-cmd');
+        if (cmd) executeCommand(cmd);
+        return;
+      }
+
+      // Copy buttons
+      const copyBtn = e.target.closest('.copy-badge, [data-copy]');
+      if (copyBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const textToCopy = copyBtn.getAttribute('data-copy') || copyBtn.innerText;
+        if (textToCopy) copyText(textToCopy, copyBtn);
+        return;
       }
     });
 
-    if (chipsContainer) {
-      chipsContainer.addEventListener('click', e => {
-        const chip = e.target.closest('.cmd-chip');
-        if (!chip) return;
-        const cmd = chip.getAttribute('data-cmd');
-        if (cmd) executeCommand(cmd);
-      });
-    }
+    // 2. GLOBAL KEYDOWN LISTENER
+    document.addEventListener('keydown', (e) => {
+      const cmdOverlay = document.getElementById('cmd-overlay');
+      const cvOverlay = document.getElementById('cv-overlay');
+
+      // Ctrl + K or Cmd + K
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (cmdOverlay && cmdOverlay.classList.contains('active')) {
+          closeTerminal();
+        } else {
+          openTerminal();
+        }
+        return;
+      }
+
+      // Backtick ` or ~
+      if (e.key === '`') {
+        const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+        if (activeTag !== 'input' && activeTag !== 'textarea') {
+          e.preventDefault();
+          if (cmdOverlay && cmdOverlay.classList.contains('active')) {
+            closeTerminal();
+          } else {
+            openTerminal();
+          }
+          return;
+        }
+      }
+
+      // Escape key closes open modals
+      if (e.key === 'Escape') {
+        if (cmdOverlay && cmdOverlay.classList.contains('active')) closeTerminal();
+        if (cvOverlay && cvOverlay.classList.contains('active')) closeResumeModal();
+        return;
+      }
+
+      // Command input keydown (Enter, Arrow Up, Arrow Down)
+      const input = document.getElementById('cmd-input');
+      if (e.target === input) {
+        if (e.key === 'Enter') {
+          const val = input.value;
+          input.value = '';
+          executeCommand(val);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (commandHistory.length > 0 && historyIndex > 0) {
+            historyIndex--;
+            input.value = commandHistory[historyIndex];
+          }
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (historyIndex < commandHistory.length - 1) {
+            historyIndex++;
+            input.value = commandHistory[historyIndex];
+          } else {
+            historyIndex = commandHistory.length;
+            input.value = '';
+          }
+        }
+      }
+    });
   })();
 
 })();
@@ -2828,90 +2953,5 @@ if (contactForm) {
     <li><a href="#contact" data-mob="contact"><span class="mob-nav-icon">&#9678;</span><span class="mob-nav-label">Contact</span></a></li>
   </ul>
 </nav>
-<!-- Floating Interactive Terminal Button -->
-<button type="button" class="floating-term-btn" id="floating-term-btn" aria-label="Open Interactive Terminal (Ctrl + K)">
-  <span class="floating-term-icon">&gt;_</span>
-  <span>Console</span>
-  <kbd class="floating-term-kbd">Ctrl+K</kbd>
-</button>
-
-<!-- One-Click Copy Feedback Toast -->
-<div class="copy-toast" id="copy-toast" role="status" aria-live="polite">
-  <span class="copy-toast-dot"></span>
-  <span id="copy-toast-msg">Copied to clipboard!</span>
-</div>
-
-<!-- In-Browser Resume Preview Modal -->
-<div class="cv-overlay" id="cv-overlay" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
-  <div class="cv-modal">
-    <div class="cv-modal-header">
-      <div class="cv-modal-title" id="cv-modal-title">
-        <span style="color:var(--c-accent);font-family:var(--font-mono);font-weight:700;margin-right:8px;">&gt;</span>
-        <span style="font-family:var(--font-mono);font-size:.82rem;font-weight:600;color:var(--c-heading);">resume.pdf — Yash Dhumane</span>
-      </div>
-      <div class="cv-modal-actions">
-        <a href="resume.pdf" target="_blank" rel="noopener" class="cv-btn-action" title="Open in new tab">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-          Open Tab
-        </a>
-        <a href="resume.pdf" download class="cv-btn-action" title="Download PDF">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download
-        </a>
-        <button type="button" class="cv-close-btn" id="cv-close-btn" aria-label="Close resume preview">&times;</button>
-      </div>
-    </div>
-    <div class="cv-modal-body">
-      <iframe src="resume.pdf" class="cv-iframe" id="cv-iframe" title="Resume PDF Preview"></iframe>
-      <div class="cv-fallback-msg">
-        Having trouble viewing the PDF preview? <a href="resume.pdf" target="_blank" rel="noopener">Click here to open directly</a> or <a href="resume.pdf" download>download it</a>.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Interactive Command Palette Modal -->
-<div class="cmd-overlay" id="cmd-overlay" role="dialog" aria-modal="true" aria-label="Interactive Command Console">
-  <div class="cmd-modal">
-    <div class="cmd-header">
-      <div class="cmd-dots">
-        <span class="cmd-dot red" id="cmd-btn-close" title="Close Console (Esc)"></span>
-        <span class="cmd-dot amber"></span>
-        <span class="cmd-dot green"></span>
-      </div>
-      <span class="cmd-title">yash@homelab: ~ (interactive shell v2.4)</span>
-      <span class="cmd-esc-badge">ESC to close</span>
-    </div>
-    <div class="cmd-terminal-body" id="cmd-terminal-body">
-      <div class="cmd-welcome">
-        <pre class="cmd-ascii">
- ██╗   ██╗ ██████╗ ██╗██████╗ 
- ██║   ██║██╔═══██╗██║██╔══██╗
- ██║   ██║██║   ██║██║██║  ██║
- ╚██╗ ██╔╝██║   ██║██║██║  ██║
-  ╚████╔╝ ╚██████╔╝██║██████╔╝
-   ╚═══╝   ╚═════╝ ╚═╝╚═════╝ 
-        </pre>
-        <div class="cmd-subtext">Type <span class="cmd-kw">help</span> for available commands or click quick action chips below. Press <span class="cmd-kw">↑</span>/<span class="cmd-kw">↓</span> for command history.</div>
-      </div>
-      <div id="cmd-history"></div>
-      <div class="cmd-prompt-line">
-        <span class="cmd-prompt">yash@infra:~$</span>
-        <input type="text" class="cmd-input" id="cmd-input" autocomplete="off" spellcheck="false" placeholder="type a command..." aria-label="Command console input"/>
-      </div>
-    </div>
-    <div class="cmd-chips" id="cmd-chips">
-      <button type="button" class="cmd-chip" data-cmd="help">help</button>
-      <button type="button" class="cmd-chip" data-cmd="status">status</button>
-      <button type="button" class="cmd-chip" data-cmd="skills">skills</button>
-      <button type="button" class="cmd-chip" data-cmd="projects">projects</button>
-      <button type="button" class="cmd-chip" data-cmd="logs">logs</button>
-      <button type="button" class="cmd-chip" data-cmd="resume">resume</button>
-      <button type="button" class="cmd-chip" data-cmd="contact">contact</button>
-      <button type="button" class="cmd-chip" data-cmd="clear">clear</button>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
