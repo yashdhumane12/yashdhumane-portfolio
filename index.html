@@ -5,19 +5,29 @@
 <meta name="google-site-verification" content="-NbY8rwPgc3Ji7Nv57_IxOidEtACfLGt_Yom_vTVe4E"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="preload" href="profile.jpg" as="image" fetchpriority="high"/>
-<meta name="description" content="Yash Dhumane - DevOps Engineer in Pune. Self-hosted K8s on Proxmox, GitLab CI/CD, Jenkins. Available for DevOps and SRE roles."/>
-<meta property="og:title" content="Yash Dhumane — DevOps Engineer"/>
+<meta name="keywords" content="Yash Dhumane, DevOps Engineer Pune, Kubernetes Engineer India, Jenkins CI/CD, GitLab DevOps, Proxmox Kubernetes, SRE Engineer Pune, DevOps portfolio, bare metal Kubernetes"/>
+<meta name="author" content="Yash Dhumane"/>
+<link rel="canonical" href="https://yashdhumane12.github.io/yashdhumane-portfolio/"/>
+<meta property="og:image" content="https://yashdhumane12.github.io/yashdhumane-portfolio/profile.jpg"/>
+<meta property="og:image:alt" content="Yash Dhumane - DevOps Engineer Pune"/>
+<meta name="twitter:image" content="https://yashdhumane12.github.io/yashdhumane-portfolio/profile.jpg"/>
+<meta name="twitter:description" content="Yash Dhumane, DevOps Engineer in Pune. Kubernetes, CI/CD, bare-metal infra. Available for DevOps and SRE roles."/>
+<meta name="description" content="Yash Dhumane is a DevOps Engineer in Pune, India specialising in Kubernetes, Jenkins CI/CD, GitLab, Docker and Proxmox bare-metal infrastructure. Available for DevOps and SRE roles."/>
+<meta property="og:title" content="Yash Dhumane | DevOps Engineer — Pune, India"/>
 <meta property="og:description" content="DevOps Engineer in Pune — self-hosted K8s on Proxmox, GitLab CI/CD, Jenkins pipelines. Available for DevOps and SRE roles."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yashdhumane12.github.io/yashdhumane-portfolio/"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Yash Dhumane — DevOps Engineer"/>
+<meta name="twitter:title" content="Yash Dhumane | DevOps Engineer — Pune, India"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235b8def'/><text y='.9em' font-size='60' x='50%' text-anchor='middle' font-family='monospace' font-weight='bold' fill='white'>YD</text></svg>"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Yash Dhumane",
+  "givenName": "Yash",
+  "familyName": "Dhumane",
+  "nationality": "Indian",
   "jobTitle": "DevOps Engineer",
   "description": "DevOps Engineer in Pune specialising in self-hosted Kubernetes, CI/CD pipelines with Jenkins and GitLab CE, and bare-metal infrastructure on Proxmox.",
   "url": "https://yashdhumane12.github.io/yashdhumane-portfolio/",
@@ -40,7 +50,7 @@
   }
 }
 </script>
-<title>Yash Dhumane — DevOps Engineer</title>
+<title>Yash Dhumane | DevOps Engineer — Pune, India</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -141,7 +151,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 
 /* ── REVEAL on scroll ── */
 .reveal{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease;}
-/* reveal: hidden state removed — sections visible by default, JS adds fade-in class */
+/* reveal: visible by default */
 .reveal.revealed{opacity:1;transform:translateY(0);}
 .reveal.d1{transition-delay:.08s;}.reveal.d2{transition-delay:.16s;}
 .reveal.d3{transition-delay:.24s;}.reveal.d4{transition-delay:.32s;}
@@ -224,14 +234,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 }
 .avail-badge__dot{
   width:.45rem;height:.45rem;border-radius:50%;
-  background:var(--c-dot-green);display:inline-block;flex-shrink:0;
-  box-shadow:0 0 6px var(--c-dot-green);
-  animation:status-pulse-ring 2.2s cubic-bezier(.4,0,.6,1) infinite;
+  background:currentColor;display:inline-block;flex-shrink:0;
+  animation:blink-dot 2.2s ease-in-out infinite;
 }
-@keyframes status-pulse-ring{
-  0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.65),0 0 6px var(--c-dot-green);}
-  50%{box-shadow:0 0 0 6px rgba(74,222,128,0),0 0 10px rgba(74,222,128,.4);}
-}
+@keyframes blink-dot{0%,100%{opacity:1;}50%{opacity:.25;}}
 
 /* Signal panel */
 .header-signal{
@@ -256,7 +262,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .signal-key{color:var(--c-text);min-width:7em;flex-shrink:0;}
 .signal-key::after{content:":";margin-left:.1em;}
 .signal-val{color:var(--c-text);font-weight:500;display:flex;align-items:center;gap:.35rem;}
-.signal-dot{width:7px;height:7px;border-radius:50%;background:var(--c-dot-green);flex-shrink:0;box-shadow:0 0 6px var(--c-dot-green);animation:status-pulse-ring 2.2s cubic-bezier(.4,0,.6,1) infinite;}
+.signal-dot{width:7px;height:7px;border-radius:50%;background:var(--c-success);flex-shrink:0;}
 
 /* Action panel */
 .header-action{
@@ -644,55 +650,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .log-prompt{color:var(--c-success);margin-right:.5rem;font-weight:600;}
 
 /* ── CONTACT ── */
-.contact-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:1.5rem;}
-/* Contact Form */
-.contact-form-wrap{margin-top:2rem;border-top:1px solid var(--c-border);padding-top:2rem;}
-.contact-form-title{font-size:1rem;font-weight:600;color:var(--c-heading);margin-bottom:.375rem;}
-.contact-form-sub{font-size:.875rem;color:var(--c-muted);margin-bottom:1.5rem;}
-.contact-form{display:flex;flex-direction:column;gap:1rem;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-@media(max-width:580px){.form-row{grid-template-columns:1fr;}}
-.form-group{display:flex;flex-direction:column;gap:.375rem;}
-.form-label{font-family:var(--font-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);}
-.form-input,.form-textarea{
-  background:var(--c-surface-alt);border:1px solid var(--c-border);border-radius:8px;
-  padding:.75rem 1rem;color:var(--c-text);font-family:var(--font-body);font-size:.9375rem;
-  transition:border-color .15s,box-shadow .15s;width:100%;resize:none;
-}
-.form-input:focus,.form-textarea:focus{outline:none;border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(91,141,239,.15);}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--c-muted);opacity:.6;}
-.form-textarea{height:140px;line-height:1.6;}
-.form-submit{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.75rem 2rem;background:var(--c-gradient);border:none;border-radius:8px;
-  color:#fff;font-family:var(--font-body);font-size:.9375rem;font-weight:600;
-  cursor:pointer;transition:opacity .2s,transform .2s,box-shadow .2s;align-self:flex-start;
-}
-.form-submit:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,141,239,.3);}
-.form-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
-.form-status{display:none;padding:.875rem 1.125rem;border-radius:8px;font-size:.875rem;font-weight:500;align-items:center;gap:.625rem;}
-.form-status.success{display:flex;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--c-success);}
-.form-status.error{display:flex;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--c-error);}
-
-.contact-link .copy-badge{
-  position:absolute;
-  top:12px;
-  right:12px;
-  z-index:3;
-  margin-left:0;
-}
-.contact-link-inner{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  color:inherit;
-  flex:1;
-  min-width:0;
-  text-decoration:none;
-  padding-right:48px;
-}
-
-.contact-link{position:relative;
+.contact-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:1.5rem;}
+.contact-link{
   display:flex;align-items:center;gap:14px;padding:1rem 1.25rem;
   background:var(--c-surface-alt);border:1px solid var(--c-border);border-radius:10px;
   color:var(--c-text);transition:border-color .15s,color .15s,background .15s,box-shadow .15s;
@@ -834,500 +793,28 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
   .scroll-top{bottom:80px;}
 }
 @media(min-width:992px){.mob-nav{display:none !important;}}
-
-/* ══ ANIMATION LAYER (operator-console aesthetic) ═════════════════════ */
-
-/* 1. Typewriter for chrome-label with blinking cursor */
-.chrome-label{
-  display:inline-flex;
-  align-items:center;
-  user-select:none;
-}
-.chrome-cursor{
-  display:inline-block;
-  width:6px;
-  height:0.85em;
-  background:var(--c-accent);
-  margin-left:3px;
-  vertical-align:middle;
-  animation:blink-cursor .8s step-end infinite;
-}
-
-/* 2. Major section scroll fade-up */
-.section-fade{
-  opacity:1;
-  transform:none;
-  transition:opacity .6s ease-out,transform .6s ease-out;
-  will-change:opacity,transform;
-}
-
-.section-fade.is-visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* 3. Terminal log stream */
-.log-row{
-  opacity:1;
-  transform:none;
-  transition:opacity .35s ease-out,transform .35s ease-out;
-  will-change:opacity,transform;
-}
-
-.log-row.log-visible{
-  opacity:1;
-  transform:translateX(0);
-}
-
-/* 4. Project card hover lift & subtle glow */
-.portfolio-card{
-  transition:transform .25s ease-out,box-shadow .25s ease-out,border-color .25s ease-out !important;
-  will-change:transform,box-shadow;
-}
-.portfolio-card:hover{
-  transform:translateY(-4px) !important;
-  box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 18px rgba(91,141,239,.2) !important;
-  border-color:rgba(91,141,239,.45) !important;
-}
-.portfolio-card.cat-prod:hover{
-  border-color:var(--c-accent-2) !important;
-  box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 18px rgba(255,150,93,.2) !important;
-}
-.portfolio-card.cat-staging:hover{
-  border-color:var(--c-accent) !important;
-  box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 18px rgba(91,141,239,.25) !important;
-}
-.portfolio-card.cat-personal:hover{
-  border-color:var(--c-success) !important;
-  box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 18px rgba(52,211,153,.2) !important;
-}
-
-/* ══ TOPOLOGY DIAGRAM ══════════════════════════════════════════════ */
-.arch-topo-wrap{
-  background:var(--c-surface-alt);
-  border:1px solid var(--c-border);
-  border-left:3px solid var(--c-accent);
-  border-radius:12px;
-  padding:1.35rem 1.5rem;
-  margin-bottom:1.5rem;
-}
-.arch-topo-header{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:1rem;flex-wrap:wrap;gap:8px;
-}
-.arch-topo-title{
-  font-family:var(--font-mono);font-size:.7rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.1em;color:var(--c-heading);
-}
-.arch-topo-badge{
-  font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent);
-  background:rgba(91,141,239,.12);border:1px solid rgba(91,141,239,.3);
-  padding:.2rem .55rem;border-radius:20px;
-}
-.arch-flow{
-  display:flex;align-items:center;gap:10px;
-  overflow-x:auto;padding-bottom:.85rem;margin-bottom:1rem;
-  scrollbar-width:thin;scrollbar-color:var(--c-border) transparent;
-}
-.arch-node{
-  flex:0 0 135px;background:var(--c-surface);
-  border:1px solid var(--c-border);border-radius:10px;
-  padding:10px 8px;text-align:center;cursor:pointer;
-  transition:all .2s ease;position:relative;user-select:none;
-}
-.arch-node:hover,.arch-node.active{
-  border-color:var(--c-accent);
-  transform:translateY(-3px);
-  box-shadow:0 8px 20px rgba(0,0,0,.4),0 0 14px rgba(91,141,239,.25);
-  background:rgba(91,141,239,.06);
-}
-.arch-node-badge{
-  font-family:var(--font-mono);font-size:.58rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.06em;
-  color:var(--c-muted);margin-bottom:4px;
-}
-.arch-node.active .arch-node-badge{color:var(--c-accent);}
-.arch-node-icon{font-size:1.3rem;line-height:1.2;margin-bottom:4px;}
-.arch-node-name{
-  font-size:.78rem;font-weight:600;color:var(--c-heading);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.arch-node-sub{
-  font-family:var(--font-mono);font-size:.65rem;color:var(--c-muted);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.arch-arrow{
-  display:flex;align-items:center;color:var(--c-accent);
-  font-size:.75rem;opacity:.7;flex-shrink:0;padding:0 2px;
-}
-.arch-arrow-line{
-  width:16px;height:1px;background:var(--c-accent);display:inline-block;
-}
-.arch-details-box{
-  background:rgba(0,0,0,.25);border:1px solid var(--c-border);
-  border-radius:8px;padding:1rem 1.15rem;
-}
-.arch-details-head{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:.4rem;flex-wrap:wrap;gap:6px;
-}
-.arch-details-target{
-  font-family:var(--font-mono);font-size:.78rem;font-weight:600;
-  color:var(--c-accent);
-}
-.arch-details-hint{
-  font-size:.7rem;color:var(--c-muted);
-}
-.arch-details-desc{
-  font-size:.82rem;line-height:1.55;color:var(--c-text);
-  margin-bottom:.65rem;
-}
-.arch-details-specs{display:flex;flex-wrap:wrap;gap:6px;}
-.spec-tag{
-  font-family:var(--font-mono);font-size:.65rem;color:var(--c-text);
-  background:var(--c-surface);border:1px solid var(--c-border);
-  padding:.15rem .5rem;border-radius:4px;
-}
-
-/* ══ INFRA TELEMETRY / HEALTHCHECK MATRIX ═════════════════════════════ */
-.infra-telemetry-wrap{
-  background:var(--c-surface-alt);
-  border:1px solid var(--c-border);
-  border-left:3px solid var(--c-dot-green);
-  border-radius:12px;
-  padding:1.35rem 1.5rem;
-  margin-bottom:1.5rem;
-}
-.infra-telemetry-header{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:1rem;flex-wrap:wrap;gap:8px;
-}
-.telemetry-pulse-dot{
-  width:8px;height:8px;border-radius:50%;background:var(--c-dot-green);
-  box-shadow:0 0 6px var(--c-dot-green);
-  animation:status-pulse-ring 2s ease-out infinite;
-}
-.telemetry-title{
-  font-family:var(--font-mono);font-size:.7rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.1em;color:var(--c-heading);
-}
-.telemetry-refresh{
-  font-family:var(--font-mono);font-size:.65rem;color:var(--c-dot-green);
-  letter-spacing:.06em;
-}
-.telemetry-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
-  gap:10px;
-}
-.telemetry-card{
-  background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:8px;padding:.8rem 1rem;
-  transition:border-color .2s ease;
-}
-.telemetry-card:hover{border-color:rgba(74,222,128,.4);}
-.telemetry-card-top{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:4px;
-}
-.telemetry-id{
-  font-family:var(--font-mono);font-size:.72rem;font-weight:600;
-  color:var(--c-heading);display:flex;align-items:center;gap:6px;
-}
-.dot-live{
-  width:6px;height:6px;border-radius:50%;background:var(--c-dot-green);
-  box-shadow:0 0 4px var(--c-dot-green);display:inline-block;
-}
-.telemetry-state{
-  font-family:var(--font-mono);font-size:.62rem;font-weight:700;
-  padding:.15rem .45rem;border-radius:4px;letter-spacing:.04em;
-}
-.state-healthy{
-  background:rgba(74,222,128,.12);color:var(--c-dot-green);
-  border:1px solid rgba(74,222,128,.3);
-}
-.telemetry-meta{
-  font-size:.72rem;color:var(--c-muted);margin-bottom:.55rem;
-}
-.telemetry-meter-bar{
-  width:100%;height:4px;background:rgba(255,255,255,.07);
-  border-radius:3px;overflow:hidden;margin-bottom:.5rem;
-}
-.telemetry-fill{
-  height:100%;border-radius:3px;
-  background:linear-gradient(90deg,var(--c-accent),var(--c-dot-green));
-}
-.telemetry-stats{
-  display:flex;justify-content:space-between;
-  font-family:var(--font-mono);font-size:.65rem;color:var(--c-text);
-}
-
-/* ══ LOG GREP SEARCH ══════════════════════════════════════════════════ */
-.log-grep-box{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(0,0,0,.35);border:1px solid var(--c-border);
-  border-radius:6px;padding:2px 8px;margin-left:auto;
-}
-.log-grep-lbl{
-  font-family:var(--font-mono);font-size:.65rem;color:var(--c-accent);
-  font-weight:600;user-select:none;
-}
-.log-grep-input{
-  background:transparent;border:none;outline:none;
-  font-family:var(--font-mono);font-size:.68rem;
-  color:var(--c-heading);width:130px;transition:width .2s ease;
-}
-.log-grep-input:focus{width:180px;}
-.log-grep-input::placeholder{color:var(--c-muted);opacity:.7;}
-.log-grep-count{
-  font-family:var(--font-mono);font-size:.6rem;
-  background:rgba(91,141,239,.15);color:var(--c-accent);
-  padding:1px 5px;border-radius:4px;
-}
-.log-row.grep-hidden{display:none !important;}
-.log-grep-empty{
-  padding:1rem;text-align:center;font-family:var(--font-mono);
-  font-size:.78rem;color:var(--c-muted);
-}
-.log-grep-empty span{color:var(--c-accent-2);}
-
-/* ══ ONE-CLICK COPY & PREVIEW BUTTONS ═════════════════════════════════ */
-.copy-badge{
-  font-family:var(--font-mono);font-size:.6rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.06em;
-  background:rgba(91,141,239,.15);color:var(--c-accent);
-  padding:2px 6px;border-radius:4px;margin-left:6px;
-  border:1px solid rgba(91,141,239,.3);transition:all .18s ease;
-  cursor:pointer;display:inline-flex;align-items:center;
-}
-.copy-badge:hover,.copy-badge.copied{
-  background:var(--c-success);color:#0a0e14;border-color:var(--c-success);
-}
-.btn-preview-cv{
-  display:inline-flex;align-items:center;gap:.4rem;
-  padding:.45rem .85rem;border-radius:8px;
-  background:rgba(91,141,239,.12);border:1px solid rgba(91,141,239,.35);
-  color:var(--c-heading);font-family:var(--font-mono);font-size:.78rem;
-  font-weight:500;cursor:pointer;transition:all .2s ease;
-}
-.btn-preview-cv:hover{
-  background:var(--c-accent);color:#fff;
-  box-shadow:0 4px 14px rgba(91,141,239,.35);
-  transform:translateY(-1px);
-}
-.copy-toast{
-  position:fixed;bottom:24px;right:24px;z-index:10000;
-  background:var(--c-surface);border:1px solid var(--c-success);
-  color:var(--c-heading);padding:10px 18px;border-radius:8px;
-  font-family:var(--font-mono);font-size:.8rem;box-shadow:var(--elev-float);
-  display:flex;align-items:center;gap:8px;
-  transform:translateY(80px);opacity:0;transition:all .25s ease;
-  pointer-events:none;
-}
-.copy-toast.show{transform:translateY(0);opacity:1;}
-.copy-toast-dot{
-  width:7px;height:7px;border-radius:50%;background:var(--c-success);
-  box-shadow:0 0 6px var(--c-success);
-}
-
-/* ══ FLOATING TERMINAL LAUNCHER & HEADER PILL ═════════════════════════ */
-.floating-term-btn{
-  position:fixed;bottom:24px;left:24px;z-index:900;
-  display:flex;align-items:center;gap:7px;
-  background:rgba(22,24,31,.92);border:1px solid var(--c-border-ui);
-  border-radius:50px;padding:8px 14px;
-  color:var(--c-heading);cursor:pointer;backdrop-filter:blur(10px);
-  box-shadow:0 8px 24px rgba(0,0,0,.45);transition:all .22s ease;
-  font-family:var(--font-mono);font-size:.78rem;
-}
-.floating-term-btn:hover{
-  border-color:var(--c-accent);transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(91,141,239,.3);color:var(--c-accent);
-}
-.floating-term-icon{
-  color:var(--c-accent);font-weight:700;
-}
-.floating-term-kbd{
-  font-size:.65rem;background:rgba(255,255,255,.1);
-  padding:2px 5px;border-radius:4px;color:var(--c-muted);
-}
-.chrome-term-pill{
-  margin-left:auto;background:rgba(91,141,239,.12);
-  border:1px solid rgba(91,141,239,.3);border-radius:4px;
-  color:var(--c-accent);font-family:var(--font-mono);font-size:.62rem;
-  padding:2px 8px;cursor:pointer;transition:all .15s ease;
-  display:inline-flex;align-items:center;gap:4px;
-}
-.chrome-term-pill:hover{
-  background:var(--c-accent);color:#fff;
-}
-.terminal-trigger-btn{
-  width:100%;margin-bottom:8px;background:rgba(91,141,239,.08);
-  border:1px solid rgba(91,141,239,.25);border-radius:8px;
-  padding:.45rem .65rem;color:var(--c-text);
-  font-family:var(--font-mono);font-size:.72rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  transition:all .18s ease;
-}
-.terminal-trigger-btn:hover{
-  background:var(--c-accent);color:#fff;border-color:var(--c-accent);
-}
-
-/* ══ COMMAND PALETTE MODAL ════════════════════════════════════════════ */
-.cmd-overlay{
-  position:fixed;inset:0;background:rgba(8,10,14,.82);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  z-index:9999;display:flex;align-items:center;justify-content:center;
-  padding:20px;opacity:0;visibility:hidden;
-  transition:opacity .2s ease,visibility .2s ease;
-}
-.cmd-overlay.active{opacity:1;visibility:visible;}
-.cmd-modal{
-  background:var(--c-surface);border:1px solid var(--c-border-ui);
-  border-radius:14px;width:100%;max-width:740px;max-height:86vh;
-  box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 0 1px rgba(91,141,239,.25);
-  display:flex;flex-direction:column;overflow:hidden;
-  transform:translateY(12px) scale(.98);transition:transform .2s ease;
-}
-.cmd-overlay.active .cmd-modal{transform:translateY(0) scale(1);}
-.cmd-header{
-  display:flex;align-items:center;padding:.75rem 1rem;
-  background:var(--c-surface-alt);border-bottom:1px solid var(--c-border);
-  gap:10px;user-select:none;
-}
-.cmd-dots{display:flex;align-items:center;gap:6px;}
-.cmd-dot{
-  width:9px;height:9px;border-radius:50%;display:inline-block;cursor:pointer;
-}
-.cmd-dot.red{background:#ef4444;}
-.cmd-dot.amber{background:#d97706;}
-.cmd-dot.green{background:var(--c-dot-green);}
-.cmd-title{
-  font-family:var(--font-mono);font-size:.72rem;color:var(--c-muted);
-  flex:1;text-align:center;
-}
-.cmd-esc-badge{
-  font-family:var(--font-mono);font-size:.65rem;background:rgba(255,255,255,.08);
-  padding:2px 6px;border-radius:4px;color:var(--c-muted);
-}
-.cmd-terminal-body{
-  flex:1;padding:1rem 1.25rem;overflow-y:auto;
-  font-family:var(--font-mono);font-size:.82rem;line-height:1.6;
-  max-height:55vh;scrollbar-width:thin;
-}
-.cmd-welcome{margin-bottom:1rem;color:var(--c-muted);}
-.cmd-ascii{
-  font-size:.58rem;line-height:1.15;color:var(--c-accent);
-  margin-bottom:.5rem;overflow-x:auto;user-select:none;
-}
-.cmd-subtext{font-size:.78rem;color:var(--c-muted);}
-.cmd-kw{color:var(--c-accent);font-weight:600;}
-.cmd-history-item{margin-bottom:.85rem;}
-.cmd-hist-cmd{color:var(--c-accent);font-weight:600;margin-bottom:4px;}
-.cmd-hist-out{color:var(--c-text);font-size:.78rem;line-height:1.55;}
-.cmd-hist-out table{width:100%;border-collapse:collapse;margin-top:4px;}
-.cmd-hist-out th{text-align:left;color:var(--c-accent);padding:2px 6px;font-size:.72rem;}
-.cmd-hist-out td{padding:2px 6px;font-size:.72rem;border-top:1px solid rgba(255,255,255,.04);}
-.cmd-prompt-line{
-  display:flex;align-items:center;gap:8px;padding-top:6px;
-}
-.cmd-prompt{
-  color:var(--c-dot-green);font-weight:600;font-size:.82rem;
-  user-select:none;flex-shrink:0;
-}
-.cmd-input{
-  flex:1;background:transparent;border:none;outline:none;
-  font-family:var(--font-mono);font-size:.85rem;color:var(--c-heading);
-  caret-color:var(--c-accent);
-}
-.cmd-chips{
-  display:flex;flex-wrap:wrap;gap:6px;padding:.65rem 1rem;
-  background:var(--c-surface-alt);border-top:1px solid var(--c-border);
-}
-.cmd-chip{
-  background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:4px;padding:3px 8px;color:var(--c-muted);
-  font-family:var(--font-mono);font-size:.68rem;cursor:pointer;
-  transition:all .15s ease;
-}
-.cmd-chip:hover{
-  color:var(--c-heading);border-color:var(--c-accent);
-  background:rgba(91,141,239,.12);
-}
-
-/* ══ RESUME PREVIEW MODAL ═════════════════════════════════════════════ */
-.cv-overlay{
-  position:fixed;inset:0;background:rgba(8,10,14,.85);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  z-index:9999;display:flex;align-items:center;justify-content:center;
-  padding:20px;opacity:0;visibility:hidden;
-  transition:opacity .2s ease,visibility .2s ease;
-}
-.cv-overlay.active{opacity:1;visibility:visible;}
-.cv-modal{
-  background:var(--c-surface);border:1px solid var(--c-border-ui);
-  border-radius:14px;width:100%;max-width:880px;height:88vh;
-  box-shadow:0 24px 60px rgba(0,0,0,.7);display:flex;flex-direction:column;
-  overflow:hidden;transform:translateY(12px);transition:transform .2s ease;
-}
-.cv-overlay.active .cv-modal{transform:translateY(0);}
-.cv-modal-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.75rem 1.25rem;background:var(--c-surface-alt);
-  border-bottom:1px solid var(--c-border);
-}
-.cv-modal-title{display:flex;align-items:center;}
-.cv-modal-actions{display:flex;align-items:center;gap:8px;}
-.cv-btn-action{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:.3rem .65rem;border-radius:6px;
-  background:rgba(255,255,255,.06);border:1px solid var(--c-border);
-  color:var(--c-heading);font-family:var(--font-mono);font-size:.7rem;
-  text-decoration:none;transition:all .15s ease;
-}
-.cv-btn-action:hover{
-  background:var(--c-accent);color:#fff;border-color:var(--c-accent);
-}
-.cv-close-btn{
-  background:transparent;border:none;color:var(--c-muted);
-  font-size:1.1rem;cursor:pointer;padding:2px 8px;line-height:1;
-  transition:color .15s ease;
-}
-.cv-close-btn:hover{color:#ef4444;}
-.cv-modal-body{
-  flex:1;position:relative;background:#1a1c23;display:flex;flex-direction:column;
-}
-.cv-iframe{
-  width:100%;height:100%;border:none;flex:1;
-}
-.cv-fallback-msg{
-  padding:.65rem 1rem;background:var(--c-surface-alt);
-  border-top:1px solid var(--c-border);font-size:.75rem;color:var(--c-muted);
-  text-align:center;
-}
-.cv-fallback-msg a{color:var(--c-accent);text-decoration:underline;}
-
-/* ══ RESPONSIVE ADJUSTMENTS ═══════════════════════════════════════════ */
-@media(max-width:768px){
-  .floating-term-btn .floating-term-kbd{display:none;}
-  .floating-term-btn{bottom:76px;left:15px;padding:6px 12px;}
-  .cmd-ascii{display:none;}
-  .cmd-terminal-body{max-height:50vh;}
-  .cv-modal{height:80vh;}
-  .arch-node{flex:0 0 115px;padding:8px 6px;}
-  .arch-topo-wrap, .infra-telemetry-wrap{padding:1rem;}
-}
-
-/* Reduced motion overrides */
-@media(prefers-reduced-motion:reduce){
-  .chrome-cursor{display:none !important;}
-  .section-fade,body.js-ready .section-fade:not(.is-visible){opacity:1 !important;transform:none !important;transition:none !important;}
-  .log-row,body.js-ready .log-row:not(.log-visible){opacity:1 !important;transform:none !important;transition:none !important;}
-  .portfolio-card,body.js-ready .portfolio-card{transition:none !important;}
-  .portfolio-card:hover{transform:none !important;box-shadow:var(--elev-raised) !important;}
-  .avail-badge__dot,.signal-dot,.telemetry-pulse-dot{animation:none !important;box-shadow:0 0 4px var(--c-dot-green) !important;}
-  .cmd-overlay,.cv-overlay,.cmd-modal,.cv-modal{transition:none !important;}
-}
-</style>
+/* Contact Form */
+.contact-form-wrap{margin-top:2rem;border-top:1px solid var(--c-border);padding-top:2rem;}
+.contact-form-title{font-size:1rem;font-weight:600;color:var(--c-heading);margin-bottom:.375rem;}
+.contact-form-sub{font-size:.875rem;color:var(--c-muted);margin-bottom:1.5rem;}
+.contact-form{display:flex;flex-direction:column;gap:1rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:580px){.form-row{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:.375rem;}
+.form-label{font-family:var(--font-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);}
+.form-input,.form-textarea{background:var(--c-surface-alt);border:1px solid var(--c-border);border-radius:8px;padding:.75rem 1rem;color:var(--c-text);font-family:var(--font-body);font-size:.9375rem;transition:border-color .15s,box-shadow .15s;width:100%;resize:none;}
+.form-input:focus,.form-textarea:focus{outline:none;border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(91,141,239,.15);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--c-muted);opacity:.6;}
+.form-textarea{height:130px;line-height:1.6;}
+.form-submit{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 2rem;background:var(--c-gradient);border:none;border-radius:8px;color:#fff;font-family:var(--font-body);font-size:.9375rem;font-weight:600;cursor:pointer;transition:opacity .2s,transform .2s,box-shadow .2s;align-self:flex-start;}
+.form-submit:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,141,239,.3);}
+.form-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
+.form-status{display:none;padding:.875rem 1.125rem;border-radius:8px;font-size:.875rem;font-weight:500;align-items:center;gap:.625rem;}
+.form-status.success{display:flex;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--c-success);}
+.form-status.error{display:flex;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--c-error);}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Yash Dhumane Portfolio","url":"https://yashdhumane12.github.io/yashdhumane-portfolio/","description":"Portfolio of Yash Dhumane, DevOps Engineer in Pune, India"}
+</script>
 </head>
 <body class="bg-triangles">
 
@@ -1342,9 +829,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
       <span class="chrome-dot amber"></span>
       <span class="chrome-dot green"></span>
       <span class="chrome-label">operator console — yash@homelab</span>
-      <button type="button" class="chrome-term-pill" id="chrome-term-btn" title="Launch Interactive Terminal (Ctrl + K)">
-        <span>&gt;_</span> terminal
-      </button>
     </div>
     <div class="header__body">
       <!-- Identity -->
@@ -1369,23 +853,14 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
       </div>
       <!-- Action -->
       <div class="header-action">
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
-          <a href="resume.pdf" download class="header-action__cta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            Download CV
-          </a>
-          <button type="button" class="btn-preview-cv" id="preview-cv-btn" title="Preview Resume in browser">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            Preview
-          </button>
-        </div>
-        <div style="display:inline-flex;align-items:center;">
-          <a href="mailto:yashdhumane391@gmail.com" class="header-action__email">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>yashdhumane391@gmail.com</span>
-          </a>
-          <button type="button" class="copy-badge" data-copy="yashdhumane391@gmail.com" title="Copy email address" aria-label="Copy email address">copy</button>
-        </div>
+        <a href="resume.pdf" download class="header-action__cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download CV
+        </a>
+        <a href="mailto:yashdhumane391@gmail.com" class="header-action__email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          yashdhumane391@gmail.com
+        </a>
         <ul class="header-action__socials">
           <li><a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" title="LinkedIn">in</a></li>
           <li><a href="https://github.com/yashdhumane12" target="_blank" rel="noopener" title="GitHub">gh</a></li>
@@ -1439,9 +914,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
         </div>
         <!-- Utils -->
         <div class="rack-utils">
-          <button type="button" class="terminal-trigger-btn" id="sidebar-term-btn" title="Open Interactive Terminal (Ctrl + K)">
-            <span>&gt;_</span> Console <span style="opacity:.6;font-size:.65rem;margin-left:2px;">[Ctrl+K]</span>
-          </button>
           <button class="theme-btn" id="theme-toggle">☀ Light mode</button>
         </div>
       </aside>
@@ -1452,7 +924,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
       <main class="box-entrance--content">
 
         <!-- ═══ ABOUT ═══ -->
-        <section id="about" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="about" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">About Me.</span>
           <h2 class="title-sep">
             <span class="title-tone">◆</span> DevOps Engineer &amp; SRE
@@ -1467,10 +939,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
           </div>
 
           <div class="stats-grid reveal d1" style="margin-top:2rem;">
-            <div class="stat-card"><span class="stat-num" data-target="3">3</span><span class="stat-label">Production apps</span></div>
-            <div class="stat-card"><span class="stat-num" data-target="9">9</span><span class="stat-label">K8s workers</span></div>
-            <div class="stat-card"><span class="stat-num" data-target="1">1</span><span class="stat-label">Bare-metal cluster</span></div>
-            <div class="stat-card"><span class="stat-num" data-target="2" data-suffix="+">2+</span><span class="stat-label">Years ops</span></div>
+            <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Production apps</span></div>
+            <div class="stat-card"><span class="stat-num">9</span><span class="stat-label">K8s workers</span></div>
+            <div class="stat-card"><span class="stat-num">1</span><span class="stat-label">Bare-metal cluster</span></div>
+            <div class="stat-card"><span class="stat-num">2+</span><span class="stat-label">Years ops</span></div>
           </div>
 
           <div class="scope-grid reveal d2">
@@ -1510,7 +982,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
         </section>
 
         <!-- ═══ EXPERIENCE ═══ -->
-        <section id="experience" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="experience" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Career</span>
           <h2 class="title-sep">Where I've worked</h2>
 
@@ -1581,7 +1053,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
         </section>
 
         <!-- ═══ SKILLS ═══ -->
-        <section id="skills" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="skills" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Competencies</span>
           <h2 class="title-sep">Tech Stack</h2>
 
@@ -1640,7 +1112,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
         </section>
 
         <!-- ═══ PROJECTS ═══ -->
-        <section id="projects" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="projects" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Portfolio</span>
           <h2 class="title-sep">Things I've shipped</h2>
           <p style="color:var(--c-muted);margin-bottom:1.5rem;font-size:.9375rem;">Production systems, staging experiments, and side missions.</p>
@@ -1711,7 +1183,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
         </section>
 
         <!-- ═══ HOMELAB ═══ -->
-        <section id="homelab" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="homelab" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Homelab / Postmortems</span>
           <h2 class="title-sep">Notes from bare metal</h2>
           <p style="color:var(--c-muted);margin-bottom:1.5rem;font-size:.9375rem;">Self-hosted infrastructure running 24/7 - postmortems kept as a running log rather than buried in tickets.</p>
@@ -1729,168 +1201,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
             </div>
           </div>
 
-          <!-- ── ARCHITECTURE TOPOLOGY FLOW ── -->
-          <div class="arch-topo-wrap reveal">
-            <div class="arch-topo-header">
-              <div class="arch-topo-title">System Architecture Topology</div>
-              <div class="arch-topo-badge">INTERACTIVE PIPELINE</div>
-            </div>
-            <div class="arch-flow" id="arch-flow">
-              <div class="arch-node active" data-node="wan">
-                <div class="arch-node-badge">EDGE</div>
-                <div class="arch-node-icon">🌐</div>
-                <div class="arch-node-name">WAN / Public</div>
-                <div class="arch-node-sub">Cloudflare + DDNS</div>
-              </div>
-              <div class="arch-arrow">
-                <span class="arch-arrow-line"></span>
-                <span>▶</span>
-              </div>
-              <div class="arch-node" data-node="pfsense">
-                <div class="arch-node-badge">GATEWAY</div>
-                <div class="arch-node-icon">🛡️</div>
-                <div class="arch-node-name">pfSense Router</div>
-                <div class="arch-node-sub">Firewall + WireGuard</div>
-              </div>
-              <div class="arch-arrow">
-                <span class="arch-arrow-line"></span>
-                <span>▶</span>
-              </div>
-              <div class="arch-node" data-node="ingress">
-                <div class="arch-node-badge">PROXY</div>
-                <div class="arch-node-icon">🔀</div>
-                <div class="arch-node-name">HAProxy + Nginx</div>
-                <div class="arch-node-sub">TLS 1.3 Term + SNI</div>
-              </div>
-              <div class="arch-arrow">
-                <span class="arch-arrow-line"></span>
-                <span>▶</span>
-              </div>
-              <div class="arch-node" data-node="metallb">
-                <div class="arch-node-badge">NETWORKING</div>
-                <div class="arch-node-icon">⚖️</div>
-                <div class="arch-node-name">MetalLB L2</div>
-                <div class="arch-node-sub">VIP Pool .200-.220</div>
-              </div>
-              <div class="arch-arrow">
-                <span class="arch-arrow-line"></span>
-                <span>▶</span>
-              </div>
-              <div class="arch-node" data-node="k8s">
-                <div class="arch-node-badge">CLUSTER</div>
-                <div class="arch-node-icon">☸️</div>
-                <div class="arch-node-name">K8s on Proxmox</div>
-                <div class="arch-node-sub">1 Master + 9 Workers</div>
-              </div>
-              <div class="arch-arrow">
-                <span class="arch-arrow-line"></span>
-                <span>▶</span>
-              </div>
-              <div class="arch-node" data-node="workloads">
-                <div class="arch-node-badge">WORKLOADS</div>
-                <div class="arch-node-icon">🚀</div>
-                <div class="arch-node-name">Apps &amp; CI/CD</div>
-                <div class="arch-node-sub">GitLab, Harbor, Pods</div>
-              </div>
-            </div>
-
-            <!-- Real-time node details box -->
-            <div class="arch-details-box" id="arch-details-box">
-              <div class="arch-details-head">
-                <div class="arch-details-target" id="arch-node-title">WAN &amp; Edge Ingress: Cloudflare DDNS</div>
-                <div class="arch-details-hint">Click any node in the flow to inspect specs &amp; routing</div>
-              </div>
-              <div class="arch-details-desc" id="arch-node-desc">
-                Public traffic arrives via Cloudflare CDN proxy with DNS dynamic updates (ddclient). Automated SSL offloading and rate-limiting safeguard edge entrypoints before forwarding to homelab gateway.
-              </div>
-              <div class="arch-details-specs" id="arch-node-specs">
-                <span class="spec-tag">Cloudflare Proxy</span>
-                <span class="spec-tag">Dynamic DNS Cron</span>
-                <span class="spec-tag">Port 443 Forwarding</span>
-                <span class="spec-tag">Zero-Trust WAF Rules</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── INFRA TELEMETRY & STATUS DASHBOARD ── -->
-          <div class="infra-telemetry-wrap reveal">
-            <div class="infra-telemetry-header">
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="telemetry-pulse-dot"></span>
-                <span class="telemetry-title">Infra Telemetry &amp; Node Health</span>
-              </div>
-              <span class="telemetry-refresh">● 6/6 NODES OPERATIONAL</span>
-            </div>
-
-            <div class="telemetry-grid">
-              <!-- Node 1: Proxmox Host -->
-              <div class="telemetry-card">
-                <div class="telemetry-card-top">
-                  <div class="telemetry-id"><span class="dot-live"></span>pve-cluster-01</div>
-                  <span class="telemetry-state state-healthy">HEALTHY</span>
-                </div>
-                <div class="telemetry-meta">Bare-metal Hypervisor · Proxmox VE 8.2</div>
-                <div class="telemetry-meter-bar"><div class="telemetry-fill" style="width:24%;"></div></div>
-                <div class="telemetry-stats"><span>CPU: 24%</span><span>RAM: 48.2/64 GB</span><span>Up: 99.98%</span></div>
-              </div>
-
-              <!-- Node 2: K8s Control Plane -->
-              <div class="telemetry-card">
-                <div class="telemetry-card-top">
-                  <div class="telemetry-id"><span class="dot-live"></span>k8s-cp-master</div>
-                  <span class="telemetry-state state-healthy">HEALTHY</span>
-                </div>
-                <div class="telemetry-meta">Control Plane · kubeadm v1.28.3</div>
-                <div class="telemetry-meter-bar"><div class="telemetry-fill" style="width:31%;"></div></div>
-                <div class="telemetry-stats"><span>etcd: Synced 3/3</span><span>API: 12ms</span><span>Pods: 14/110</span></div>
-              </div>
-
-              <!-- Node 3: K8s Worker Nodes -->
-              <div class="telemetry-card">
-                <div class="telemetry-card-top">
-                  <div class="telemetry-id"><span class="dot-live"></span>worker-01..09</div>
-                  <span class="telemetry-state state-healthy">READY</span>
-                </div>
-                <div class="telemetry-meta">9x VM Worker Nodes · Flannel CNI</div>
-                <div class="telemetry-meter-bar"><div class="telemetry-fill" style="width:42%;"></div></div>
-                <div class="telemetry-stats"><span>Active: 9/9</span><span>Load: 0.38</span><span>Pods: 82/990</span></div>
-              </div>
-
-              <!-- Node 4: HAProxy & Ingress -->
-              <div class="telemetry-card">
-                <div class="telemetry-card-top">
-                  <div class="telemetry-id"><span class="dot-live"></span>edge-ingress-01</div>
-                  <span class="telemetry-state state-healthy">ACTIVE</span>
-                </div>
-                <div class="telemetry-meta">HAProxy 2.8 + Nginx · TLS 1.3</div>
-                <div class="telemetry-meter-bar"><div class="telemetry-fill" style="width:18%;"></div></div>
-                <div class="telemetry-stats"><span>Active: 142 conn</span><span>200 OK: 99.9%</span><span>SSL: Valid</span></div>
-              </div>
-
-              <!-- Node 5: GitLab CI/CD Runners -->
-              <div class="telemetry-card">
-                <div class="telemetry-card-top">
-                  <div class="telemetry-id"><span class="dot-live"></span>runner-exec-01..03</div>
-                  <span class="telemetry-state state-healthy">READY</span>
-                </div>
-                <div class="telemetry-meta">Self-hosted GitLab Runners · Docker socket</div>
-                <div class="telemetry-meter-bar"><div class="telemetry-fill" style="width:28%;"></div></div>
-                <div class="telemetry-stats"><span>Executors: 6 slots</span><span>Queue: 0 pending</span><span>Success: 98.4%</span></div>
-              </div>
-
-              <!-- Node 6: Harbor Registry -->
-              <div class="telemetry-card">
-                <div class="telemetry-card-top">
-                  <div class="telemetry-id"><span class="dot-live"></span>harbor-registry</div>
-                  <span class="telemetry-state state-healthy">HEALTHY</span>
-                </div>
-                <div class="telemetry-meta">Container Registry · ZFS RAID10 Storage</div>
-                <div class="telemetry-meter-bar"><div class="telemetry-fill" style="width:58%;"></div></div>
-                <div class="telemetry-stats"><span>Storage: 3.2 TB free</span><span>Trivy: OK</span><span>Images: 184</span></div>
-              </div>
-            </div>
-          </div>
-
           <div class="log-terminal reveal">
             <div class="log-chrome">
               <div class="log-dots">
@@ -1899,11 +1209,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
                 <span class="log-dot" style="background:var(--c-dot-green)"></span>
               </div>
               <span class="log-chrome-label">yash@homelab — postmortems</span>
-              <div class="log-grep-box">
-                <span class="log-grep-lbl">grep:</span>
-                <input type="text" id="log-grep-input" class="log-grep-input" placeholder="filter logs (e.g. nginx)..." aria-label="Filter postmortem logs" autocomplete="off" spellcheck="false"/>
-                <span class="log-grep-count" id="log-grep-count">6/6</span>
-              </div>
             </div>
             <div class="log-output">
               <div class="log-row"><span class="log-ts">2026-08-14</span><span class="log-entry"><span class="log-prompt">$</span>nginx startup race condition — fixed with lazy DNS resolution instead of resolving upstreams at boot.</span></div>
@@ -1912,15 +1217,12 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               <div class="log-row"><span class="log-ts">2026-05-30</span><span class="log-entry"><span class="log-prompt">$</span>Alembic migration revision mismatches traced back to git clean silently removing uncommitted migration files.</span></div>
               <div class="log-row"><span class="log-ts">2026-04-17</span><span class="log-entry"><span class="log-prompt">$</span>nginx stale DNS caching on container restarts — resolved via Docker embedded DNS resolver and variable-based proxy_pass.</span></div>
               <div class="log-row"><span class="log-ts">2026-03-05</span><span class="log-entry"><span class="log-prompt">$</span>pfSense + HAProxy subdomain routing set up for clean per-service TLS termination.</span></div>
-              <div class="log-grep-empty" id="log-grep-empty" style="display:none;">
-                $ grep: no matching postmortem logs found for <span></span>
-              </div>
             </div>
           </div>
         </section>
 
         <!-- ═══ EDUCATION ═══ -->
-        <section id="education" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="education" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Academic Background</span>
           <h2 class="title-sep">Education</h2>
 
@@ -1930,7 +1232,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               <div class="edu-icon">🎓</div>
               <div class="edu-body">
                 <div class="edu-degree">Postgraduate Diploma in Management</div>
-                <div class="edu-school">Pune, India</div>
+                <div class="edu-school">MIT School of Distance Education (MITSDE), Pune</div>
                 <div class="edu-meta">
                   <span>2024 – 2026</span>
                   <span class="edu-badge edu-badge--dist">First Class with Distinction</span>
@@ -1954,32 +1256,20 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
         </section>
 
         <!-- ═══ CONTACT ═══ -->
-        <section id="contact" class="box box-content section-fade" style="scroll-margin-top:1rem;">
+        <section id="contact" class="box box-content" style="scroll-margin-top:1rem;">
           <span class="overhead">Get in touch</span>
           <h2 class="title-sep">Contact</h2>
           <p style="color:var(--c-muted);margin-bottom:1.5rem;font-size:.9375rem;">Open to DevOps and infrastructure roles. Reach out directly.</p>
 
           <div class="contact-links reveal">
-            <div class="contact-link">
-              <a href="mailto:yashdhumane391@gmail.com" class="contact-link-inner">
-                <div class="contact-icon">@</div>
-                <div style="min-width:0;flex:1;">
-                  <span class="contact-lbl">Email</span>
-                  <span class="contact-val" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="yashdhumane391@gmail.com">yashdhumane391@gmail.com</span>
-                </div>
-              </a>
-              <button type="button" class="copy-badge" data-copy="yashdhumane391@gmail.com" title="Copy Email address" aria-label="Copy Email address">copy</button>
-            </div>
-            <div class="contact-link">
-              <a href="tel:+917219522590" class="contact-link-inner">
-                <div class="contact-icon">#</div>
-                <div style="min-width:0;flex:1;">
-                  <span class="contact-lbl">Phone</span>
-                  <span class="contact-val" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">+91-7219522590</span>
-                </div>
-              </a>
-              <button type="button" class="copy-badge" data-copy="+91-7219522590" title="Copy Phone number" aria-label="Copy Phone number">copy</button>
-            </div>
+            <a href="mailto:yashdhumane391@gmail.com" class="contact-link">
+              <div class="contact-icon">@</div>
+              <div><span class="contact-lbl">Email</span><span class="contact-val">yashdhumane391@gmail.com</span></div>
+            </a>
+            <a href="tel:+917219522590" class="contact-link">
+              <div class="contact-icon">#</div>
+              <div><span class="contact-lbl">Phone</span><span class="contact-val">+91-7219522590</span></div>
+            </a>
             <a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" class="contact-link">
               <div class="contact-icon" style="font-weight:700">in</div>
               <div><span class="contact-lbl">LinkedIn</span><span class="contact-val">yash-dhumane</span></div>
@@ -1990,21 +1280,15 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
             </a>
           </div>
 
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:1.75rem;" class="reveal d1">
-            <a href="resume.pdf" download class="btn btn-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              Download Resume
-            </a>
-            <button type="button" class="btn-preview-cv" id="contact-preview-cv-btn" title="Preview Resume in browser">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              Preview PDF
-            </button>
-          </div>
+          <a href="resume.pdf" download class="btn btn-primary reveal d1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Resume
+          </a>
 
           <!-- Contact Form -->
           <div class="contact-form-wrap reveal d2">
             <div class="contact-form-title">Send me a message</div>
-            <p class="contact-form-sub">Have a question or opportunity? Fill this in and I'll reply within 24 hours.</p>
+            <p class="contact-form-sub">Have a question or opportunity? I reply within 24 hours.</p>
             <form class="contact-form" id="contact-form" action="https://formspree.io/f/xaeyleqj" method="POST" novalidate>
               <div class="form-row">
                 <div class="form-group">
@@ -2022,7 +1306,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
               <div class="form-group">
                 <label class="form-label" for="cf-msg">Message</label>
-                <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Tell me what's on your mind..." required></textarea>
+                <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Tell me what you have in mind..." required></textarea>
               </div>
               <div class="form-status" id="form-status" role="alert"></div>
               <button class="form-submit" type="submit" id="form-btn">
@@ -2036,8 +1320,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
           <div class="reveal d2" style="margin-top:2rem;">
             <div style="font-family:var(--font-mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);margin-bottom:1rem;">GitHub Activity</div>
             <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
-              <img src="https://github-readme-stats.vercel.app/api?username=yashdhumane12&show_icons=true&cache_seconds=86400&theme=github_dark&bg_color=16181f&border_color=2a2e3a&title_color=5b8def&text_color=c8cdd8&icon_color=5b8def&count_private=true" alt="Yash GitHub Stats" style="border-radius:8px;border:1px solid var(--c-border);max-width:100%;height:auto;" loading="lazy" onerror="this.style.display='none'"/>
-              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yashdhumane12&cache_seconds=86400&layout=compact&theme=github_dark&bg_color=16181f&border_color=2a2e3a&title_color=5b8def&text_color=c8cdd8" alt="Top Languages" style="border-radius:8px;border:1px solid var(--c-border);max-width:100%;height:auto;" loading="lazy" onerror="this.style.display='none'"/>
+              <img src="https://github-readme-stats.vercel.app/api?username=yashdhumane12&show_icons=true&theme=github_dark&bg_color=16181f&border_color=2a2e3a&title_color=5b8def&text_color=c8cdd8&icon_color=5b8def&count_private=true" alt="Yash GitHub Stats" style="border-radius:8px;border:1px solid var(--c-border);max-width:100%;height:auto;" loading="lazy" onerror="this.style.display='none'"/>
+              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yashdhumane12&layout=compact&theme=github_dark&bg_color=16181f&border_color=2a2e3a&title_color=5b8def&text_color=c8cdd8" alt="Top Languages" style="border-radius:8px;border:1px solid var(--c-border);max-width:100%;height:auto;" loading="lazy" onerror="this.style.display='none'"/>
             </div>
           </div>
         </section>
@@ -2058,94 +1342,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
   </div><!-- row -->
 </div><!-- container -->
 
-<!-- Floating Interactive Terminal Button -->
-<button type="button" class="floating-term-btn" id="floating-term-btn" aria-label="Open Interactive Terminal (Ctrl + K)">
-  <span class="floating-term-icon">&gt;_</span>
-  <span>Console</span>
-  <kbd class="floating-term-kbd">Ctrl+K</kbd>
-</button>
-
-<!-- One-Click Copy Feedback Toast -->
-<div class="copy-toast" id="copy-toast" role="status" aria-live="polite">
-  <span class="copy-toast-dot"></span>
-  <span id="copy-toast-msg">Copied to clipboard!</span>
-</div>
-
-<!-- In-Browser Resume Preview Modal -->
-<div class="cv-overlay" id="cv-overlay" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
-  <div class="cv-modal">
-    <div class="cv-modal-header">
-      <div class="cv-modal-title" id="cv-modal-title">
-        <span style="color:var(--c-accent);font-family:var(--font-mono);font-weight:700;margin-right:8px;">&gt;</span>
-        <span style="font-family:var(--font-mono);font-size:.82rem;font-weight:600;color:var(--c-heading);">resume.pdf — Yash Dhumane</span>
-      </div>
-      <div class="cv-modal-actions">
-        <a href="resume.pdf" target="_blank" rel="noopener" class="cv-btn-action" title="Open in new tab">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-          Open Tab
-        </a>
-        <a href="resume.pdf" download class="cv-btn-action" title="Download PDF">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download
-        </a>
-        <button type="button" class="cv-close-btn" id="cv-close-btn" aria-label="Close resume preview">&times;</button>
-      </div>
-    </div>
-    <div class="cv-modal-body">
-      <iframe src="resume.pdf" class="cv-iframe" id="cv-iframe" title="Resume PDF Preview"></iframe>
-      <div class="cv-fallback-msg">
-        Having trouble viewing the PDF preview? <a href="resume.pdf" target="_blank" rel="noopener">Click here to open directly</a> or <a href="resume.pdf" download>download it</a>.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Interactive Command Palette Modal -->
-<div class="cmd-overlay" id="cmd-overlay" role="dialog" aria-modal="true" aria-label="Interactive Command Console">
-  <div class="cmd-modal">
-    <div class="cmd-header">
-      <div class="cmd-dots">
-        <span class="cmd-dot red" id="cmd-btn-close" title="Close Console (Esc)"></span>
-        <span class="cmd-dot amber"></span>
-        <span class="cmd-dot green"></span>
-      </div>
-      <span class="cmd-title">yash@homelab: ~ (interactive shell v2.4)</span>
-      <span class="cmd-esc-badge">ESC to close</span>
-    </div>
-    <div class="cmd-terminal-body" id="cmd-terminal-body">
-      <div class="cmd-welcome">
-        <pre class="cmd-ascii">
- ██╗   ██╗ ██████╗ ██╗██████╗ 
- ██║   ██║██╔═══██╗██║██╔══██╗
- ██║   ██║██║   ██║██║██║  ██║
- ╚██╗ ██╔╝██║   ██║██║██║  ██║
-  ╚████╔╝ ╚██████╔╝██║██████╔╝
-   ╚═══╝   ╚═════╝ ╚═╝╚═════╝ 
-        </pre>
-        <div class="cmd-subtext">Type <span class="cmd-kw">help</span> for available commands or click quick action chips below. Press <span class="cmd-kw">↑</span>/<span class="cmd-kw">↓</span> for command history.</div>
-      </div>
-      <div id="cmd-history"></div>
-      <div class="cmd-prompt-line">
-        <span class="cmd-prompt">yash@infra:~$</span>
-        <input type="text" class="cmd-input" id="cmd-input" autocomplete="off" spellcheck="false" placeholder="type a command..." aria-label="Command console input"/>
-      </div>
-    </div>
-    <div class="cmd-chips" id="cmd-chips">
-      <button type="button" class="cmd-chip" data-cmd="help">help</button>
-      <button type="button" class="cmd-chip" data-cmd="status">status</button>
-      <button type="button" class="cmd-chip" data-cmd="skills">skills</button>
-      <button type="button" class="cmd-chip" data-cmd="projects">projects</button>
-      <button type="button" class="cmd-chip" data-cmd="logs">logs</button>
-      <button type="button" class="cmd-chip" data-cmd="resume">resume</button>
-      <button type="button" class="cmd-chip" data-cmd="contact">contact</button>
-      <button type="button" class="cmd-chip" data-cmd="clear">clear</button>
-    </div>
-  </div>
-</div>
-
 <script>
 /* ── BOOT: enable reveal animations ── */
-/* js-ready removed — reveal handled by IntersectionObserver directly */
+/* removed */
 
 /* ── SCROLL SPY: update active nav link ── */
 const sections = document.querySelectorAll('section[id]');
@@ -2259,10 +1458,9 @@ themeBtn.addEventListener('click', () => {
 const scrollTopBtn = document.getElementById('scroll-top');
 if (scrollTopBtn) {
   window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-  }, {passive:true});
-  scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-}
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, {passive:true});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ── TYPING / ROLE ROTATOR ── */
 const roles = ['DevOps Engineer', 'Site Reliability Engineer', 'Platform Engineer', 'K8s Cluster Admin'];
@@ -2284,660 +1482,38 @@ if (typeText && !prefersReduced) {
   setTimeout(typeRole, 1400);
 }
 
-/* ── CONTACT FORM ── */
+/* ── PROJECT CARD HOVER TILT ── */
+document.querySelectorAll('.portfolio-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `translateY(-4px) perspective(600px) rotateY(${x*6}deg) rotateX(${-y*4}deg)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+/* Contact Form */
 const contactForm = document.getElementById('contact-form');
-const formBtn     = document.getElementById('form-btn');
-const formStatus  = document.getElementById('form-status');
-if (contactForm) {
+const formBtn = document.getElementById('form-btn');
+const formStatus = document.getElementById('form-status');
+if (contactForm && formBtn && formStatus) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name  = document.getElementById('cf-name').value.trim();
+    const name = document.getElementById('cf-name').value.trim();
     const email = document.getElementById('cf-email').value.trim();
-    const msg   = document.getElementById('cf-msg').value.trim();
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!name || !email || !msg) {
-      formStatus.className = 'form-status error';
-      formStatus.textContent = '\u26a0 Please fill in your name, email, and message.';
-      return;
-    }
-    if (!emailRe.test(email)) {
-      formStatus.className = 'form-status error';
-      formStatus.textContent = '\u26a0 Please enter a valid email address.';
-      return;
-    }
-    if (contactForm.action.includes('YOUR_FORM_ID')) {
-      const subject = encodeURIComponent(document.getElementById('cf-subject').value || 'Portfolio inquiry');
-      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg);
-      window.open('mailto:yashdhumane391@gmail.com?subject=' + subject + '&body=' + body);
-      formStatus.className = 'form-status success';
-      formStatus.textContent = '\u2713 Opening your email client...';
-      return;
-    }
-    formBtn.disabled = true;
-    formBtn.textContent = 'Sending...';
-    formStatus.className = 'form-status';
-    formStatus.style.display = 'none';
+    const msg = document.getElementById('cf-msg').value.trim();
+    if (!name || !email || !msg) { formStatus.className='form-status error'; formStatus.textContent='\u26a0 Please fill in your name, email, and message.'; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { formStatus.className='form-status error'; formStatus.textContent='\u26a0 Please enter a valid email address.'; return; }
+    formBtn.disabled=true; formBtn.textContent='Sending...';
+    formStatus.className='form-status'; formStatus.style.display='none';
     try {
-      const res = await fetch(contactForm.action, {
-        method: 'POST',
-        headers: {'Accept': 'application/json'},
-        body: new FormData(contactForm),
-      });
-      if (res.ok) {
-        formStatus.className = 'form-status success';
-        formStatus.textContent = '\u2713 Message sent! I\'ll reply within 24 hours.';
-        contactForm.reset();
-      } else { throw new Error(); }
-    } catch {
-      formStatus.className = 'form-status error';
-      formStatus.textContent = '\u2717 Something went wrong. Email me directly: yashdhumane391@gmail.com';
-    } finally {
-      formBtn.disabled = false;
-      formBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Send Message';
-    }
+      const res = await fetch(contactForm.action, {method:'POST', headers:{'Accept':'application/json'}, body: new FormData(contactForm)});
+      if (res.ok) { formStatus.className='form-status success'; formStatus.textContent='\u2713 Message sent! I\'ll reply within 24 hours.'; contactForm.reset(); }
+      else { throw new Error(); }
+    } catch { formStatus.className='form-status error'; formStatus.textContent='\u2717 Something went wrong. Email me at yashdhumane391@gmail.com'; }
+    finally { formBtn.disabled=false; formBtn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Send Message'; }
   });
-}
-
-/* ══ ANIMATION LAYER JAVASCRIPT ══════════════════════════════════════
-   Vanilla JS animations strictly respecting prefers-reduced-motion:
-   1. Typewriter effect on hero tagline with blinking cursor
-   2. Scroll fade-in for major sections (IntersectionObserver)
-   3. Stats counter count-up animation (requestAnimationFrame)
-   4. Staggered terminal log stream
-══════════════════════════════════════════════════════════════════════ */
-(function(){
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* 1. Typewriter with blinking cursor for hero tagline */
-  const chromeLabel = document.querySelector('.chrome-label');
-  if (chromeLabel) {
-    const fullText = chromeLabel.textContent.trim() || 'operator console — yash@homelab';
-    if (prefersReduced) {
-      chromeLabel.textContent = fullText;
-    } else {
-      chromeLabel.textContent = '';
-      const textNode = document.createElement('span');
-      const cursor = document.createElement('span');
-      cursor.className = 'chrome-cursor';
-      cursor.setAttribute('aria-hidden', 'true');
-      chromeLabel.appendChild(textNode);
-      chromeLabel.appendChild(cursor);
-
-      let charIdx = 0;
-      function typeChar() {
-        if (charIdx < fullText.length) {
-          textNode.textContent += fullText.charAt(charIdx);
-          charIdx++;
-          setTimeout(typeChar, 42);
-        }
-      }
-      setTimeout(typeChar, 350);
-    }
-  }
-
-  /* 2. Scroll fade-in for major sections (IntersectionObserver) */
-  const sectionFadeEls = document.querySelectorAll('.section-fade');
-  if (sectionFadeEls.length) {
-    if (prefersReduced) {
-      sectionFadeEls.forEach(sec => sec.classList.add('is-visible'));
-    } else {
-      const secObs = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-      sectionFadeEls.forEach(sec => secObs.observe(sec));
-    }
-  }
-
-  /* 3. Number counters count-up animation */
-  function animateCount(el, target, suffix, duration = 1100) {
-    const startTime = performance.now();
-    function step(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const currentVal = Math.round(easeProgress * target);
-      el.textContent = currentVal + suffix;
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target + suffix;
-      }
-    }
-    requestAnimationFrame(step);
-  }
-
-  const statsGrid = document.querySelector('.stats-grid');
-  if (statsGrid) {
-    const statCards = statsGrid.querySelectorAll('.stat-card');
-    const statItems = [];
-    statCards.forEach(card => {
-      const numEl = card.querySelector('.stat-num');
-      if (!numEl) return;
-      const raw = numEl.textContent.trim();
-      const suffix = numEl.dataset.suffix || raw.replace(/[0-9]/g, '');
-      const value = parseInt(numEl.dataset.target || raw, 10);
-      if (!isNaN(value)) {
-        statItems.push({ el: numEl, target: value, suffix: suffix });
-        if (!prefersReduced) {
-          numEl.textContent = '0' + suffix;
-        }
-      }
-    });
-
-    if (prefersReduced) {
-      statItems.forEach(({ el, target, suffix }) => {
-        el.textContent = target + suffix;
-      });
-    } else if (statItems.length) {
-      const statObs = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            obs.unobserve(entry.target);
-            statItems.forEach(({ el, target, suffix }) => {
-              animateCount(el, target, suffix, 1000);
-            });
-          }
-        });
-      }, { threshold: 0.2 });
-      statObs.observe(statsGrid);
-    }
-  }
-
-  /* 4. Terminal log stream — staggered line-by-line reveal */
-  const logOutput = document.querySelector('.log-output');
-  if (logOutput) {
-    const rows = logOutput.querySelectorAll('.log-row');
-    if (prefersReduced) {
-      rows.forEach(r => r.classList.add('log-visible'));
-    } else {
-      const logObs = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            obs.unobserve(entry.target);
-            rows.forEach((row, idx) => {
-              setTimeout(() => {
-                row.classList.add('log-visible');
-              }, 140 * idx);
-            });
-          }
-        });
-      }, { threshold: 0.15 });
-      logObs.observe(logOutput);
-    }
-  }
-
-  /* 5. Architecture Topology Interactive Explorer */
-  (function initTopology() {
-    const topoData = {
-      wan: {
-        title: 'WAN & Edge Ingress: Cloudflare DDNS',
-        desc: 'Public traffic arrives via Cloudflare CDN proxy with DNS dynamic updates (ddclient). Automated SSL offloading and rate-limiting safeguard edge entrypoints before forwarding to homelab gateway.',
-        specs: ['Cloudflare Proxy', 'Dynamic DNS Cron', 'Port 443 Forwarding', 'Zero-Trust WAF Rules']
-      },
-      pfsense: {
-        title: 'Network Gateway & Firewall: pfSense',
-        desc: 'Dedicated Netgate pfSense hardware firewall managing segmented VLANs (LAN, DMZ, IoT, Storage). Enforces strict firewall policies, stateful packet inspection, and WireGuard VPN mesh access.',
-        specs: ['pfSense CE 2.7', 'Isolated VLANs', 'WireGuard Roadwarrior', 'Suricata IDS/IPS']
-      },
-      ingress: {
-        title: 'Reverse Proxy & TLS Termination: HAProxy + Nginx',
-        desc: 'Dual-layer reverse proxy stack. HAProxy handles layer-4/layer-7 load balancing with health checks and SSL termination; Nginx serves static assets, caching headers, and WebSocket upgrades.',
-        specs: ['HAProxy 2.8', 'Nginx 1.25 Mainline', 'Let\'s Encrypt ACME', 'WebSocket Upgrades']
-      },
-      metallb: {
-        title: 'Bare-Metal Load Balancing: MetalLB L2',
-        desc: 'Kubernetes LoadBalancer implementation operating in Layer 2 mode with ARP responding. Maps dedicated static IP ranges (192.168.1.200 - .220) directly to cluster ingress services.',
-        specs: ['MetalLB v0.13', 'Layer 2 Mode', 'VIP Pool (/27)', 'Memberlist Failover']
-      },
-      k8s: {
-        title: 'Production Cluster: Kubernetes on Proxmox VE',
-        desc: 'Highly-available self-hosted Kubernetes cluster bootstrapped via kubeadm on Proxmox VE VMs. 1 dedicated control plane and 9 worker nodes coordinated through etcd and Flannel overlay CNI.',
-        specs: ['Kubernetes v1.28.3', 'kubeadm Deploy', '1 CP + 9 Workers', 'Flannel CNI + CoreDNS']
-      },
-      workloads: {
-        title: 'Core Workloads: Self-Hosted GitLab, Harbor & Apps',
-        desc: 'Production microservices, internal toolchains, and pipelines. Hosted services include GitLab CE with local Docker socket runners, Harbor enterprise container registry, and containerized web applications.',
-        specs: ['GitLab CE 16.x', '3x Docker Runners', 'Harbor OCI Registry', 'Containerized APIs']
-      }
-    };
-
-    const flow = document.getElementById('arch-flow');
-    const titleEl = document.getElementById('arch-node-title');
-    const descEl = document.getElementById('arch-node-desc');
-    const specsEl = document.getElementById('arch-node-specs');
-    if (!flow || !titleEl || !descEl || !specsEl) return;
-
-    flow.addEventListener('click', (e) => {
-      const node = e.target.closest('.arch-node');
-      if (!node) return;
-      const key = node.getAttribute('data-node');
-      const data = topoData[key];
-      if (!data) return;
-
-      flow.querySelectorAll('.arch-node').forEach(n => n.classList.remove('active'));
-      node.classList.add('active');
-
-      titleEl.textContent = data.title;
-      descEl.textContent = data.desc;
-      specsEl.innerHTML = data.specs.map(s => `<span class="spec-tag">${s}</span>`).join('');
-    });
-  })();
-
-  /* 6. Postmortems Terminal — Live Grep Search Filter */
-  (function initLogGrep() {
-    const grepInput = document.getElementById('log-grep-input');
-    const grepCount = document.getElementById('log-grep-count');
-    const grepEmpty = document.getElementById('log-grep-empty');
-    if (!grepInput) return;
-
-    grepInput.addEventListener('input', () => {
-      const logRows = document.querySelectorAll('.log-terminal .log-row');
-      const total = logRows.length;
-      const q = grepInput.value.trim().toLowerCase();
-      let matchCount = 0;
-
-      logRows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        if (!q || text.includes(q)) {
-          row.classList.remove('grep-hidden');
-          matchCount++;
-        } else {
-          row.classList.add('grep-hidden');
-        }
-      });
-
-      if (grepCount) grepCount.textContent = `${matchCount}/${total}`;
-      if (grepEmpty) {
-        if (matchCount === 0) {
-          grepEmpty.style.display = 'block';
-          const querySpan = grepEmpty.querySelector('span');
-          if (querySpan) querySpan.textContent = `"${q}"`;
-        } else {
-          grepEmpty.style.display = 'none';
-        }
-      }
-    });
-  })();
-
-  /* 7. Modal & Terminal Manager with Global Delegation */
-  (function initModalsAndTerminal() {
-    // Helper modal toggles
-    function openTerminal() {
-      const overlay = document.getElementById('cmd-overlay');
-      const input = document.getElementById('cmd-input');
-      if (!overlay) return;
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      if (input) setTimeout(() => input.focus(), 80);
-    }
-
-    function closeTerminal() {
-      const overlay = document.getElementById('cmd-overlay');
-      if (!overlay) return;
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function openResumeModal() {
-      const cvOverlay = document.getElementById('cv-overlay');
-      if (!cvOverlay) return;
-      cvOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeResumeModal() {
-      const cvOverlay = document.getElementById('cv-overlay');
-      if (!cvOverlay) return;
-      cvOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Toast and Copy Helper
-    let toastTimer = null;
-    function copyText(text, btn) {
-      const toast = document.getElementById('copy-toast');
-      const toastMsg = document.getElementById('copy-toast-msg');
-
-      function onSuccess() {
-        if (toast) {
-          if (toastMsg) toastMsg.textContent = `Copied to clipboard: ${text}`;
-          toast.classList.add('show');
-          clearTimeout(toastTimer);
-          toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
-        }
-        if (btn) {
-          btn.classList.add('copied');
-          const orig = btn.textContent;
-          btn.textContent = 'COPIED';
-          setTimeout(() => {
-            btn.classList.remove('copied');
-            btn.textContent = orig;
-          }, 1800);
-        }
-      }
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallback(text));
-      } else {
-        fallback(text);
-      }
-
-      function fallback(val) {
-        const ta = document.createElement('textarea');
-        ta.value = val;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand('copy');
-          onSuccess();
-        } catch (e) {}
-        document.body.removeChild(ta);
-      }
-    }
-
-    // Terminal History & Execution Engine
-    const commandHistory = [];
-    let historyIndex = -1;
-
-    function printOutput(cmd, outputHtml) {
-      const historyContainer = document.getElementById('cmd-history');
-      const termBody = document.getElementById('cmd-terminal-body');
-      if (!historyContainer) return;
-      const item = document.createElement('div');
-      item.className = 'cmd-history-item';
-      item.innerHTML = `
-        <div class="cmd-hist-cmd"><span style="color:var(--c-dot-green)">yash@infra:~$</span> ${escapeHtml(cmd)}</div>
-        <div class="cmd-hist-out">${outputHtml}</div>
-      `;
-      historyContainer.appendChild(item);
-      if (termBody) termBody.scrollTop = termBody.scrollHeight;
-    }
-
-    function escapeHtml(str) {
-      const div = document.createElement('div');
-      div.textContent = str;
-      return div.innerHTML;
-    }
-
-    function executeCommand(raw) {
-      const cmd = raw.trim();
-      if (!cmd) return;
-
-      commandHistory.push(cmd);
-      historyIndex = commandHistory.length;
-
-      const lower = cmd.toLowerCase();
-      const parts = lower.split(/\s+/);
-      const action = parts[0];
-      const arg = parts[1] || '';
-
-      switch (action) {
-        case 'help':
-          printOutput(cmd, `
-            <table>
-              <tr><th>COMMAND</th><th>DESCRIPTION</th></tr>
-              <tr><td><b style="color:var(--c-accent)">help</b></td><td>Display available terminal commands</td></tr>
-              <tr><td><b style="color:var(--c-accent)">status</b></td><td>Inspect cluster node health &amp; telemetry metrics</td></tr>
-              <tr><td><b style="color:var(--c-accent)">skills</b></td><td>List core technical stack &amp; competencies</td></tr>
-              <tr><td><b style="color:var(--c-accent)">projects</b></td><td>List featured production DevOps infrastructure projects</td></tr>
-              <tr><td><b style="color:var(--c-accent)">logs</b></td><td>View recent bare-metal postmortem incident entries</td></tr>
-              <tr><td><b style="color:var(--c-accent)">resume</b></td><td>Open in-browser interactive PDF resume preview</td></tr>
-              <tr><td><b style="color:var(--c-accent)">contact</b></td><td>Display email, phone, LinkedIn, and GitHub links</td></tr>
-              <tr><td><b style="color:var(--c-accent)">goto &lt;sec&gt;</b></td><td>Navigate to section (about, experience, skills, projects, homelab, contact)</td></tr>
-              <tr><td><b style="color:var(--c-accent)">theme</b></td><td>Toggle dark / light operator theme</td></tr>
-              <tr><td><b style="color:var(--c-accent)">clear</b></td><td>Clear the terminal screen history</td></tr>
-              <tr><td><b style="color:var(--c-accent)">exit / quit</b></td><td>Close the interactive command console</td></tr>
-            </table>
-          `);
-          break;
-
-        case 'status':
-          printOutput(cmd, `
-            <div style="font-family:var(--font-mono);line-height:1.6;">
-              <span style="color:var(--c-dot-green);font-weight:700;">● CLUSTER STATUS: 6/6 NODES HEALTHY</span><br/>
-              ├─ <b>pve-cluster-01</b> : Proxmox VE 8.2 (Bare-Metal) | CPU: 24% | RAM: 48.2 GB / 64 GB<br/>
-              ├─ <b>k8s-cp-master</b>  : kubeadm v1.28.3 | etcd: Synced 3/3 | API Latency: 12ms<br/>
-              ├─ <b>worker-01..09</b>  : 9 VM Workers | Flannel CNI: Active | Pods: 82/990<br/>
-              ├─ <b>edge-ingress</b>   : HAProxy 2.8 + Nginx | 142 active conn | TLS 1.3: OK<br/>
-              ├─ <b>gitlab-runner</b>  : 3 Concurrent Docker Runners | 0 queue pending<br/>
-              └─ <b>harbor-store</b>   : ZFS RAID10 Storage | 3.2 TB free | Vulnerabilities: 0 High
-            </div>
-          `);
-          break;
-
-        case 'skills':
-          printOutput(cmd, `
-            <div style="line-height:1.6;">
-              <b style="color:var(--c-accent-2);">ORCHESTRATION &amp; CONTAINERS:</b> Kubernetes (kubeadm, HA CP, Kubelet), Docker, MetalLB, Calico, Flannel<br/>
-              <b style="color:var(--c-accent-2);">CI / CD AUTOMATION:</b> GitLab CI/CD (Self-hosted CE), Jenkins Pipelines, Webhooks, Docker-in-Docker<br/>
-              <b style="color:var(--c-accent-2);">INFRASTRUCTURE &amp; NETWORKING:</b> Proxmox VE, Linux (Ubuntu/Debian), pfSense, HAProxy, Nginx, WireGuard<br/>
-              <b style="color:var(--c-accent-2);">CLOUD &amp; REGISTRIES:</b> AWS (EC2, S3, IAM, VPC), Harbor OCI Registry, Docker Hub<br/>
-              <b style="color:var(--c-accent-2);">MONITORING &amp; LOGGING:</b> Prometheus, Grafana, Alertmanager, Loki, Node Exporter
-            </div>
-          `);
-          break;
-
-        case 'projects':
-          printOutput(cmd, `
-            <div style="line-height:1.6;">
-              1. <b style="color:var(--c-accent)">Self-Hosted 10-Node K8s Cluster on Proxmox</b><br/>
-                 &nbsp;&nbsp;&nbsp;Bare-metal kubeadm cluster with MetalLB L2, HAProxy ingress, automated etcd snapshots.<br/>
-              2. <b style="color:var(--c-accent)">Automated CI/CD Pipeline with GitLab CE &amp; Jenkins</b><br/>
-                 &nbsp;&nbsp;&nbsp;Multi-stage pipelines with Docker builds, Trivy scanning, and zero-downtime rolling deploys.<br/>
-              3. <b style="color:var(--c-accent)">Homelab Edge Security &amp; DNS Routing Stack</b><br/>
-                 &nbsp;&nbsp;&nbsp;pfSense firewall, WireGuard VPN mesh, dynamic DNS updates, Cloudflare SSL offloading.<br/>
-              <span style="color:var(--c-muted);font-size:.75rem;">(Tip: Type <b style="color:var(--c-accent)">goto projects</b> to view complete case studies)</span>
-            </div>
-          `);
-          break;
-
-        case 'logs':
-          printOutput(cmd, `
-            <div style="font-family:var(--font-mono);line-height:1.55;">
-              <span style="color:var(--c-accent-2);font-weight:600;">[2026-08-14]</span> nginx startup race condition fixed via lazy DNS upstream resolution.<br/>
-              <span style="color:var(--c-accent-2);font-weight:600;">[2026-07-22]</span> Jenkins GPG key rotation pinned to signing key.<br/>
-              <span style="color:var(--c-accent-2);font-weight:600;">[2026-06-09]</span> Proxmox bridge migration vmbr0 → vmbr1 with zero VM downtime.<br/>
-              <span style="color:var(--c-accent-2);font-weight:600;">[2026-05-30]</span> Alembic migration mismatch traced to uncommitted git clean.<br/>
-              <span style="color:var(--c-accent-2);font-weight:600;">[2026-04-17]</span> Docker embedded DNS caching solved via variable proxy_pass.<br/>
-              <span style="color:var(--c-accent-2);font-weight:600;">[2026-03-05]</span> pfSense + HAProxy subdomain SNI routing configured.
-            </div>
-          `);
-          break;
-
-        case 'resume':
-        case 'cv':
-          printOutput(cmd, 'Opening in-browser resume preview modal...');
-          setTimeout(() => {
-            closeTerminal();
-            openResumeModal();
-          }, 350);
-          break;
-
-        case 'contact':
-          printOutput(cmd, `
-            <div style="line-height:1.6;">
-              <b>Email:</b> <a href="mailto:yashdhumane391@gmail.com" style="color:var(--c-accent)">yashdhumane391@gmail.com</a> (or click copy)<br/>
-              <b>Phone:</b> <a href="tel:+917219522590" style="color:var(--c-accent)">+91-7219522590</a><br/>
-              <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/yash-dhumane" target="_blank" rel="noopener" style="color:var(--c-accent)">linkedin.com/in/yash-dhumane</a><br/>
-              <b>GitHub:</b> <a href="https://github.com/yashdhumane12" target="_blank" rel="noopener" style="color:var(--c-accent)">github.com/yashdhumane12</a><br/>
-              <b>Location:</b> Pune, Maharashtra, India
-            </div>
-          `);
-          break;
-
-        case 'goto':
-        case 'cd':
-          if (!arg) {
-            printOutput(cmd, 'Usage: <b style="color:var(--c-accent)">goto &lt;section&gt;</b> (options: about, experience, skills, projects, homelab, education, contact)');
-            return;
-          }
-          const targetSection = document.getElementById(arg.replace('#', ''));
-          if (targetSection) {
-            printOutput(cmd, `Navigating to #${arg}...`);
-            closeTerminal();
-            setTimeout(() => {
-              targetSection.scrollIntoView({ behavior: 'smooth' });
-            }, 200);
-          } else {
-            printOutput(cmd, `<span style="color:var(--c-error)">Error:</span> section "${escapeHtml(arg)}" not found. Try: about, experience, skills, projects, homelab, education, contact.`);
-          }
-          break;
-
-        case 'theme':
-          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-          const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-theme', nextTheme);
-          localStorage.setItem('theme', nextTheme);
-          const toggleBtn = document.getElementById('theme-toggle');
-          if (toggleBtn) {
-            toggleBtn.textContent = nextTheme === 'dark' ? '☀ Light mode' : '☾ Dark mode';
-          }
-          printOutput(cmd, `Theme switched to <b style="color:var(--c-accent)">${nextTheme}</b>.`);
-          break;
-
-        case 'clear':
-        case 'cls':
-          const historyContainer = document.getElementById('cmd-history');
-          if (historyContainer) historyContainer.innerHTML = '';
-          break;
-
-        case 'exit':
-        case 'quit':
-          printOutput(cmd, 'Exiting interactive terminal...');
-          setTimeout(closeTerminal, 300);
-          break;
-
-        default:
-          printOutput(cmd, `<span style="color:var(--c-error)">command not found:</span> ${escapeHtml(cmd)}. Type <b style="color:var(--c-accent)">help</b> to view available commands.`);
-          break;
-      }
-    }
-
-    // 1. GLOBAL CLICK EVENT DELEGATION (Never fails regardless of DOM timing)
-    document.addEventListener('click', (e) => {
-      // Open Terminal triggers
-      const termTrigger = e.target.closest('#chrome-term-btn, #sidebar-term-btn, #floating-term-btn, .chrome-term-pill, .terminal-trigger-btn, .floating-term-btn');
-      if (termTrigger) {
-        e.preventDefault();
-        openTerminal();
-        return;
-      }
-
-      // Open Resume Preview triggers
-      const resumeTrigger = e.target.closest('#preview-cv-btn, #contact-preview-cv-btn, .btn-preview-cv');
-      if (resumeTrigger) {
-        e.preventDefault();
-        openResumeModal();
-        return;
-      }
-
-      // Close Terminal
-      if (e.target.closest('#cmd-btn-close') || e.target === document.getElementById('cmd-overlay')) {
-        e.preventDefault();
-        closeTerminal();
-        return;
-      }
-
-      // Close Resume Preview
-      if (e.target.closest('#cv-close-btn') || e.target === document.getElementById('cv-overlay')) {
-        e.preventDefault();
-        closeResumeModal();
-        return;
-      }
-
-      // Terminal Chips
-      const chip = e.target.closest('.cmd-chip');
-      if (chip) {
-        const cmd = chip.getAttribute('data-cmd');
-        if (cmd) executeCommand(cmd);
-        return;
-      }
-
-      // Copy buttons
-      const copyBtn = e.target.closest('.copy-badge, [data-copy]');
-      if (copyBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        const textToCopy = copyBtn.getAttribute('data-copy') || copyBtn.innerText;
-        if (textToCopy) copyText(textToCopy, copyBtn);
-        return;
-      }
-    });
-
-    // 2. GLOBAL KEYDOWN LISTENER
-    document.addEventListener('keydown', (e) => {
-      const cmdOverlay = document.getElementById('cmd-overlay');
-      const cvOverlay = document.getElementById('cv-overlay');
-
-      // Ctrl + K or Cmd + K
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (cmdOverlay && cmdOverlay.classList.contains('active')) {
-          closeTerminal();
-        } else {
-          openTerminal();
-        }
-        return;
-      }
-
-      // Backtick ` or ~
-      if (e.key === '`') {
-        const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-        if (activeTag !== 'input' && activeTag !== 'textarea') {
-          e.preventDefault();
-          if (cmdOverlay && cmdOverlay.classList.contains('active')) {
-            closeTerminal();
-          } else {
-            openTerminal();
-          }
-          return;
-        }
-      }
-
-      // Escape key closes open modals
-      if (e.key === 'Escape') {
-        if (cmdOverlay && cmdOverlay.classList.contains('active')) closeTerminal();
-        if (cvOverlay && cvOverlay.classList.contains('active')) closeResumeModal();
-        return;
-      }
-
-      // Command input keydown (Enter, Arrow Up, Arrow Down)
-      const input = document.getElementById('cmd-input');
-      if (e.target === input) {
-        if (e.key === 'Enter') {
-          const val = input.value;
-          input.value = '';
-          executeCommand(val);
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          if (commandHistory.length > 0 && historyIndex > 0) {
-            historyIndex--;
-            input.value = commandHistory[historyIndex];
-          }
-        } else if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          if (historyIndex < commandHistory.length - 1) {
-            historyIndex++;
-            input.value = commandHistory[historyIndex];
-          } else {
-            historyIndex = commandHistory.length;
-            input.value = '';
-          }
-        }
-      }
-    });
-  })();
-
-})();
-</script>
+}</script>
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
