@@ -811,7 +811,76 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .form-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
 .form-status{display:none;padding:.875rem 1.125rem;border-radius:8px;font-size:.875rem;font-weight:500;align-items:center;gap:.625rem;}
 .form-status.success{display:flex;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--c-success);}
-.form-status.error{display:flex;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--c-error);}</style>
+.form-status.error{display:flex;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--c-error);}
+/* ── PROJECT CARD IMAGES ── */
+.card-image-area{
+  aspect-ratio:16/10;
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--c-surface-alt) 0%,var(--c-bg) 100%);
+}
+/* Shared grid-line overlay on all cards */
+.card-image-area::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(91,141,239,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(91,141,239,.06) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+/* Shared icon */
+.card-image-area::after{
+  content:'';position:absolute;inset:0;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:56px 56px;
+  opacity:.55;
+  transition:opacity .25s,transform .25s;
+}
+.portfolio-card:hover .card-image-area::after{opacity:.9;transform:scale(1.08);}
+
+/* CI/CD — pipeline arrows icon */
+.card-img-cicd{background:linear-gradient(135deg,#0d1520 0%,#0a1929 100%);}
+.card-img-cicd::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Crect x='4' y='20' width='14' height='16' rx='3' fill='%235b8def' opacity='.8'/%3E%3Crect x='26' y='20' width='14' height='16' rx='3' fill='%235b8def' opacity='.7'/%3E%3Crect x='48' y='20' width='14' height='16' rx='3' fill='%2334d399' opacity='.8'/%3E%3Crect x='62' y='20' width='14' height='16' rx='3' fill='%2334d399' opacity='.6'/%3E%3Cpath d='M18 28h8M40 28h8' stroke='%235b8def' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M62 28h8' stroke='%2334d399' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M21 28l3-2.5M21 28l3 2.5M43 28l3-2.5M43 28l3 2.5' stroke='%235b8def' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='28' r='2' fill='%2300D4FF'/%3E%3Ccircle cx='33' cy='28' r='2' fill='%2300D4FF'/%3E%3Ccircle cx='55' cy='28' r='2' fill='%2334d399'/%3E%3C/svg%3E");
+}
+
+/* K8s — hexagonal cluster */
+.card-img-k8s{background:linear-gradient(135deg,#0a1520 0%,#0d1a2e 100%);}
+.card-img-k8s::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Cpolygon points='40,8 52,15 52,29 40,36 28,29 28,15' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.9'/%3E%3Ccircle cx='40' cy='22' r='4' fill='%235b8def' opacity='.9'/%3E%3Ccircle cx='18' cy='30' r='3' fill='%2334d399' opacity='.7'/%3E%3Ccircle cx='62' cy='30' r='3' fill='%2334d399' opacity='.7'/%3E%3Ccircle cx='40' cy='46' r='3' fill='%2334d399' opacity='.7'/%3E%3Ccircle cx='18' cy='14' r='3' fill='%2334d399' opacity='.6'/%3E%3Ccircle cx='62' cy='14' r='3' fill='%2334d399' opacity='.6'/%3E%3Cpath d='M40 26L18 30M40 26L62 30M40 26L40 46M40 26L18 14M40 26L62 14' stroke='%231C2D44' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Security — shield with lock */
+.card-img-security{background:linear-gradient(135deg,#0f1018 0%,#150e1f 100%);}
+.card-img-security::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Cpath d='M40 8L56 14V28C56 37 40 47 40 47C40 47 24 37 24 28V14L40 8Z' fill='none' stroke='%23ff965d' stroke-width='1.5' opacity='.8'/%3E%3Crect x='34' y='24' width='12' height='10' rx='2' fill='none' stroke='%23ff965d' stroke-width='1.4' opacity='.8'/%3E%3Cpath d='M37 24v-3a3 3 0 016 0v3' stroke='%23ff965d' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='40' cy='30' r='1.5' fill='%23ff965d' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* Debug — terminal with bug */
+.card-img-debug{background:linear-gradient(135deg,#0d1117 0%,#0a1520 100%);}
+.card-img-debug::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Crect x='16' y='12' width='48' height='32' rx='4' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.7'/%3E%3Cpath d='M22 22h12M22 28h24M22 34h18' stroke='%2334d399' stroke-width='1.4' stroke-linecap='round' opacity='.8'/%3E%3Ccircle cx='54' cy='36' r='7' fill='%230d1117' stroke='%23f87171' stroke-width='1.5' opacity='.9'/%3E%3Cpath d='M51 36h6M54 33v6' stroke='%23f87171' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* ML — neural network nodes */
+.card-img-ml{background:linear-gradient(135deg,#0a1218 0%,#0d1a14 100%);}
+.card-img-ml::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Ccircle cx='16' cy='20' r='4' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='16' cy='36' r='4' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='40' cy='14' r='4' fill='%235b8def' opacity='.8'/%3E%3Ccircle cx='40' cy='28' r='4' fill='%235b8def' opacity='.8'/%3E%3Ccircle cx='40' cy='42' r='4' fill='%235b8def' opacity='.8'/%3E%3Ccircle cx='64' cy='22' r='4' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='64' cy='34' r='4' fill='%2334d399' opacity='.8'/%3E%3Cpath d='M20 20L36 14M20 20L36 28M20 20L36 42M20 36L36 14M20 36L36 28M20 36L36 42' stroke='%231C2D44' stroke-width='1'/%3E%3Cpath d='M44 14L60 22M44 14L60 34M44 28L60 22M44 28L60 34M44 42L60 22M44 42L60 34' stroke='%231C2D44' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Mobile — phone with signal */
+.card-img-mobile{background:linear-gradient(135deg,#0d1018 0%,#0a1520 100%);}
+.card-img-mobile::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Crect x='28' y='8' width='24' height='40' rx='4' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.8'/%3E%3Ccircle cx='40' cy='42' r='2' fill='%235b8def' opacity='.7'/%3E%3Cpath d='M36 13h8' stroke='%235b8def' stroke-width='1.5' stroke-linecap='round' opacity='.6'/%3E%3Ccircle cx='56' cy='20' r='2' fill='%2334d399' opacity='.8'/%3E%3Cpath d='M56 20 L62 14M56 20 L62 20M56 20 L62 26' stroke='%2334d399' stroke-width='1.2' stroke-linecap='round' opacity='.7'/%3E%3Ccircle cx='56' cy='20' r='6' fill='none' stroke='%2334d399' stroke-width='1' opacity='.4'/%3E%3C/svg%3E");
+}
+
+/* pod-status inside card-content */
+.pod-status{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--font-mono);font-size:9.5px;
+  padding:2px 8px;border-radius:3px;
+  font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+  margin-top:10px;
+}</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Yash Dhumane Portfolio","url":"https://yashdhumane12.github.io/yashdhumane-portfolio/","description":"Portfolio of Yash Dhumane, DevOps Engineer in Pune, India"}
 </script>
@@ -1195,9 +1264,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 
           <div class="portfolio-grid">
             <div class="portfolio-card cat-prod reveal" data-cat="production">
-              <span class="card-cat">🚀 Production</span>
+              <span class="card-cat">Production</span>
               <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
-              <div class="card-image-area">⚙</div>
+              <div class="card-image-area card-img-cicd"></div>
               <div class="card-content">
                 <div class="card-title">Agentis — AI ITSM Platform</div>
                 <div class="card-desc">React + Django/FastAPI service desk. Migrated CI/CD from Jenkins to GitLab CI, deployed SSO end-to-end, wrote the pipeline docs.</div>
@@ -1205,9 +1274,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
             </div>
             <div class="portfolio-card cat-prod reveal d1" data-cat="production">
-              <span class="card-cat">🚀 Production</span>
+              <span class="card-cat">Production</span>
               <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
-              <div class="card-image-area">⚖</div>
+              <div class="card-image-area card-img-k8s"></div>
               <div class="card-content">
                 <div class="card-title">bharatnyay.ai</div>
                 <div class="card-desc">Django + React legal-AI on Kubernetes with MetalLB, ingress-nginx, external Postgres, Redis, Qdrant. Led secrets remediation.</div>
@@ -1215,9 +1284,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
             </div>
             <div class="portfolio-card cat-prod reveal d2" data-cat="production">
-              <span class="card-cat">🚀 Production</span>
+              <span class="card-cat">Production</span>
               <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
-              <div class="card-image-area">🔐</div>
+              <div class="card-image-area card-img-security"></div>
               <div class="card-content">
                 <div class="card-title">ConfgNow / ConfgSecurity</div>
                 <div class="card-desc">Source-code protection service. Jenkins pipeline with Nuitka compilation, Cython-based protection, license gating.</div>
@@ -1225,9 +1294,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
             </div>
             <div class="portfolio-card cat-staging reveal d3" data-cat="staging">
-              <span class="card-cat">🔧 Staging</span>
+              <span class="card-cat">Staging</span>
               <span class="pod-status staging"><span class="pod-status-dot"></span>STAGING</span>
-              <div class="card-image-area">🐛</div>
+              <div class="card-image-area card-img-debug"></div>
               <div class="card-content">
                 <div class="card-title">ME-AgentX</div>
                 <div class="card-desc">Debugged WebSocket 403 traced to connection close before accept in ASGI handler, and Jenkins workspace cleanup failures.</div>
@@ -1235,9 +1304,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
             </div>
             <div class="portfolio-card cat-personal reveal d4" data-cat="personal">
-              <span class="card-cat">✨ Personal</span>
+              <span class="card-cat">Personal</span>
               <span class="pod-status archived"><span class="pod-status-dot"></span>ARCHIVED</span>
-              <div class="card-image-area">🤖</div>
+              <div class="card-image-area card-img-ml"></div>
               <div class="card-content">
                 <div class="card-title">Resume Classification System</div>
                 <div class="card-desc">ML model in Python/Scikit-learn for automated resume screening. Containerized with Docker, deployed on AWS.</div>
@@ -1245,9 +1314,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
             </div>
             <div class="portfolio-card cat-personal reveal d5" data-cat="personal">
-              <span class="card-cat">✨ Personal</span>
+              <span class="card-cat">Personal</span>
               <span class="pod-status archived"><span class="pod-status-dot"></span>ARCHIVED</span>
-              <div class="card-image-area">🚗</div>
+              <div class="card-image-area card-img-mobile"></div>
               <div class="card-content">
                 <div class="card-title">Driver Safety App</div>
                 <div class="card-desc">Flutter + Dart mobile app with GPS tracking and real-time safety alert system for driver monitoring.</div>
