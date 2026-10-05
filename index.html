@@ -5,29 +5,19 @@
 <meta name="google-site-verification" content="-NbY8rwPgc3Ji7Nv57_IxOidEtACfLGt_Yom_vTVe4E"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="preload" href="profile.jpg" as="image" fetchpriority="high"/>
-<meta name="keywords" content="Yash Dhumane, DevOps Engineer Pune, Kubernetes Engineer India, Jenkins CI/CD, GitLab DevOps, Proxmox Kubernetes, SRE Engineer Pune, DevOps portfolio, bare metal Kubernetes"/>
-<meta name="author" content="Yash Dhumane"/>
-<link rel="canonical" href="https://yashdhumane12.github.io/yashdhumane-portfolio/"/>
-<meta property="og:image" content="https://yashdhumane12.github.io/yashdhumane-portfolio/profile.jpg"/>
-<meta property="og:image:alt" content="Yash Dhumane - DevOps Engineer Pune"/>
-<meta name="twitter:image" content="https://yashdhumane12.github.io/yashdhumane-portfolio/profile.jpg"/>
-<meta name="twitter:description" content="Yash Dhumane, DevOps Engineer in Pune. Kubernetes, CI/CD, bare-metal infra. Available for DevOps and SRE roles."/>
-<meta name="description" content="Yash Dhumane is a DevOps Engineer in Pune, India specialising in Kubernetes, Jenkins CI/CD, GitLab, Docker and Proxmox bare-metal infrastructure. Available for DevOps and SRE roles."/>
-<meta property="og:title" content="Yash Dhumane | DevOps Engineer — Pune, India"/>
+<meta name="description" content="Yash Dhumane - DevOps Engineer in Pune. Self-hosted K8s on Proxmox, GitLab CI/CD, Jenkins. Available for DevOps and SRE roles."/>
+<meta property="og:title" content="Yash Dhumane — DevOps Engineer"/>
 <meta property="og:description" content="DevOps Engineer in Pune — self-hosted K8s on Proxmox, GitLab CI/CD, Jenkins pipelines. Available for DevOps and SRE roles."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yashdhumane12.github.io/yashdhumane-portfolio/"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Yash Dhumane | DevOps Engineer — Pune, India"/>
+<meta name="twitter:title" content="Yash Dhumane — DevOps Engineer"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235b8def'/><text y='.9em' font-size='60' x='50%' text-anchor='middle' font-family='monospace' font-weight='bold' fill='white'>YD</text></svg>"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Yash Dhumane",
-  "givenName": "Yash",
-  "familyName": "Dhumane",
-  "nationality": "Indian",
   "jobTitle": "DevOps Engineer",
   "description": "DevOps Engineer in Pune specialising in self-hosted Kubernetes, CI/CD pipelines with Jenkins and GitLab CE, and bare-metal infrastructure on Proxmox.",
   "url": "https://yashdhumane12.github.io/yashdhumane-portfolio/",
@@ -50,7 +40,7 @@
   }
 }
 </script>
-<title>Yash Dhumane | DevOps Engineer — Pune, India</title>
+<title>Yash Dhumane — DevOps Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -151,7 +141,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 
 /* ── REVEAL on scroll ── */
 .reveal{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease;}
-/* reveal: visible by default */
+body.js-ready .reveal:not(.revealed){opacity:0;transform:translateY(16px);}
 .reveal.revealed{opacity:1;transform:translateY(0);}
 .reveal.d1{transition-delay:.08s;}.reveal.d2{transition-delay:.16s;}
 .reveal.d3{transition-delay:.24s;}.reveal.d4{transition-delay:.32s;}
@@ -593,15 +583,18 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .portfolio-card.cat-staging:hover{border-color:var(--c-accent);}
 .portfolio-card.cat-personal{border-color:rgba(52,211,153,.3);}
 .portfolio-card.cat-personal:hover{border-color:var(--c-success);}
-.portfolio-card.cat-personal::after{
-  content:'';position:absolute;top:.75rem;right:.75rem;
-  width:8px;height:8px;border-radius:50%;
-  background:var(--c-success);box-shadow:0 0 6px var(--c-success);z-index:11;
+.cat-prod .card-cat{background:rgba(196,80,30,.85);color:#fff;}
+.cat-staging .card-cat{background:rgba(91,141,239,.85);color:#fff;}
+/* card header row — holds category + pod-status badges */
+.card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.6rem .75rem;
+  background:rgba(0,0,0,.18);
+  border-bottom:1px solid var(--c-border);
 }
 .card-cat{
-  position:absolute;top:.75rem;left:.75rem;z-index:10;
   display:inline-flex;align-items:center;gap:.25rem;
-  padding:.2rem .5rem;border-radius:50px;
+  padding:.2rem .55rem;border-radius:50px;
   font-size:.625rem;font-weight:700;text-transform:uppercase;
   letter-spacing:.06em;font-family:var(--font-mono);
   border:1px solid rgba(255,255,255,.15);
@@ -609,15 +602,51 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 .cat-prod .card-cat{background:rgba(196,80,30,.85);color:#fff;}
 .cat-staging .card-cat{background:rgba(91,141,239,.85);color:#fff;}
 .cat-personal .card-cat{background:rgba(52,211,153,.85);color:#0d0e12;}
-.card-image-area{
-  aspect-ratio:16/10;background:var(--c-surface-alt);
-  display:flex;align-items:center;justify-content:center;
-  font-size:2.5rem;position:relative;overflow:hidden;
+/* pod-status inside card-header */
+.pod-status{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--font-mono);font-size:9px;
+  padding:2px 7px;border-radius:3px;
+  font-weight:700;text-transform:uppercase;letter-spacing:.06em;
 }
+
+/* ── CARD CONTENT ── */
 .card-content{padding:1.25rem;}
 .card-title{font-size:1.0625rem;font-weight:600;color:var(--c-heading);margin:0 0 .4rem;line-height:1.4;}
 .card-desc{font-size:.875rem;color:var(--c-muted);line-height:1.6;margin-bottom:.75rem;}
 .card-stack{font-family:var(--font-mono);font-size:.75rem;color:var(--c-muted);padding-top:.75rem;border-top:1px solid var(--c-border);}
+
+/* ── CARD IMAGE AREAS ── */
+.card-image-area{
+  aspect-ratio:16/10;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--c-surface-alt) 0%,var(--c-bg) 100%);
+}
+.card-image-area::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(91,141,239,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(91,141,239,.05) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.card-image-area::after{
+  content:'';position:absolute;inset:0;
+  background-repeat:no-repeat;background-position:center;
+  background-size:60px 60px;opacity:.5;
+  transition:opacity .25s,transform .3s;
+}
+.portfolio-card:hover .card-image-area::after{opacity:.85;transform:scale(1.1);}
+.card-img-cicd{background:linear-gradient(135deg,#0d1520 0%,#0a1929 100%);}
+.card-img-cicd::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'%3E%3Crect x='4' y='20' width='14' height='16' rx='3' fill='%235b8def' opacity='.85'/%3E%3Crect x='26' y='20' width='14' height='16' rx='3' fill='%235b8def' opacity='.7'/%3E%3Crect x='48' y='20' width='14' height='16' rx='3' fill='%2334d399' opacity='.85'/%3E%3Crect x='62' y='20' width='14' height='16' rx='3' fill='%2334d399' opacity='.6'/%3E%3Cpath d='M18 28h8M40 28h8' stroke='%235b8def' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='28' r='2.5' fill='%2300D4FF'/%3E%3Ccircle cx='33' cy='28' r='2.5' fill='%2300D4FF'/%3E%3Ccircle cx='55' cy='28' r='2.5' fill='%2334d399'/%3E%3C/svg%3E");}
+.card-img-k8s{background:linear-gradient(135deg,#0a1520 0%,#0d1a2e 100%);}
+.card-img-k8s::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'%3E%3Cpolygon points='40%2C6 54%2C14 54%2C30 40%2C38 26%2C30 26%2C14' fill='none' stroke='%235b8def' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='22' r='4.5' fill='%235b8def'/%3E%3Ccircle cx='15' cy='30' r='3' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='65' cy='30' r='3' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='40' cy='48' r='3' fill='%2334d399' opacity='.8'/%3E%3C/svg%3E");}
+.card-img-security{background:linear-gradient(135deg,#0f1018 0%,#150e1f 100%);}
+.card-img-security::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'%3E%3Cpath d='M40 7L57 14V29C57 39 40 48 40 48C40 48 23 39 23 29V14Z' fill='none' stroke='%23ff965d' stroke-width='1.5'/%3E%3Crect x='33' y='23' width='14' height='11' rx='2.5' fill='none' stroke='%23ff965d' stroke-width='1.4'/%3E%3Cpath d='M36.5 23v-3.5a3.5 3.5 0 017 0v3.5' stroke='%23ff965d' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='40' cy='30' r='1.8' fill='%23ff965d'/%3E%3C/svg%3E");}
+.card-img-debug{background:linear-gradient(135deg,#0d1117 0%,#0a1520 100%);}
+.card-img-debug::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'%3E%3Crect x='14' y='10' width='52' height='36' rx='4' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.75'/%3E%3Cpath d='M14 18h52' stroke='%235b8def' stroke-width='1' opacity='.4'/%3E%3Ccircle cx='20' cy='14' r='2' fill='%23f87171' opacity='.8'/%3E%3Ccircle cx='27' cy='14' r='2' fill='%23fbbf24' opacity='.8'/%3E%3Ccircle cx='34' cy='14' r='2' fill='%2334d399' opacity='.8'/%3E%3Cpath d='M21 26l4 4-4 4M31 34h12' stroke='%2334d399' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+.card-img-ml{background:linear-gradient(135deg,#0a1218 0%,#0d1a14 100%);}
+.card-img-ml::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'%3E%3Ccircle cx='14' cy='18' r='4' fill='%2334d399' opacity='.85'/%3E%3Ccircle cx='14' cy='38' r='4' fill='%2334d399' opacity='.85'/%3E%3Ccircle cx='40' cy='12' r='4' fill='%235b8def' opacity='.9'/%3E%3Ccircle cx='40' cy='28' r='4' fill='%235b8def' opacity='.9'/%3E%3Ccircle cx='40' cy='44' r='4' fill='%235b8def' opacity='.9'/%3E%3Ccircle cx='66' cy='22' r='4' fill='%2334d399' opacity='.85'/%3E%3Ccircle cx='66' cy='34' r='4' fill='%2334d399' opacity='.85'/%3E%3Cpath d='M18 18L36 12M18 18L36 28M18 18L36 44M18 38L36 12M18 38L36 28M18 38L36 44M44 12L62 22M44 12L62 34M44 28L62 22M44 28L62 34M44 44L62 22M44 44L62 34' stroke='%23243650' stroke-width='1'/%3E%3C/svg%3E");}
+.card-img-mobile{background:linear-gradient(135deg,#0d1018 0%,#0a1520 100%);}
+.card-img-mobile::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'%3E%3Crect x='27' y='6' width='26' height='44' rx='4' fill='none' stroke='%235b8def' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='44' r='2.5' fill='%235b8def' opacity='.7'/%3E%3Cpath d='M35 11h10' stroke='%235b8def' stroke-width='1.5' stroke-linecap='round' opacity='.5'/%3E%3Ccircle cx='58' cy='22' r='2' fill='%2334d399'/%3E%3Ccircle cx='58' cy='22' r='6' fill='none' stroke='%2334d399' stroke-width='1' opacity='.45'/%3E%3C/svg%3E");}
 
 /* ── HOMELAB LOG ── */
 .log-terminal{
@@ -793,102 +822,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
   .scroll-top{bottom:80px;}
 }
 @media(min-width:992px){.mob-nav{display:none !important;}}
-/* Contact Form */
-.contact-form-wrap{margin-top:2rem;border-top:1px solid var(--c-border);padding-top:2rem;}
-.contact-form-title{font-size:1rem;font-weight:600;color:var(--c-heading);margin-bottom:.375rem;}
-.contact-form-sub{font-size:.875rem;color:var(--c-muted);margin-bottom:1.5rem;}
-.contact-form{display:flex;flex-direction:column;gap:1rem;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-@media(max-width:580px){.form-row{grid-template-columns:1fr;}}
-.form-group{display:flex;flex-direction:column;gap:.375rem;}
-.form-label{font-family:var(--font-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);}
-.form-input,.form-textarea{background:var(--c-surface-alt);border:1px solid var(--c-border);border-radius:8px;padding:.75rem 1rem;color:var(--c-text);font-family:var(--font-body);font-size:.9375rem;transition:border-color .15s,box-shadow .15s;width:100%;resize:none;}
-.form-input:focus,.form-textarea:focus{outline:none;border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(91,141,239,.15);}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--c-muted);opacity:.6;}
-.form-textarea{height:130px;line-height:1.6;}
-.form-submit{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 2rem;background:var(--c-gradient);border:none;border-radius:8px;color:#fff;font-family:var(--font-body);font-size:.9375rem;font-weight:600;cursor:pointer;transition:opacity .2s,transform .2s,box-shadow .2s;align-self:flex-start;}
-.form-submit:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,141,239,.3);}
-.form-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
-.form-status{display:none;padding:.875rem 1.125rem;border-radius:8px;font-size:.875rem;font-weight:500;align-items:center;gap:.625rem;}
-.form-status.success{display:flex;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--c-success);}
-.form-status.error{display:flex;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--c-error);}
-/* ── PROJECT CARD IMAGES ── */
-.card-image-area{
-  aspect-ratio:16/10;
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,var(--c-surface-alt) 0%,var(--c-bg) 100%);
-}
-/* Shared grid-line overlay on all cards */
-.card-image-area::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(91,141,239,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(91,141,239,.06) 1px,transparent 1px);
-  background-size:28px 28px;
-}
-/* Shared icon */
-.card-image-area::after{
-  content:'';position:absolute;inset:0;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:56px 56px;
-  opacity:.55;
-  transition:opacity .25s,transform .25s;
-}
-.portfolio-card:hover .card-image-area::after{opacity:.9;transform:scale(1.08);}
-
-/* CI/CD — pipeline arrows icon */
-.card-img-cicd{background:linear-gradient(135deg,#0d1520 0%,#0a1929 100%);}
-.card-img-cicd::after{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Crect x='4' y='20' width='14' height='16' rx='3' fill='%235b8def' opacity='.8'/%3E%3Crect x='26' y='20' width='14' height='16' rx='3' fill='%235b8def' opacity='.7'/%3E%3Crect x='48' y='20' width='14' height='16' rx='3' fill='%2334d399' opacity='.8'/%3E%3Crect x='62' y='20' width='14' height='16' rx='3' fill='%2334d399' opacity='.6'/%3E%3Cpath d='M18 28h8M40 28h8' stroke='%235b8def' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M62 28h8' stroke='%2334d399' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M21 28l3-2.5M21 28l3 2.5M43 28l3-2.5M43 28l3 2.5' stroke='%235b8def' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='28' r='2' fill='%2300D4FF'/%3E%3Ccircle cx='33' cy='28' r='2' fill='%2300D4FF'/%3E%3Ccircle cx='55' cy='28' r='2' fill='%2334d399'/%3E%3C/svg%3E");
-}
-
-/* K8s — hexagonal cluster */
-.card-img-k8s{background:linear-gradient(135deg,#0a1520 0%,#0d1a2e 100%);}
-.card-img-k8s::after{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Cpolygon points='40,8 52,15 52,29 40,36 28,29 28,15' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.9'/%3E%3Ccircle cx='40' cy='22' r='4' fill='%235b8def' opacity='.9'/%3E%3Ccircle cx='18' cy='30' r='3' fill='%2334d399' opacity='.7'/%3E%3Ccircle cx='62' cy='30' r='3' fill='%2334d399' opacity='.7'/%3E%3Ccircle cx='40' cy='46' r='3' fill='%2334d399' opacity='.7'/%3E%3Ccircle cx='18' cy='14' r='3' fill='%2334d399' opacity='.6'/%3E%3Ccircle cx='62' cy='14' r='3' fill='%2334d399' opacity='.6'/%3E%3Cpath d='M40 26L18 30M40 26L62 30M40 26L40 46M40 26L18 14M40 26L62 14' stroke='%231C2D44' stroke-width='1'/%3E%3C/svg%3E");
-}
-
-/* Security — shield with lock */
-.card-img-security{background:linear-gradient(135deg,#0f1018 0%,#150e1f 100%);}
-.card-img-security::after{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Cpath d='M40 8L56 14V28C56 37 40 47 40 47C40 47 24 37 24 28V14L40 8Z' fill='none' stroke='%23ff965d' stroke-width='1.5' opacity='.8'/%3E%3Crect x='34' y='24' width='12' height='10' rx='2' fill='none' stroke='%23ff965d' stroke-width='1.4' opacity='.8'/%3E%3Cpath d='M37 24v-3a3 3 0 016 0v3' stroke='%23ff965d' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='40' cy='30' r='1.5' fill='%23ff965d' opacity='.8'/%3E%3C/svg%3E");
-}
-
-/* Debug — terminal with bug */
-.card-img-debug{background:linear-gradient(135deg,#0d1117 0%,#0a1520 100%);}
-.card-img-debug::after{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Crect x='16' y='12' width='48' height='32' rx='4' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.7'/%3E%3Cpath d='M22 22h12M22 28h24M22 34h18' stroke='%2334d399' stroke-width='1.4' stroke-linecap='round' opacity='.8'/%3E%3Ccircle cx='54' cy='36' r='7' fill='%230d1117' stroke='%23f87171' stroke-width='1.5' opacity='.9'/%3E%3Cpath d='M51 36h6M54 33v6' stroke='%23f87171' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-}
-
-/* ML — neural network nodes */
-.card-img-ml{background:linear-gradient(135deg,#0a1218 0%,#0d1a14 100%);}
-.card-img-ml::after{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Ccircle cx='16' cy='20' r='4' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='16' cy='36' r='4' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='40' cy='14' r='4' fill='%235b8def' opacity='.8'/%3E%3Ccircle cx='40' cy='28' r='4' fill='%235b8def' opacity='.8'/%3E%3Ccircle cx='40' cy='42' r='4' fill='%235b8def' opacity='.8'/%3E%3Ccircle cx='64' cy='22' r='4' fill='%2334d399' opacity='.8'/%3E%3Ccircle cx='64' cy='34' r='4' fill='%2334d399' opacity='.8'/%3E%3Cpath d='M20 20L36 14M20 20L36 28M20 20L36 42M20 36L36 14M20 36L36 28M20 36L36 42' stroke='%231C2D44' stroke-width='1'/%3E%3Cpath d='M44 14L60 22M44 14L60 34M44 28L60 22M44 28L60 34M44 42L60 22M44 42L60 34' stroke='%231C2D44' stroke-width='1'/%3E%3C/svg%3E");
-}
-
-/* Mobile — phone with signal */
-.card-img-mobile{background:linear-gradient(135deg,#0d1018 0%,#0a1520 100%);}
-.card-img-mobile::after{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56' fill='none'%3E%3Crect x='28' y='8' width='24' height='40' rx='4' fill='none' stroke='%235b8def' stroke-width='1.5' opacity='.8'/%3E%3Ccircle cx='40' cy='42' r='2' fill='%235b8def' opacity='.7'/%3E%3Cpath d='M36 13h8' stroke='%235b8def' stroke-width='1.5' stroke-linecap='round' opacity='.6'/%3E%3Ccircle cx='56' cy='20' r='2' fill='%2334d399' opacity='.8'/%3E%3Cpath d='M56 20 L62 14M56 20 L62 20M56 20 L62 26' stroke='%2334d399' stroke-width='1.2' stroke-linecap='round' opacity='.7'/%3E%3Ccircle cx='56' cy='20' r='6' fill='none' stroke='%2334d399' stroke-width='1' opacity='.4'/%3E%3C/svg%3E");
-}
-
-/* pod-status inside card-content */
-.pod-status{
-  display:inline-flex;align-items:center;gap:5px;
-  font-family:var(--font-mono);font-size:9.5px;
-  padding:2px 8px;border-radius:3px;
-  font-weight:600;text-transform:uppercase;letter-spacing:.06em;
-  margin-top:10px;
-}</style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Yash Dhumane Portfolio","url":"https://yashdhumane12.github.io/yashdhumane-portfolio/","description":"Portfolio of Yash Dhumane, DevOps Engineer in Pune, India"}
-</script>
+</style>
 </head>
 <body class="bg-triangles">
 
-<div id="read-progress"></div>
-<div id="read-progress"></div>
 <a class="sr-only" href="#main-content">Skip to content</a>
 
 <div class="container gutter-top">
@@ -900,16 +837,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
       <span class="chrome-dot amber"></span>
       <span class="chrome-dot green"></span>
       <span class="chrome-label">operator console — yash@homelab</span>
-    </div>
-    </div>
-    <div class="cluster-health px-chrome" style="padding:4px 1.5rem 8px;border-bottom:1px solid var(--c-border);background:var(--c-surface-alt);">
-      <span class="ch-metric"><span style="color:var(--c-muted);margin-right:4px">CPU</span><span class="ch-bar"><span class="ch-fill" id="ch-cpu-bar" style="width:34%"></span></span><span class="ch-val" id="ch-cpu" style="margin-left:5px">34%</span></span>
-      <span class="ch-sep">|</span>
-      <span class="ch-metric"><span style="color:var(--c-muted);margin-right:4px">MEM</span><span class="ch-bar"><span class="ch-fill warn" id="ch-mem-bar" style="width:68%"></span></span><span class="ch-val" id="ch-mem" style="margin-left:5px">68%</span></span>
-      <span class="ch-sep">|</span>
-      <span class="ch-metric" style="gap:5px">PODS <span class="ch-val" id="ch-pods">42/50</span></span>
-      <span class="ch-sep">|</span>
-      <span class="ch-metric" style="gap:5px">UPTIME <span class="ch-val" style="color:var(--c-success)">127d</span></span>
     </div>
     <div class="header__body">
       <!-- Identity -->
@@ -1060,26 +987,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               </div>
             </div>
           </div>
-
-          <!-- kubectl terminal widget -->
-          <div class="kubectl-wrap reveal d3">
-            <div class="kubectl-terminal">
-              <div class="kubectl-bar"><span class="kubectl-dot" style="background:#ef4444"></span><span class="kubectl-dot" style="background:#d97706"></span><span class="kubectl-dot" style="background:#4ade80"></span><span class="kubectl-title">yash@homelab:~</span></div>
-              <div class="kubectl-body">
-                <div><span class="kt-prompt">$ </span><span class="kt-cmd" id="ktcmd1"></span></div>
-                <div id="ktout1" style="display:none">
-                  <div class="kt-head">NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STATUS&nbsp;&nbsp; ROLES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AGE</div>
-                  <div class="kt-ready">control-plane&nbsp;&nbsp; Ready&nbsp;&nbsp;&nbsp; control-plane&nbsp; 127d</div>
-                  <div>worker-01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ready&nbsp;&nbsp;&nbsp; &lt;none&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 127d</div>
-                  <div>worker-02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ready&nbsp;&nbsp;&nbsp; &lt;none&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 127d</div>
-                  <div class="kt-dim">... 7 more nodes ready</div>
-                </div>
-                <div id="ktline2" style="display:none;margin-top:8px"><span class="kt-prompt">$ </span><span class="kt-cmd" id="ktcmd2"></span></div>
-                <div id="ktout2" style="display:none" class="kt-ready">42</div>
-                <div id="ktline3" style="display:none;margin-top:8px"><span class="kt-prompt">$ </span><span class="kt-cursor"></span></div>
-              </div>
-            </div>
-          </div>
         </section>
 
         <!-- ═══ EXPERIENCE ═══ -->
@@ -1158,43 +1065,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
           <span class="overhead">Competencies</span>
           <h2 class="title-sep">Tech Stack</h2>
 
-
-          <!-- Pipeline Diagram -->
-          <div class="pipeline-wrap reveal" style="margin-bottom:1.5rem;">
-            <div style="font-family:var(--font-mono);font-size:10px;color:var(--c-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.1em;">CI/CD Pipeline</div>
-            <div class="pipeline">
-              <div class="pipe-stage">
-                <div class="pipe-box">CODE</div>
-                <div class="pipe-status"></div>
-                <div class="pipe-label">Git / GitLab</div>
-              </div>
-              <div class="pipe-stage">
-                <div class="pipe-box">BUILD</div>
-                <div class="pipe-status"></div>
-                <div class="pipe-label">Docker</div>
-              </div>
-              <div class="pipe-stage">
-                <div class="pipe-box">TEST</div>
-                <div class="pipe-status"></div>
-                <div class="pipe-label">SonarQube</div>
-              </div>
-              <div class="pipe-stage">
-                <div class="pipe-box">PUSH</div>
-                <div class="pipe-status"></div>
-                <div class="pipe-label">Harbor</div>
-              </div>
-              <div class="pipe-stage">
-                <div class="pipe-box">DEPLOY</div>
-                <div class="pipe-status"></div>
-                <div class="pipe-label">Kubernetes</div>
-              </div>
-              <div class="pipe-stage">
-                <div class="pipe-box">MONITOR</div>
-                <div class="pipe-status"></div>
-                <div class="pipe-label">Nginx / IIS</div>
-              </div>
-            </div>
-          </div>
           <div class="comp-grid reveal">
             <div class="comp-group">
               <div class="comp-label">CI/CD &amp; Version Control</div>
@@ -1263,66 +1133,91 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
           </div>
 
           <div class="portfolio-grid">
+
+            <!-- Card 1: Agentis -->
             <div class="portfolio-card cat-prod reveal" data-cat="production">
-              <span class="card-cat">Production</span>
-              <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
+              <div class="card-header">
+                <span class="card-cat">Production</span>
+                <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
+              </div>
               <div class="card-image-area card-img-cicd"></div>
               <div class="card-content">
-                <div class="card-title">Agentis — AI ITSM Platform</div>
+                <div class="card-title">Agentis &mdash; AI ITSM Platform</div>
                 <div class="card-desc">React + Django/FastAPI service desk. Migrated CI/CD from Jenkins to GitLab CI, deployed SSO end-to-end, wrote the pipeline docs.</div>
-                <div class="card-stack">GitLab CI · Docker · HAProxy · WebSockets</div>
+                <div class="card-stack">GitLab CI &middot; Docker &middot; HAProxy &middot; WebSockets</div>
               </div>
             </div>
+
+            <!-- Card 2: bharatnyay.ai -->
             <div class="portfolio-card cat-prod reveal d1" data-cat="production">
-              <span class="card-cat">Production</span>
-              <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
+              <div class="card-header">
+                <span class="card-cat">Production</span>
+                <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
+              </div>
               <div class="card-image-area card-img-k8s"></div>
               <div class="card-content">
                 <div class="card-title">bharatnyay.ai</div>
                 <div class="card-desc">Django + React legal-AI on Kubernetes with MetalLB, ingress-nginx, external Postgres, Redis, Qdrant. Led secrets remediation.</div>
-                <div class="card-stack">Kubernetes · MetalLB · Qdrant · Redis</div>
+                <div class="card-stack">Kubernetes &middot; MetalLB &middot; Qdrant &middot; Redis</div>
               </div>
             </div>
+
+            <!-- Card 3: ConfgNow -->
             <div class="portfolio-card cat-prod reveal d2" data-cat="production">
-              <span class="card-cat">Production</span>
-              <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
+              <div class="card-header">
+                <span class="card-cat">Production</span>
+                <span class="pod-status running"><span class="pod-status-dot"></span>RUNNING</span>
+              </div>
               <div class="card-image-area card-img-security"></div>
               <div class="card-content">
                 <div class="card-title">ConfgNow / ConfgSecurity</div>
                 <div class="card-desc">Source-code protection service. Jenkins pipeline with Nuitka compilation, Cython-based protection, license gating.</div>
-                <div class="card-stack">Nuitka · Cython · Jenkins · Docker</div>
+                <div class="card-stack">Nuitka &middot; Cython &middot; Jenkins &middot; Docker</div>
               </div>
             </div>
+
+            <!-- Card 4: ME-AgentX -->
             <div class="portfolio-card cat-staging reveal d3" data-cat="staging">
-              <span class="card-cat">Staging</span>
-              <span class="pod-status staging"><span class="pod-status-dot"></span>STAGING</span>
+              <div class="card-header">
+                <span class="card-cat">Staging</span>
+                <span class="pod-status staging"><span class="pod-status-dot"></span>STAGING</span>
+              </div>
               <div class="card-image-area card-img-debug"></div>
               <div class="card-content">
                 <div class="card-title">ME-AgentX</div>
                 <div class="card-desc">Debugged WebSocket 403 traced to connection close before accept in ASGI handler, and Jenkins workspace cleanup failures.</div>
-                <div class="card-stack">Jenkins · Docker · ASGI</div>
+                <div class="card-stack">Jenkins &middot; Docker &middot; ASGI</div>
               </div>
             </div>
+
+            <!-- Card 5: Resume Classification -->
             <div class="portfolio-card cat-personal reveal d4" data-cat="personal">
-              <span class="card-cat">Personal</span>
-              <span class="pod-status archived"><span class="pod-status-dot"></span>ARCHIVED</span>
+              <div class="card-header">
+                <span class="card-cat">Personal</span>
+                <span class="pod-status archived"><span class="pod-status-dot"></span>ARCHIVED</span>
+              </div>
               <div class="card-image-area card-img-ml"></div>
               <div class="card-content">
                 <div class="card-title">Resume Classification System</div>
                 <div class="card-desc">ML model in Python/Scikit-learn for automated resume screening. Containerized with Docker, deployed on AWS.</div>
-                <div class="card-stack">Python · Scikit-learn · Docker · AWS</div>
+                <div class="card-stack">Python &middot; Scikit-learn &middot; Docker &middot; AWS</div>
               </div>
             </div>
+
+            <!-- Card 6: Driver Safety -->
             <div class="portfolio-card cat-personal reveal d5" data-cat="personal">
-              <span class="card-cat">Personal</span>
-              <span class="pod-status archived"><span class="pod-status-dot"></span>ARCHIVED</span>
+              <div class="card-header">
+                <span class="card-cat">Personal</span>
+                <span class="pod-status archived"><span class="pod-status-dot"></span>ARCHIVED</span>
+              </div>
               <div class="card-image-area card-img-mobile"></div>
               <div class="card-content">
                 <div class="card-title">Driver Safety App</div>
                 <div class="card-desc">Flutter + Dart mobile app with GPS tracking and real-time safety alert system for driver monitoring.</div>
-                <div class="card-stack">Flutter · Dart · GPS</div>
+                <div class="card-stack">Flutter &middot; Dart &middot; GPS</div>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -1345,16 +1240,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
             </div>
           </div>
 
-          <!-- What I am running now -->
-          <div class="running-now reveal">
-            <div class="running-title">Currently deployed &amp; healthy</div>
-            <div class="run-item"><span class="tree">&#x251C;&#x2500;</span><span class="svc">GitLab CE v17.2</span><span class="ver">self-hosted · 2 runners</span><span class="status">&#x2713; healthy</span></div>
-            <div class="run-item"><span class="tree">&#x251C;&#x2500;</span><span class="svc">Jenkins 2.480</span><span class="ver">bare-metal · 4 executors</span><span class="status">&#x2713; healthy</span></div>
-            <div class="run-item"><span class="tree">&#x251C;&#x2500;</span><span class="svc">Harbor v2.11</span><span class="ver">container registry</span><span class="status">&#x2713; healthy</span></div>
-            <div class="run-item"><span class="tree">&#x251C;&#x2500;</span><span class="svc">Kubernetes 1.31</span><span class="ver">kubeadm · 1 CP + 9 workers</span><span class="status">&#x2713; 9/9 nodes</span></div>
-            <div class="run-item"><span class="tree">&#x2514;&#x2500;</span><span class="svc">Proxmox VE 8.1</span><span class="ver">hypervisor · bare-metal</span><span class="status">&#x2713; healthy</span></div>
-          </div>
-
           <div class="log-terminal reveal">
             <div class="log-chrome">
               <div class="log-dots">
@@ -1365,78 +1250,12 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               <span class="log-chrome-label">yash@homelab — postmortems</span>
             </div>
             <div class="log-output">
-              <div class="log-row" onclick="this.classList.toggle('expanded')">
-                <span class="log-ts">2026-08-14</span>
-                <span class="log-entry"><span class="log-prompt">$</span>nginx startup race condition — fixed with lazy DNS resolution instead of resolving upstreams at boot.</span>
-                <span class="log-toggle">▶</span>
-                <div class="log-expand">
-                  <div class="log-expand-tree">
-                    <div><span class="branch">├─</span> <span style="color:var(--c-muted)">cause:</span>  Upstream DNS resolved at boot, failed if upstreams offline</div>
-                    <div><span class="branch">├─</span> <span class="ok">fix:</span>     Added resolver directive + lazy resolution in nginx.conf</div>
-                    <div><span class="branch">└─</span> <span style="color:var(--c-warning)">ttfx:</span>   1.5h</div>
-                  </div>
-                </div>
-              </div>
-              <div class="log-row" onclick="this.classList.toggle('expanded')">
-                <span class="log-ts">2026-07-22</span>
-                <span class="log-entry"><span class="log-prompt">$</span>Jenkins GPG key rotation breaking package installs — pinned to the current signing key.</span>
-                <span class="log-toggle">▶</span>
-                <div class="log-expand">
-                  <div class="log-expand-tree">
-                    <div><span class="branch">├─</span> <span style="color:var(--c-muted)">cause:</span>  Debian repo GPG key rotated, apt-get failed on build agents</div>
-                    <div><span class="branch">├─</span> <span class="ok">fix:</span>     Added --allow-unauthenticated temporarily, then fetched new key</div>
-                    <div><span class="branch">└─</span> <span style="color:var(--c-warning)">ttfx:</span>   45min</div>
-                  </div>
-                </div>
-              </div>
-              <div class="log-row" onclick="this.classList.toggle('expanded')">
-                <span class="log-ts">2026-06-09</span>
-                <span class="log-entry"><span class="log-prompt">$</span>Proxmox network bridge migration vmbr0 → vmbr1 after physical NIC failure, zero downtime for running VMs.</span>
-                <span class="log-toggle">▶</span>
-                <div class="log-expand">
-                  <div class="log-expand-tree">
-                    <div><span class="branch">├─</span> <span style="color:var(--c-muted)">cause:</span>  NIC eth0 died, vmbr0 lost physical backing</div>
-                    <div><span class="branch">├─</span> <span class="ok">fix:</span>     Created vmbr1 on eth1, live-migrated bridge config, VMs unaffected</div>
-                    <div><span class="branch">└─</span> <span style="color:var(--c-warning)">ttfx:</span>   2h</div>
-                  </div>
-                </div>
-              </div>
-              <div class="log-row" onclick="this.classList.toggle('expanded')">
-                <span class="log-ts">2026-05-30</span>
-                <span class="log-entry"><span class="log-prompt">$</span>Alembic migration revision mismatches traced back to git clean silently removing uncommitted migration files.</span>
-                <span class="log-toggle">▶</span>
-                <div class="log-expand">
-                  <div class="log-expand-tree">
-                    <div><span class="branch">├─</span> <span style="color:var(--c-muted)">cause:</span>  git clean -fd in CI removed new migration .py files pre-commit</div>
-                    <div><span class="branch">├─</span> <span class="ok">fix:</span>     Added migration files to .gitignore exclusion, CI uses git stash</div>
-                    <div><span class="branch">└─</span> <span style="color:var(--c-warning)">ttfx:</span>   3h</div>
-                  </div>
-                </div>
-              </div>
-              <div class="log-row" onclick="this.classList.toggle('expanded')">
-                <span class="log-ts">2026-04-17</span>
-                <span class="log-entry"><span class="log-prompt">$</span>nginx stale DNS caching on container restarts — resolved via Docker embedded DNS resolver and variable-based proxy_pass.</span>
-                <span class="log-toggle">▶</span>
-                <div class="log-expand">
-                  <div class="log-expand-tree">
-                    <div><span class="branch">├─</span> <span style="color:var(--c-muted)">cause:</span>  nginx cached upstream IPs at start; containers restarted with new IPs</div>
-                    <div><span class="branch">├─</span> <span class="ok">fix:</span>     Used set \ + proxy_pass \ with resolver 127.0.0.11</div>
-                    <div><span class="branch">└─</span> <span style="color:var(--c-warning)">ttfx:</span>   2h</div>
-                  </div>
-                </div>
-              </div>
-              <div class="log-row" onclick="this.classList.toggle('expanded')">
-                <span class="log-ts">2026-03-05</span>
-                <span class="log-entry"><span class="log-prompt">$</span>pfSense + HAProxy subdomain routing set up for clean per-service TLS termination.</span>
-                <span class="log-toggle">▶</span>
-                <div class="log-expand">
-                  <div class="log-expand-tree">
-                    <div><span class="branch">├─</span> <span style="color:var(--c-muted)">cause:</span>  All traffic hitting one IP, no SNI routing</div>
-                    <div><span class="branch">├─</span> <span class="ok">fix:</span>     HAProxy frontend with ACL rules, wildcard cert from Let's Encrypt</div>
-                    <div><span class="branch">└─</span> <span style="color:var(--c-warning)">ttfx:</span>   4h</div>
-                  </div>
-                </div>
-              </div>
+              <div class="log-row"><span class="log-ts">2026-08-14</span><span class="log-entry"><span class="log-prompt">$</span>nginx startup race condition — fixed with lazy DNS resolution instead of resolving upstreams at boot.</span></div>
+              <div class="log-row"><span class="log-ts">2026-07-22</span><span class="log-entry"><span class="log-prompt">$</span>Jenkins GPG key rotation breaking package installs — pinned to the current signing key.</span></div>
+              <div class="log-row"><span class="log-ts">2026-06-09</span><span class="log-entry"><span class="log-prompt">$</span>Proxmox network bridge migration vmbr0 → vmbr1 after physical NIC failure, zero downtime for running VMs.</span></div>
+              <div class="log-row"><span class="log-ts">2026-05-30</span><span class="log-entry"><span class="log-prompt">$</span>Alembic migration revision mismatches traced back to git clean silently removing uncommitted migration files.</span></div>
+              <div class="log-row"><span class="log-ts">2026-04-17</span><span class="log-entry"><span class="log-prompt">$</span>nginx stale DNS caching on container restarts — resolved via Docker embedded DNS resolver and variable-based proxy_pass.</span></div>
+              <div class="log-row"><span class="log-ts">2026-03-05</span><span class="log-entry"><span class="log-prompt">$</span>pfSense + HAProxy subdomain routing set up for clean per-service TLS termination.</span></div>
             </div>
           </div>
         </section>
@@ -1452,7 +1271,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
               <div class="edu-icon">🎓</div>
               <div class="edu-body">
                 <div class="edu-degree">Postgraduate Diploma in Management</div>
-                <div class="edu-school">MIT School of Distance Education (MITSDE), Pune</div>
+                <div class="edu-school">Pune, India</div>
                 <div class="edu-meta">
                   <span>2024 – 2026</span>
                   <span class="edu-badge edu-badge--dist">First Class with Distinction</span>
@@ -1505,37 +1324,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
             Download Resume
           </a>
 
-          <!-- Contact Form -->
-          <div class="contact-form-wrap reveal d2">
-            <div class="contact-form-title">Send me a message</div>
-            <p class="contact-form-sub">Have a question or opportunity? I reply within 24 hours.</p>
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xaeyleqj" method="POST" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="cf-name">Name</label>
-                  <input class="form-input" type="text" id="cf-name" name="name" placeholder="Your name" required autocomplete="name"/>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="cf-email">Email</label>
-                  <input class="form-input" type="email" id="cf-email" name="email" placeholder="your@email.com" required autocomplete="email"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="cf-subject">Subject</label>
-                <input class="form-input" type="text" id="cf-subject" name="subject" placeholder="e.g. DevOps role opportunity"/>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="cf-msg">Message</label>
-                <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Tell me what you have in mind..." required></textarea>
-              </div>
-              <div class="form-status" id="form-status" role="alert"></div>
-              <button class="form-submit" type="submit" id="form-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
-                Send Message
-              </button>
-            </form>
-          </div>
-
           <!-- GitHub Stats -->
           <div class="reveal d2" style="margin-top:2rem;">
             <div style="font-family:var(--font-mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-muted);margin-bottom:1rem;">GitHub Activity</div>
@@ -1548,7 +1336,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 
         <!-- FOOTER -->
         <footer class="footer">
-          <span class="footer-main">Yash Dhumane</span><span class="footer-egg" style="display:none"> &mdash; uptime: 100% &bull; incidents: 0 &bull; coffee: &infin;</span>
+          <span>Yash Dhumane</span>
           <span class="footer-sep">·</span>
           <span>DevOps Engineer</span>
           <span class="footer-sep">·</span>
@@ -1564,7 +1352,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-body);font-weight:600;line-height:1.3;c
 
 <script>
 /* ── BOOT: enable reveal animations ── */
-/* removed */
+document.body.classList.add('js-ready');
 
 /* ── SCROLL SPY: update active nav link ── */
 const sections = document.querySelectorAll('section[id]');
@@ -1676,8 +1464,7 @@ themeBtn.addEventListener('click', () => {
 
 /* ── SCROLL TO TOP ── */
 const scrollTopBtn = document.getElementById('scroll-top');
-if (scrollTopBtn) {
-  window.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
   scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
 }, {passive:true});
 scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
@@ -1702,101 +1489,6 @@ if (typeText && !prefersReduced) {
   setTimeout(typeRole, 1400);
 }
 
-/* ── READING PROGRESS BAR ── */
-(function(){
-  var bar = document.getElementById("read-progress");
-  if(!bar) return;
-  window.addEventListener("scroll", function(){
-    var s = document.documentElement.scrollTop || document.body.scrollTop;
-    var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    bar.style.width = (h > 0 ? (s/h*100) : 0) + "%";
-  }, {passive:true});
-})();
-
-/* ── CLUSTER HEALTH FLUCTUATE ── */
-(function(){
-  var prefRM = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  if(prefRM) return;
-  function rnd(base, range){ return base + Math.round((Math.random()-0.5)*range); }
-  setInterval(function(){
-    var cpu = rnd(34,16), mem = rnd(68,12), pods = rnd(42,4);
-    var cpuEl=document.getElementById("ch-cpu"), memEl=document.getElementById("ch-mem");
-    var cpuBar=document.getElementById("ch-cpu-bar"), memBar=document.getElementById("ch-mem-bar");
-    var podsEl=document.getElementById("ch-pods");
-    if(cpuEl){ cpuEl.textContent=cpu+"%"; cpuBar.style.width=cpu+"%"; cpuBar.className="ch-fill"+(cpu>70?" warn":""); }
-    if(memEl){ memEl.textContent=mem+"%"; memBar.style.width=mem+"%"; memBar.className="ch-fill"+(mem>80?" warn":""); }
-    if(podsEl){ podsEl.textContent=pods+"/50"; }
-  }, 4000);
-})();
-
-/* ── KUBECTL TERMINAL ANIMATION ── */
-(function(){
-  var prefRM = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  var cmd1El=document.getElementById("ktcmd1"), out1El=document.getElementById("ktout1");
-  var line2El=document.getElementById("ktline2"), cmd2El=document.getElementById("ktcmd2");
-  var out2El=document.getElementById("ktout2"), line3El=document.getElementById("ktline3");
-  if(!cmd1El) return;
-  if(prefRM){ cmd1El.textContent="kubectl get nodes"; if(out1El)out1El.style.display=""; if(line2El)line2El.style.display=""; if(cmd2El)cmd2El.textContent="kubectl get pods -A | grep Running | wc -l"; if(out2El)out2El.style.display=""; if(line3El)line3El.style.display=""; return; }
-  var cmd1="kubectl get nodes", cmd2="kubectl get pods -A | grep Running | wc -l";
-  var started=false;
-  function typeIt(el, text, cb){ var i=0; var t=setInterval(function(){ el.textContent=text.slice(0,++i); if(i>=text.length){ clearInterval(t); if(cb) setTimeout(cb,600); }},42); }
-  var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting && !started){ started=true; obs.disconnect(); setTimeout(function(){ typeIt(cmd1El,cmd1,function(){ if(out1El)out1El.style.display=""; setTimeout(function(){ if(line2El)line2El.style.display=""; typeIt(cmd2El,cmd2,function(){ if(out2El)out2El.style.display=""; setTimeout(function(){ if(line3El)line3El.style.display=""; },400); }); },500); }); },800); }); }});
-  var kbody=document.querySelector(".kubectl-wrap"); if(kbody) obs.observe(kbody);
-})();
-
-/* ── COPY EMAIL BUTTON ── */
-(function(){
-  var btns=document.querySelectorAll(".copy-email-btn");
-  btns.forEach(function(btn){
-    btn.addEventListener("click",function(e){
-      e.preventDefault(); e.stopPropagation();
-      navigator.clipboard.writeText("yashdhumane391@gmail.com").then(function(){
-        btn.textContent="\u2713 Copied!"; btn.classList.add("copied");
-        setTimeout(function(){ btn.textContent="copy"; btn.classList.remove("copied"); },2000);
-      });
-    });
-  });
-})();
-
-/* ── KEYBOARD SHORTCUTS ── */
-(function(){
-  var map={"1":"about","2":"experience","3":"skills","4":"projects","5":"homelab","6":"education","7":"contact"};
-  document.addEventListener("keydown",function(e){
-    if(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA") return;
-    var sec=map[e.key];
-    if(sec){ var el=document.getElementById(sec); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
-  });
-})();
-
-/* ── THEME REBOOT EFFECT ── */
-(function(){
-  var prefRM=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  var btn=document.getElementById("theme-toggle");
-  if(!btn||prefRM) return;
-  var orig=btn.addEventListener.bind(btn);
-  btn.addEventListener("click",function(){
-    document.body.classList.add("rebooting");
-    setTimeout(function(){ document.body.classList.remove("rebooting"); },400);
-  });
-})();
-
-/* ── COUNT-UP STATS ── */
-(function(){
-  var prefRM=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  var statsGrid=document.querySelector(".stats-grid");
-  if(!statsGrid) return;
-  var done=false;
-  var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting && !done){ done=true; obs.disconnect();
-    statsGrid.querySelectorAll(".stat-num").forEach(function(el){
-      var raw=el.textContent.trim(), suffix=raw.replace(/[0-9]/g,""), val=parseInt(raw,10);
-      if(isNaN(val)||prefRM) return;
-      var start=0, dur=900, step=20, inc=val/(dur/step);
-      var id=setInterval(function(){ start=Math.min(start+inc,val); el.textContent=Math.floor(start)+suffix; if(start>=val){ el.textContent=val+suffix; clearInterval(id); }},step);
-    });
-  }}});
-  obs.observe(statsGrid);
-})();
-
 /* ── PROJECT CARD HOVER TILT ── */
 document.querySelectorAll('.portfolio-card').forEach(card => {
   card.addEventListener('mousemove', e => {
@@ -1807,38 +1499,7 @@ document.querySelectorAll('.portfolio-card').forEach(card => {
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
-/* Contact Form */
-const contactForm = document.getElementById('contact-form');
-const formBtn = document.getElementById('form-btn');
-const formStatus = document.getElementById('form-status');
-if (contactForm && formBtn && formStatus) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('cf-name').value.trim();
-    const email = document.getElementById('cf-email').value.trim();
-    const msg = document.getElementById('cf-msg').value.trim();
-    if (!name || !email || !msg) { formStatus.className='form-status error'; formStatus.textContent='\u26a0 Please fill in your name, email, and message.'; return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { formStatus.className='form-status error'; formStatus.textContent='\u26a0 Please enter a valid email address.'; return; }
-    formBtn.disabled=true; formBtn.textContent='Sending...';
-    formStatus.className='form-status'; formStatus.style.display='none';
-    try {
-      const res = await fetch(contactForm.action, {method:'POST', headers:{'Accept':'application/json'}, body: new FormData(contactForm)});
-      if (res.ok) { formStatus.className='form-status success'; formStatus.textContent='\u2713 Message sent! I\'ll reply within 24 hours.'; contactForm.reset(); }
-      else { throw new Error(); }
-    } catch { formStatus.className='form-status error'; formStatus.textContent='\u2717 Something went wrong. Email me at yashdhumane391@gmail.com'; }
-    finally { formBtn.disabled=false; formBtn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Send Message'; }
-  });
-}
-/* ── FOOTER EASTER EGG ── */
-(function(){
-  var footer = document.querySelector("footer.footer");
-  if(!footer) return;
-  var main = footer.querySelector(".footer-main");
-  var egg  = footer.querySelector(".footer-egg");
-  if(!main||!egg) return;
-  footer.addEventListener("mouseenter", function(){ main.style.display="none"; egg.style.display="inline"; });
-  footer.addEventListener("mouseleave", function(){ main.style.display=""; egg.style.display="none"; });
-})();</script>
+</script>
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
